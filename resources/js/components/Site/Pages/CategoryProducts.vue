@@ -16,7 +16,13 @@
               :subCategories="subCategories"
               @selectedSubCategory="selectedSubCategory"
             ></SubCategoryMenuBar>
-            <loading :active.sync="isLoading" :is-full-page="false"></loading>
+            <loading
+              :color="'#00adf3'"
+              :active.sync="isLoading"
+              :can-cancel="false"
+              :loader="'dots'"
+              :is-full-page="false"
+            ></loading>
             <div class="product-area" v-if="totalProducts">
               <div class="row">
                 <div
@@ -58,7 +64,7 @@ export default {
   },
   data() {
     return {
-      errorText: "Loading...",
+      errorText: "",
       isLoading: false,
       products: [],
       subCategories: [],

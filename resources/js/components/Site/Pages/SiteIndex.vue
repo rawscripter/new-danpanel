@@ -1,5 +1,12 @@
 <template>
   <div class="page-wrapper wow" id="product_area">
+    <loading
+      :color="'#00adf3'"
+      :active.sync="isLoading"
+      :can-cancel="false"
+      :loader="'dots'"
+      :is-full-page="false"
+    ></loading>
     <div class="container no-padding-in-mobile">
       <div class="row">
         <div class="col-md-12 no-padding-in-mobile">
