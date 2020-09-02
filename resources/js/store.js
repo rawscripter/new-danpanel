@@ -13,7 +13,8 @@ let store = {
 
             if (index > -1) {
                 let product = state.cart[index];
-                state.cartCount -= product.quantity;
+                if (state.cartCount > 0)
+                    state.cartCount -= product.quantity;
 
                 state.cart.splice(index, 1);
             }
@@ -24,19 +25,26 @@ let store = {
             window.localStorage.setItem('cartCount', state.cartCount);
         },
 
+        clearCart(state) {
+            state.cart = [];
+            state.cartCount = 0;
+            window.localStorage.removeItem('cart');
+            window.localStorage.setItem('cartCount', 0);
+        },
+
         addToCart(state, item) {
             let found = state.cart.find(product => product.id == item.id);
 
-            // if (found) {
-            //     found.quantity++;
-            //     found.totalPrice = found.quantity * found.offer_price;
-            //     found.taxPrice = found.totalPrice * 0.2;
-            // } else {
-            state.cart.push(item);
-            Vue.set(item, 'quantity', 1);
-            Vue.set(item, 'totalPrice', item.offer_price);
-            Vue.set(item, 'taxPrice', item.offer_price * 0.2);
-            // }
+            if (found) {
+                found.quantity++;
+                found.totalPrice = found.quantity * found.offer_price;
+                found.taxPrice = found.totalPrice * 0.2;
+            } else {
+                state.cart.push(item);
+                Vue.set(item, 'quantity', 1);
+                Vue.set(item, 'totalPrice', item.offer_price);
+                Vue.set(item, 'taxPrice', item.offer_price * 0.2);
+            }
             state.cartCount++;
         },
         increaseOrderQuantity(state, item) {

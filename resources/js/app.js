@@ -7,8 +7,8 @@
 require("./bootstrap");
 
 window.Vue = require("vue");
-window.APP_URL = "http://danpanel.test";
-// window.APP_URL = "http://up-danpanel.danpanel.dk";
+// window.APP_URL = "http://danpanel.test";
+window.APP_URL = "http://up-danpanel.danpanel.dk";
 window.CURRENCY = "dkk";
 
 import VueCookies from "vue-cookies";
@@ -64,7 +64,12 @@ Vue.use(CKEditor);
 Vue.use(ServerTable);
 Vue.use(VueSweetalert2);
 Vue.use(vueAwesomeCountdown, "vac");
+
+
 Vue.component("Loading", Loading);
+
+
+
 import InfiniteLoading from "vue-infinite-loading";
 // Vue.component('', require('vue-infinite-loading'));
 Vue.use(InfiniteLoading);
