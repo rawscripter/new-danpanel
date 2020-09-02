@@ -134,7 +134,7 @@
               <span v-if="product.market_price > 0">Offer</span> Price
             </small>
           </h5>
-          <h5 class="small-font-in-mobile">{{ product.offer_price }}</h5>
+          <h5 class="small-font-in-mobile">{{ product.offer_price }} kr</h5>
         </div>
       </div>
       <div class="you-save" v-if="product.save_price > 0">
