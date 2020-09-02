@@ -16,7 +16,6 @@ class Blog extends Model
             $model->status = 1;
             $model->clicks = 0;
         });
-
     }
 
     public function user()
@@ -35,5 +34,4 @@ class Blog extends Model
     {
         return '/blog/images/' . $this->image;
     }
-
 }

@@ -126,29 +126,31 @@
             </div>
             <div class="col-md-3 col-lg-3 mt-3">
               <div class="header_top_button d-flex justify-content-center">
-                <router-link :to="{name:'cart'}" class="mr-3 cart-box">
-                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  <br />
-                  <label class="color-theme">Cart({{$store.state.cartCount}})</label>
-                </router-link>
-
                 <router-link tag="div" to="/favourites" class="wishlist favourite-box text-center">
                   <a href="#">
-                    <img src="/images/icons/favorite.png" height="30" alt="favourite" />
-                    <br />
-                    <label>Favoritter({{totalFavourites}})</label>
+                    <div class="favorite-icon">
+                      <img src="/images/icons/favorite.png" height="30" alt="favourite" />
+                    </div>
+                    <label class="favourite-badge">{{totalFavourites}}</label>
                   </a>
                 </router-link>
 
-                <div class="login ml-3 text-center">
+                <router-link :to="{name:'cart'}" tag="div" class="ml-4 cart-box">
+                  <!-- <i class="fa fa-shopping-cart" aria-hidden="true"></i> -->
+                  <div class="cart-icon">
+                    <img src="/images/icons/cart.png" width="32" alt />
+                    <label class="cart-badge">{{$store.state.cartCount}}</label>
+                  </div>
+                </router-link>
+
+                <div class="login ml-4 text-center">
                   <div v-if="userLoggedIn">
                     <div
                       class="user-login"
                       v-on-clickaway="close"
                       @click="showUserMenu = !showUserMenu"
                     >
-                      <i class="fas fa-user"></i>
-                      <br />Profil
+                      <img src="/images/icons/user.png" width="32" alt />
                     </div>
                     <div class="dropdown-menu wow bounceIn" v-if="showUserMenu">
                       <router-link
@@ -178,8 +180,7 @@
                   </div>
                   <div class="user-login" v-if="!userLoggedIn">
                     <router-link to="/login">
-                      <i class="fas fa-sign-out-alt"></i>
-                      <br />Log ind
+                      <img src="/images/icons/login.png" width="32" alt />
                     </router-link>
                   </div>
                 </div>
@@ -292,7 +293,33 @@ i.fa.fa-shopping-cart {
 .color-theme {
   color: #ff7c3b;
 }
+.cart-icon,
+.favorite-icon {
+  position: relative;
+}
+label.cart-badge {
+  position: absolute;
+  right: -10px;
+  top: 0;
+  padding: 0px 5px;
+  background: #19606f;
+  border-radius: 100%;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+}
 
+label.favourite-badge {
+  position: absolute;
+  right: -10px;
+  top: 0;
+  padding: 0px 5px;
+  background: #19606f;
+  border-radius: 100%;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+}
 @media (max-width: 720px) {
   .dropdown-menu {
     display: block !important;

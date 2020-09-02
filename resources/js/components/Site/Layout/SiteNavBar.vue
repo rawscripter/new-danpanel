@@ -118,7 +118,7 @@ export default {
 
 <style scoped>
 a.nav-link.router-link-exact-active.router-link-active {
-  color: rgb(255, 100, 45);
+  color: rgb(0 173 243);
 }
 
 nav {

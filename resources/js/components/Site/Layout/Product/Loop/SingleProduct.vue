@@ -14,7 +14,7 @@
         v-if="isUserFavourite"
       >Favourite</span>
     </div>
-    <div class="p_category_and_love d-flex justify-content-between">
+    <div class="p_category_and_love d-flex justify-content-between hide-in-mobile">
       <div class="category">
         <router-link
           :to="{name:'category-product',params:{category:product.categoryData.slug}}"
@@ -33,17 +33,17 @@
           <img src="/images/icons/favorite.png" height="16" alt />
         </div>
         <div class="love" v-if="isUserLiked">
-          <i class="fas fa-heart" style="color:red;"></i>
+          <i class="fas fa-heart" style="color:#00adf3;"></i>
           <span>{{ totalLikes }}</span>
         </div>
 
         <div class="love" v-else @click="addProductToLikeList(product.slug)">
-          <i class="far fa-heart" style="color:red;"></i>
+          <i class="far fa-heart" style="color:#00adf3;"></i>
           <span>{{ totalLikes }}</span>
         </div>
 
         <div class="eye ml-2">
-          <i class="fas fa-eye" style="color: #7e7b7a"></i>
+          <i class="fas fa-eye" style="color: #00adf3"></i>
           <span>{{ product.total_clicks }}</span>
         </div>
       </div>
@@ -117,31 +117,34 @@
         <p class="text-center">{{ product.short_des }}</p>
       </div>
     </router-link>
-    <div
-      class="pricing-section flex-sm-column d-flex justify-content-start"
-      v-if="!product.is_request_product"
-    >
-      <div class="pricing-left text-left" v-if="product.market_price> 0">
-        <h5 class="small-font-in-mobile">
-          <small>Market Price</small>
-        </h5>
-        <h5 class="small-font-in-mobile">
-          <del>{{ product.market_price }} Kr</del>
-        </h5>
+
+    <div class="pricing-section" v-if="!product.is_request_product">
+      <div class="pricing-section flex-sm-column d-flex justify-content-start">
+        <div class="pricing-left text-left" v-if="product.market_price> 0">
+          <h5 class="small-font-in-mobile">
+            <small>Market Price</small>
+          </h5>
+          <h5 class="small-font-in-mobile">
+            <del>{{ product.market_price }} Kr</del>
+          </h5>
+        </div>
+        <div class="pricing-right" :class="product.market_price > 0 ? 'text-right' : 'text-left'">
+          <h5 class="small-font-in-mobile">
+            <small>
+              <span v-if="product.market_price > 0">Offer</span> Price
+            </small>
+          </h5>
+          <h5 class="small-font-in-mobile">{{ product.offer_price }}</h5>
+        </div>
       </div>
-      <div class="pricing-right text-right">
-        <h5 class="small-font-in-mobile">
-          <small>Offer Price</small>
-        </h5>
-        <h5 class="small-font-in-mobile">{{ product.offer_price }}</h5>
+      <div class="you-save" v-if="product.save_price > 0">
+        <h6 class="small-font-in-mobile">
+          You Save:
+          <strong>{{ product.save_price }} kr</strong>
+        </h6>
       </div>
     </div>
-    <div>
-      <h6
-        class="small-font-in-mobile"
-        v-if="product.save_price > 0"
-      >You Save: {{ product.save_price }} kr</h6>
-    </div>
+
     <router-link
       class="btn btn-success btn-block mt-3 small-font-in-mobile"
       tag="button"
@@ -413,14 +416,20 @@ span.favourite-badge {
   position: absolute;
   top: 18px;
   padding: 1px 15px;
-  background: #ff5136;
+  background: #19606fc7;
   font-weight: normal;
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .product-link:hover {
   text-decoration: none;
   color: #000000;
+}
+
+.pricing-section {
+  display: flex;
+  flex-direction: column;
+  height: 85px;
 }
 </style>
