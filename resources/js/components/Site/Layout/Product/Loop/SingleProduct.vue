@@ -33,17 +33,17 @@
           <img src="/images/icons/favorite.png" height="16" alt />
         </div>
         <div class="love" v-if="isUserLiked">
-          <i class="fas fa-heart" style="color:#00adf3;"></i>
+          <i class="fas fa-heart" style="color:rgb(24 24 24);"></i>
           <span>{{ totalLikes }}</span>
         </div>
 
         <div class="love" v-else @click="addProductToLikeList(product.slug)">
-          <i class="far fa-heart" style="color:#00adf3;"></i>
+          <i class="far fa-heart" style="color:rgb(24 24 24);"></i>
           <span>{{ totalLikes }}</span>
         </div>
 
         <div class="eye ml-2">
-          <i class="fas fa-eye" style="color: #00adf3"></i>
+          <i class="fas fa-eye" style="color:rgb(131 131 131);"></i>
           <span>{{ product.total_clicks }}</span>
         </div>
       </div>

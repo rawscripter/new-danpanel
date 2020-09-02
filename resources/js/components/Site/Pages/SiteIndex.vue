@@ -14,8 +14,8 @@
           <div class="main-content">
             <div class="product-area" v-if="runningProducts.length > 0">
               <div class="running-products">
-                <div class="alert text-center">
-                  <h4 class="m-0 p-0">
+                <div class="alert text-center mr-2 ml-2">
+                  <h4 class="m-0 p-0 custom-color">
                     <strong>Igangværende begivenheder</strong>
                   </h4>
                 </div>
@@ -44,8 +44,8 @@
             </div>
             <div class="product-area" v-if="packageProducts.length > 0">
               <div class="package-products">
-                <div class="alert text-center">
-                  <h4 class="m-0 p-0">
+                <div class="alert text-center mr-2 ml-2">
+                  <h4 class="m-0 p-0 custom-color">
                     <strong>Package Products</strong>
                   </h4>
                 </div>
@@ -75,8 +75,8 @@
 
             <div class="product-area" v-if="requestProducts.length > 0">
               <div class="package-products">
-                <div class="alert text-center">
-                  <h4 class="m-0 p-0">
+                <div class="alert text-center mr-2 ml-2">
+                  <h4 class="m-0 p-0 custom-color">
                     <strong>Hent Tilbud Products</strong>
                   </h4>
                 </div>
@@ -198,5 +198,9 @@ export default {
 
 .alert {
   background: #f2f2f2;
+}
+
+.custom-color {
+  color: #19606f;
 }
 </style>
