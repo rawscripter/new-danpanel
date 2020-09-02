@@ -7,7 +7,11 @@
 require("./bootstrap");
 
 window.Vue = require("vue");
+<<<<<<< HEAD
 window.APP_URL = "http://danpanel.test:8081";
+=======
+window.APP_URL = "http://danpanel.test";
+>>>>>>> 0fa280ee6985a1ffcf7be1b0903a25485c57ebaf
 // window.APP_URL = "http://up-danpanel.danpanel.dk";
 window.CURRENCY = "dkk";
 
