@@ -39,6 +39,7 @@
 
 <script src="{{asset('js/zoom.js')}}"></script>
 <script src="https://test.checkout.dibspayment.eu/v1/checkout.js?v=1"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
 <script !src="">
     new WOW().init();
 
