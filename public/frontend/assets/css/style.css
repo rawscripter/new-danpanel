@@ -169,8 +169,7 @@ body {
 }
 
 .pricing-section .pricing-left {
-    width: 70%;
-    margin-right: 2%;
+    width: 50%;
 }
 
 .pricing-section .pricing-left h6 {
@@ -179,8 +178,14 @@ body {
 }
 
 .pricing-section .pricing-right {
-    width: 30%;
+    width: 50%;
 }
+
+.pricing-section.flex-sm-column.d-flex.justify-content-start {
+    display: flex;
+    flex-direction: row !important;
+}
+
 
 .pricing-section .pricing-right h6 {
     font-weight: bold;
@@ -769,4 +774,49 @@ img.icon-left.rotate-180 {
 
 button.VueCarousel-navigation-button.VueCarousel-navigation-prev img {
     transform: rotate(180deg) !important;
+}
+
+
+
+.padding-for-mobile {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+}
+
+.product_name_hight {
+    min-height: 55px;
+}
+
+@media (max-width:800px) {
+    .hide-in-mobile {
+        display: none !important;
+    }
+
+    .no-padding-in-mobile {
+        padding: 0px !important;
+    }
+
+    .small-font-in-mobile {
+        font-size: 13px !important;
+    }
+
+    .product_name_hight {
+        margin: 5px
+    }
+
+    .fixed-top {
+        position: unset;
+        top: unset;
+        right: unset;
+        left: unset;
+        z-index: unset;
+    }
+
+    .mt-200 {
+        margin: 0px !important;
+    }
+
+    .subcategory-list.text-center li {
+        margin-bottom: 5px;
+    }
 }

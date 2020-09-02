@@ -1,9 +1,9 @@
 <template>
   <div class="page-wrapper wow" id="product_area">
-    <div class="container">
+    <div class="container no-padding-in-mobile">
       <div class="row">
-        <div class="col-md-12">
-          <HeaderVideoSection></HeaderVideoSection>
+        <div class="col-md-12 no-padding-in-mobile">
+          <!-- <HeaderVideoSection></HeaderVideoSection> -->
           <div class="main-content">
             <div class="product-area" v-if="runningProducts.length > 0">
               <div class="running-products">
@@ -13,9 +13,9 @@
                   </h4>
                 </div>
                 <div class="row">
-                  <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0">
+                  <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0 padding-for-mobile">
                     <carousel
-                      :perPageCustom="[[320, 1],[480, 1],[768, 2],[1199,4]]"
+                      :perPageCustom="[[320, 2],[480, 2],[768, 2],[1199,4]]"
                       :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"
                       :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
                       :paginationActiveColor="'#00adf3'"
@@ -43,9 +43,9 @@
                   </h4>
                 </div>
                 <div class="row">
-                  <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0">
+                  <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0 padding-for-mobile">
                     <carousel
-                      :perPageCustom="[[320, 1],[480, 1],[768, 2],[1199,4]]"
+                      :perPageCustom="[[320, 2],[480, 2],[768, 2],[1199,4]]"
                       :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"
                       :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
                       :paginationActiveColor="'#00adf3'"
@@ -74,9 +74,9 @@
                   </h4>
                 </div>
                 <div class="row">
-                  <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0">
+                  <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0 padding-for-mobile">
                     <carousel
-                      :perPageCustom="[[320, 1],[480, 1],[768, 2],[1199,4]]"
+                      :perPageCustom="[[320, 2],[480, 2],[768, 2],[1199,4]]"
                       :paginationActiveColor="'#00adf3'"
                       :autoplay-timeout="4000"
                       :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"

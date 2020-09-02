@@ -50,7 +50,7 @@
     </div>
     <hr class="m-0 p-0" />
     <router-link class="product-link" :to="{name: 'product-details', params:{slug:product.slug}}">
-      <h5 class="product_title text-center pt-2 pb-2 product_name_hight">
+      <h5 class="product_title text-center pt-2 pb-2 product_name_hight small-font-in-mobile">
         {{ product.name }}
         <br />
       </h5>
@@ -113,29 +113,37 @@
         <span v-else class="expired">Kommer snart</span>
       </div>
 
-      <div class="short-description">
+      <div class="short-description hide-in-mobile">
         <p class="text-center">{{ product.short_des }}</p>
       </div>
     </router-link>
-    <div class="pricing-section d-flex justify-content-start" v-if="!product.is_request_product">
-      <div class="pricing-left" v-if="product.market_price> 0">
-        <h5>
+    <div
+      class="pricing-section flex-sm-column d-flex justify-content-start"
+      v-if="!product.is_request_product"
+    >
+      <div class="pricing-left text-left" v-if="product.market_price> 0">
+        <h5 class="small-font-in-mobile">
           <small>Market Price</small>
         </h5>
-        <h5>
+        <h5 class="small-font-in-mobile">
           <del>{{ product.market_price }} Kr</del>
         </h5>
-        <h6>You Save: {{ product.save_price }} kr</h6>
       </div>
-      <div class="pricing-right">
-        <h5>
+      <div class="pricing-right text-right">
+        <h5 class="small-font-in-mobile">
           <small>Offer Price</small>
         </h5>
-        <h5>{{ product.offer_price }}</h5>
+        <h5 class="small-font-in-mobile">{{ product.offer_price }}</h5>
       </div>
     </div>
+    <div>
+      <h6
+        class="small-font-in-mobile"
+        v-if="product.save_price > 0"
+      >You Save: {{ product.save_price }} kr</h6>
+    </div>
     <router-link
-      class="btn btn-success btn-block mt-3"
+      class="btn btn-success btn-block mt-3 small-font-in-mobile"
       tag="button"
       :to="{name: 'product-details', params:{slug:product.slug}}"
     >Deatils</router-link>
@@ -395,10 +403,6 @@ span.favourite-badge {
   padding: 0 10px;
   flex: 1 1;
   font-weight: 500;
-}
-
-.product_name_hight {
-  height: 2.5rem;
 }
 
 .product-link {

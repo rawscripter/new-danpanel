@@ -22,7 +22,7 @@
                 <div
                   v-for="product in products"
                   :key="product.id"
-                  class="col-md-4 wow bounceIn col-lg-4 col-sm-6 shadow-sm ml-0 pl-0 mr-0 pr-0"
+                  class="col-6 col-md-4 wow bounceIn col-lg-4 col-sm-6 shadow-sm ml-0 pl-0 mr-0 pr-0"
                 >
                   <!-- product single  -->
                   <SingleProduct :product="product"></SingleProduct>
