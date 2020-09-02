@@ -16,8 +16,8 @@
                   <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0">
                     <carousel
                       :perPageCustom="[[320, 1],[480, 1],[768, 2],[1199,4]]"
-                      :navigationNextLabel="`<img src="/images/icons/next-icon.png" width="16px" class="icon-left">`"
-                      :navigationPrevLabel="`<img src="/images/icons/next-icon.png" width="16px" class="icon-left rotate-180">`"
+                      :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"
+                      :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
                       :paginationActiveColor="'#00adf3'"
                       :autoplay-timeout="4000"
                       :navigationEnabled="true"
@@ -46,8 +46,8 @@
                   <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0">
                     <carousel
                       :perPageCustom="[[320, 1],[480, 1],[768, 2],[1199,4]]"
-                      :navigationNextLabel="`<img src="/images/icons/next-icon.png" width="16px" class="icon-left">`"
-                      :navigationPrevLabel="`<img src="/images/icons/next-icon.png" width="16px" class="icon-left rotate-180">`"
+                      :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"
+                      :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
                       :paginationActiveColor="'#00adf3'"
                       :autoplay-timeout="4000"
                       :navigationEnabled="true"
@@ -79,8 +79,8 @@
                       :perPageCustom="[[320, 1],[480, 1],[768, 2],[1199,4]]"
                       :paginationActiveColor="'#00adf3'"
                       :autoplay-timeout="4000"
-                      :navigationNextLabel="`<img src="/images/icons/next-icon.png" width="16px" class="icon-left">`"
-                      :navigationPrevLabel="`<img src="/images/icons/next-icon.png" width="16px" class="icon-left rotate-180">`"
+                      :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"
+                      :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
                       :navigationEnabled="true"
                       :loop="true"
                       :autoplay="true"
@@ -93,14 +93,6 @@
                       </slide>
                     </carousel>
                   </div>
-                  <!--                                    <div class="col-12 text-center mt-3">-->
-                  <!--                                        <router-link class="btn btn-secondary btn-all-product" :to="{name: 'filter', query: {-->
-                  <!--                                                                gender: 'all',-->
-                  <!--                                                                short: 'running_product'-->
-                  <!--                                                            }}" tag="a">-->
-                  <!--                                            Vis alle-->
-                  <!--                                        </router-link>-->
-                  <!--                                    </div>-->
                 </div>
               </div>
             </div>
