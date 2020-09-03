@@ -22,8 +22,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="product in $store.state.cart" :key="product.id">
-                  <td>1</td>
+                <tr v-for="(product,index) in $store.state.cart" :key="product.id">
+                  <td>{{index+1}}</td>
                   <td>
                     <img :src="product.thumbImage" :alt="product.name" style="width:50px" />
                   </td>

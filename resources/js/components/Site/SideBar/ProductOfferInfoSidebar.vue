@@ -29,13 +29,20 @@
                 :checked="isOptionAlreadySelected(option.id)"
               />
               <label
-                @click="changeProductPriceOnVariationChange(variation.id,option.id,option.price,option.name)"
+                @click="
+                                    changeProductPriceOnVariationChange(
+                                        variation.id,
+                                        option.id,
+                                        option.price,
+                                        option.name
+                                    )
+                                "
                 class="button-label"
                 :for="`radio-btn-${option.id}`"
               >
                 <span>
                   {{ option.name }}
-                  <span v-if="option.price >0">+{{ option.price }}kr</span>
+                  <span v-if="option.price > 0">+{{ option.price }}kr</span>
                 </span>
               </label>
             </div>
@@ -60,14 +67,15 @@
 
     <div class="sidebar-action">
       <p @click="addProductToFavouriteList(product.slug)" v-if="!isUserFavourite">
-        <img src="/images/icons/favorite.png" height="20" alt /> Gem till favouriter
+        <img src="/images/icons/favorite.png" height="20" alt /> Gem
+        till favouriter
       </p>
       <br />
       <p @click="addProductToReminderList(product.slug)">
         <i class="fas fa-sync mr-2"></i> Pamind mig
       </p>
       <br />
-      <p @click="showModal=true">
+      <p @click="showModal = true">
         <img src="/images/icons/share.png" height="20" width="20" alt />
         Del
       </p>
@@ -80,7 +88,7 @@
       tabindex="-1"
       role="dialog"
       aria-labelledby="mySmallModalLabel"
-      :class="showModal?'active':''"
+      :class="showModal ? 'active' : ''"
       style="padding-right: 17px;"
     >
       <div class="modal-dialog">
@@ -88,7 +96,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="mySmallModalLabel">Del begivenhed</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span @click="showModal=false" aria-hidden="true">×</span>
+              <span @click="showModal = false" aria-hidden="true">×</span>
             </button>
           </div>
           <div class="modal-body">
@@ -101,17 +109,20 @@
             >
               <div id="social-share">
                 <network class="social" network="email">
-                  <img width="20" src="/images/icons/JoinOffers---Ikon---Email.png" alt /> Email
+                  <img width="20" src="/images/icons/JoinOffers---Ikon---Email.png" alt />
+                  Email
                 </network>
                 <network class="social" network="facebook">
                   <img width="20" src="/images/icons/JoinOffers---Ikon---Facebook.png" alt />
                   Facebook
                 </network>
                 <network class="social" network="googleplus">
-                  <img width="20" src="/images/icons/JoinOffers---Ikon---Google+.png" alt /> Google +
+                  <img width="20" src="/images/icons/JoinOffers---Ikon---Google+.png" alt />
+                  Google +
                 </network>
                 <network class="social" network="line">
-                  <img width="20" src="/images/icons/JoinOffers---Ikon---Line.png" alt /> Line
+                  <img width="20" src="/images/icons/JoinOffers---Ikon---Line.png" alt />
+                  Line
                 </network>
                 <network class="social" network="linkedin">
                   <img width="20" src="/images/icons/JoinOffers---Ikon---LinkedIn.png" alt />
@@ -122,27 +133,32 @@
                   Pinterest
                 </network>
                 <network class="social" network="reddit">
-                  <img width="20" src="/images/icons/JoinOffers---Ikon---Reddit.png" alt /> Reddit
+                  <img width="20" src="/images/icons/JoinOffers---Ikon---Reddit.png" alt />
+                  Reddit
                 </network>
                 <network class="social" network="skype">
-                  <img width="20" src="/images/icons/JoinOffers---Ikon---Skype.png" alt /> Skype
+                  <img width="20" src="/images/icons/JoinOffers---Ikon---Skype.png" alt />
+                  Skype
                 </network>
                 <network class="social" network="sms">
-                  <img width="20" src="/images/icons/JoinOffers---Ikon---SMS.png" alt /> SMS
+                  <img width="20" src="/images/icons/JoinOffers---Ikon---SMS.png" alt />
+                  SMS
                 </network>
                 <network class="social" network="telegram">
                   <img width="20" src="/images/icons/JoinOffers---Ikon---Telegram.png" alt />
                   Telegram
                 </network>
                 <network class="social" network="twitter">
-                  <img width="20" src="/images/icons/JoinOffers---Ikon---Twitter.png" alt /> Twitter
+                  <img width="20" src="/images/icons/JoinOffers---Ikon---Twitter.png" alt />
+                  Twitter
                 </network>
                 <network class="social" network="vk">
                   <img width="20" src="/images/icons/JoinOffers---Ikon---Vkontakte.png" alt />
                   VKontakte
                 </network>
                 <network class="social" network="weibo">
-                  <img width="20" src="/images/icons/JoinOffers---Ikon---Weibo.png" alt /> Weibo
+                  <img width="20" src="/images/icons/JoinOffers---Ikon---Weibo.png" alt />
+                  Weibo
                 </network>
                 <network class="social" network="whatsapp">
                   <img width="20" src="/images/icons/JoinOffers---Ikon---Whatsapp.png" alt />
@@ -161,7 +177,7 @@
       tabindex="-1"
       role="dialog"
       aria-labelledby="mySmallModalLabel"
-      :class="productRequestModal?'active':''"
+      :class="productRequestModal ? 'active' : ''"
       style="padding-right: 17px;"
     >
       <div class="modal-dialog" style="margin-top: 250px">
@@ -169,7 +185,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="productRequestModal">Indsend tilbudsanmodning</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span @click="productRequestModal=false" aria-hidden="true">×</span>
+              <span @click="productRequestModal = false" aria-hidden="true">×</span>
             </button>
           </div>
           <div class="modal-body">
@@ -245,41 +261,41 @@ export default {
           return;
         } else {
           Vue.set(item, "variations", this.selectedVariations);
-          this.$cookies.set(
-            `product-variation-${this.product.id}`,
-            JSON.stringify(this.selectedVariations),
-            60 * 5
-          );
         }
       }
+      let randomUuid = Math.floor(Math.random() * 99999) + 999;
+
+      Vue.set(item, "uuid", randomUuid);
 
       this.$store.commit("addToCart", item);
       this.$store.commit("saveCart");
+      this.selectedVariations = [];
       this.$toast.success("Product added to cart.");
+
+      this.$router.push({ name: "cart" });
     },
 
     getProductSelectedVariations() {
-      let seletedVariationCokkieObject = this.$cookies.get(
-        `product-variation-${this.product.id}`
-      );
-      if (seletedVariationCokkieObject) {
-        this.selectedVariations = JSON.parse(seletedVariationCokkieObject);
-        let vm = this;
-        this.selectedVariations.forEach(function (variation) {
-          let selectedVariationIndex = vm.product.product_variation.findIndex(
-            (x) => x.id === variation.variationID
-          );
-          let variationOptions =
-            vm.product.product_variation[selectedVariationIndex].options;
-          let selectedVariationOptionIndex = variationOptions.findIndex(
-            (x) => x.id === variation.optionID
-          );
-
-          let needToAddPrice =
-            variationOptions[selectedVariationOptionIndex].price;
-          vm.product.offer_price += needToAddPrice;
-        });
-      }
+      //   let seletedVariationCokkieObject = this.$cookies.get(
+      //     `product-variation-${this.product.id}`
+      //   );
+      //   if (seletedVariationCokkieObject) {
+      //     this.selectedVariations = JSON.parse(seletedVariationCokkieObject);
+      //     let vm = this;
+      //     this.selectedVariations.forEach(function (variation) {
+      //       let selectedVariationIndex = vm.product.product_variation.findIndex(
+      //         (x) => x.id === variation.variationID
+      //       );
+      //       let variationOptions =
+      //         vm.product.product_variation[selectedVariationIndex].options;
+      //       let selectedVariationOptionIndex = variationOptions.findIndex(
+      //         (x) => x.id === variation.optionID
+      //       );
+      //       let needToAddPrice =
+      //         variationOptions[selectedVariationOptionIndex].price;
+      //       vm.product.offer_price += needToAddPrice;
+      //     });
+      //   }
     },
     changeProductPriceOnVariationChange(
       variationID,
@@ -322,11 +338,11 @@ export default {
         this.selectedVariations.push(newObject);
       }
 
-      this.$cookies.set(
-        `product-variation-${this.product.id}`,
-        JSON.stringify(this.selectedVariations),
-        60 * 5
-      );
+      //   this.$cookies.set(
+      //     `product-variation-${this.product.id}`,
+      //     JSON.stringify(this.selectedVariations),
+      //     60 * 5
+      //   );
 
       this.product.offer_price += price;
     },
@@ -431,10 +447,6 @@ export default {
     this.isUserLiked = this.product.isLikedByCurrentUser;
     this.isUserFavourite = this.product.isFavouriteByCurrentUser;
     this.totalLikes = this.product.total_likes;
-  },
-  created() {
-    if (this.product.product_variation.length > 0)
-      this.getProductSelectedVariations();
   },
 };
 </script>

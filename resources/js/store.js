@@ -35,20 +35,20 @@ let store = {
         addToCart(state, item) {
             let found = state.cart.find(product => product.id == item.id);
 
-            if (found) {
-                found.quantity++;
-                found.totalPrice = found.quantity * found.offer_price;
-                found.taxPrice = found.totalPrice * 0.2;
-            } else {
-                state.cart.push(item);
-                Vue.set(item, 'quantity', 1);
-                Vue.set(item, 'totalPrice', item.offer_price);
-                Vue.set(item, 'taxPrice', item.offer_price * 0.2);
-            }
+            // if (found) {
+            //     found.quantity++;
+            //     found.totalPrice = found.quantity * found.offer_price;
+            //     found.taxPrice = found.totalPrice * 0.2;
+            // } else {
+            state.cart.push(item);
+            Vue.set(item, 'quantity', 1);
+            Vue.set(item, 'totalPrice', item.offer_price);
+            Vue.set(item, 'taxPrice', item.offer_price * 0.2);
+            // }
             state.cartCount++;
         },
         increaseOrderQuantity(state, item) {
-            let found = state.cart.find(product => product.id == item.id);
+            let found = state.cart.find(product => product.uuid == item.uuid);
 
             if (found) {
                 found.quantity++;
@@ -58,7 +58,7 @@ let store = {
             }
         },
         decreaseOrderQuantity(state, item) {
-            let found = state.cart.find(product => product.id == item.id);
+            let found = state.cart.find(product => product.uuid == item.uuid);
 
             if (found) {
                 found.quantity--;
