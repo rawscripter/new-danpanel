@@ -179,11 +179,19 @@ export default {
       this.$emit("filterProduct", this.filter);
     },
     getMaxProductPrice() {
-      axios.get(`${APP_URL}/api/max/product/price`).then((res) => {
-        this.max = res.data.max;
-        this.range[1] = res.data.max;
+      if (this.$store.state.filterMaxRange.isLoaded) {
+        let range = this.$store.getters.getFilterMaxRange;
+        this.max = range;
+        this.range[1] = range;
         this.isLoading = false;
-      });
+      } else {
+        axios.get(`${APP_URL}/api/max/product/price`).then((res) => {
+          this.max = res.data.max;
+          this.range[1] = res.data.max;
+          this.isLoading = false;
+          this.$store.commit("saveFilterMaxRange", this.max);
+        });
+      }
     },
   },
   watch: {

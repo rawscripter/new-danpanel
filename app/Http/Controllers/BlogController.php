@@ -27,7 +27,7 @@ class BlogController extends Controller
 
     public function getBlogs()
     {
-        $blogs = Blog::whereStatus(1)->orderBy('created_at', 'desc')->get();
+        $blogs = Blog::whereStatus(1)->orderBy('created_at', 'desc')->limit(6)->get();
         $res['success'] = true;
         $res['blogs'] = $blogs;
         return response()->json($res);
@@ -56,7 +56,6 @@ class BlogController extends Controller
         };
         $blog->save();
         return redirect()->back()->withSuccess("Blog Status Changed");
-
     }
 
     /**
@@ -112,7 +111,6 @@ class BlogController extends Controller
 
         $categories = Category::orderBy('name', 'asc')->get();
         return view('admin.blog.edit', compact('blog', 'categories'));
-
     }
 
     /**
@@ -157,5 +155,4 @@ class BlogController extends Controller
         $image->move('blog/images', $name);
         return $name;
     }
-
 }

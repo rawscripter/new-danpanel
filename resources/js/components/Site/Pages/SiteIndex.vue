@@ -149,20 +149,36 @@ export default {
       });
     },
     getPackageProducts() {
-      axios.get(`${APP_URL}/api/package/products`).then((res) => {
-        this.packageProducts = res.data.products;
+      if (this.$store.getters.isStoreLoaded) {
+        this.packageProducts = this.$store.getters.getPackageProducts;
         this.isLoading = false;
-      });
+      } else {
+        axios.get(`${APP_URL}/api/package/products`).then((res) => {
+          this.packageProducts = res.data.products;
+          this.$store.commit("savePackageProducts", this.packageProducts);
+          this.isLoading = false;
+        });
+      }
     },
     getRunningProducts() {
-      axios.get(`${APP_URL}/api/running/products`).then((res) => {
-        this.runningProducts = res.data.products;
-      });
+      if (this.$store.getters.isStoreLoaded) {
+        this.runningProducts = this.$store.getters.getShopProducts;
+      } else {
+        axios.get(`${APP_URL}/api/running/products`).then((res) => {
+          this.runningProducts = res.data.products;
+          this.$store.commit("saveShopProducts", this.runningProducts);
+        });
+      }
     },
     getRequestProducts() {
-      axios.get(`${APP_URL}/api/request/products`).then((res) => {
-        this.requestProducts = res.data.products;
-      });
+      if (this.$store.getters.isStoreLoaded) {
+        this.requestProducts = this.$store.getters.getRequestProducts;
+      } else {
+        axios.get(`${APP_URL}/api/request/products`).then((res) => {
+          this.requestProducts = res.data.products;
+          this.$store.commit("saveRequestProducts", this.requestProducts);
+        });
+      }
     },
   },
   created() {

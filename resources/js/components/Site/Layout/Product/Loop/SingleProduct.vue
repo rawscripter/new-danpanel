@@ -50,10 +50,9 @@
     </div>
     <hr class="m-0 p-0" />
     <router-link class="product-link" :to="{name: 'product-details', params:{slug:product.slug}}">
-      <h5 class="product_title text-center pt-2 pb-2 product_name_hight small-font-in-mobile">
-        {{ product.name }}
-        <br />
-      </h5>
+      <h5
+        class="product_title text-center pt-2 pb-2 product_name_hight small-font-in-mobile"
+      >{{ product.name }}</h5>
 
       <div
         class="timer text-center mt-2 mb-2 product_timer_hight"

@@ -31,10 +31,16 @@ export default {
   },
   methods: {
     getBlogs() {
-      axios.get(`${APP_URL}/api/blogs`).then((res) => {
-        this.blogs = res.data.blogs;
+      if (this.$store.state.blogs.isStored) {
+        this.blogs = this.$store.getters.getStoreBlogs;
         this.isLoading = false;
-      });
+      } else {
+        axios.get(`${APP_URL}/api/blogs`).then((res) => {
+          this.blogs = res.data.blogs;
+          this.isLoading = false;
+          this.$store.commit("saveBlogs", this.blogs);
+        });
+      }
     },
   },
   created() {

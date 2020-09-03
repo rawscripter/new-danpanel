@@ -35,10 +35,16 @@ export default {
   },
   methods: {
     getNews() {
-      axios.get(`${APP_URL}/api/news`).then((res) => {
-        this.newsList = res.data.newsList;
+      if (this.$store.state.news.isStored) {
+        this.newsList = this.$store.getters.getStoreNews;
         this.isLoading = false;
-      });
+      } else {
+        axios.get(`${APP_URL}/api/news`).then((res) => {
+          this.newsList = res.data.newsList;
+          this.isLoading = false;
+          this.$store.commit("saveNews", this.newsList);
+        });
+      }
     },
   },
   created() {

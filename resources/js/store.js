@@ -1,13 +1,57 @@
 let cart = window.localStorage.getItem('cart');
 let cartCount = window.localStorage.getItem('cartCount');
+let oldFilterMaxRange = window.localStorage.getItem('filterMaxRange');
+
 let store = {
 
     state: {
         cart: cart ? JSON.parse(cart) : [],
         cartCount: cartCount ? parseInt(cartCount) : 0,
+        isLoaded: false,
+        products: {
+            shop: [],
+            package: [],
+            request: [],
+        },
+        blogs: {
+            isStored: false,
+            store: []
+        },
+        news: {
+            isStored: false,
+            store: []
+        },
+        filterMaxRange: {
+            isLoaded: oldFilterMaxRange ? true : false,
+            max: oldFilterMaxRange ? parseInt(oldFilterMaxRange) : 0,
+        }
     },
 
     mutations: {
+        saveFilterMaxRange(state, max) {
+            state.filterMaxRange.max = max;
+            state.filterMaxRange.isLoaded = true;
+            window.localStorage.setItem('filterMaxRange', JSON.stringify(state.filterMaxRange.max));
+
+        },
+        saveBlogs(state, blogs) {
+            state.blogs.isStored = true;
+            state.blogs.store = blogs;
+        },
+        saveNews(state, news) {
+            state.news.isStored = true;
+            state.news.store = news;
+        },
+        saveShopProducts(state, products) {
+            state.products.shop = products;
+            state.isLoaded = true;
+        },
+        savePackageProducts(state, products) {
+            state.products.package = products;
+        },
+        saveRequestProducts(state, products) {
+            state.products.request = products;
+        },
         removeFromCart(state, item) {
             let index = state.cart.indexOf(item);
 
@@ -67,8 +111,30 @@ let store = {
                 state.cartCount--;
             }
         },
+    },
+    getters: {
+        getFilterMaxRange: state => {
+            return state.filterMaxRange.max;
+        },
+        getStoreBlogs: state => {
+            return state.blogs.store;
+        },
+        getStoreNews: state => {
+            return state.news.store;
+        },
+        isStoreLoaded: state => {
+            return state.isLoaded;
+        },
+        getShopProducts: state => {
+            return state.products.shop;
+        },
+        getPackageProducts: state => {
+            return state.products.package;
+        },
+        getRequestProducts: state => {
+            return state.products.request;
+        }
     }
-
 
 };
 
