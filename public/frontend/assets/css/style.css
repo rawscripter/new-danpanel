@@ -344,7 +344,7 @@ body {
     margin: 20px auto !important;
 }
 
-.small-img .icon-left,
+/* .small-img .icon-left,
 .small-img .icon-right {
     width: 12px;
     height: 24px;
@@ -353,7 +353,7 @@ body {
     top: -40px;
     bottom: 0;
     margin: auto 0;
-}
+} */
 
 .small-img .icon-left {
     transform: rotate(180deg)
@@ -819,4 +819,18 @@ button.VueCarousel-navigation-button.VueCarousel-navigation-prev img {
     .subcategory-list.text-center li {
         margin-bottom: 5px;
     }
+}
+
+img.icon-left.rotate {
+    transform: rotate(0deg);
+}
+
+
+
+button.VueCarousel-dot {
+    margin: 0px !important;
+}
+
+.VueCarousel-dot-container {
+    margin: 0px !important;
 }

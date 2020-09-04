@@ -5,7 +5,7 @@
         <img :src="product.featureImage" alt style="width:100%" />
 
         <div class="saving-percentage" v-if="product.saving_percentage > 0">
-          <span>{{ product.saving_percentage }}%</span>
+          <span>save {{ product.saving_percentage }}%</span>
         </div>
       </router-link>
       <span

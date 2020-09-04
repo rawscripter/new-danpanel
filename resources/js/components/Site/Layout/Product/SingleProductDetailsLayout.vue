@@ -46,6 +46,9 @@
           :perPageCustom="[[320, 4],[480, 4],[768, 4],[1199,6]]"
           :paginationActiveColor="'#00adf3'"
           :autoplay-timeout="4000"
+          :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate'>`"
+          :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
+          :navigationEnabled="true"
           :loop="true"
           :autoplay="true"
           :per-page="3"
@@ -254,5 +257,9 @@ img#next-img {
 
 .VueCarousel-dot-container {
   margin: 0px !important;
+}
+
+img.icon-left.rotate {
+  transform: rotate(0deg);
 }
 </style>

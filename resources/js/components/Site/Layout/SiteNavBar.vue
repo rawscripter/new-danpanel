@@ -14,23 +14,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="channel-toggle-button">
-          <toggle-button
-            v-model="selected_channel"
-            :width="90"
-            :height="30"
-            :font-size="12"
-            :color="{
-                           checked: '#00adf3',unchecked: '#13b017',
-                       }"
-            :labels="{checked: 'Private', unchecked: 'Business'}"
-            @change="onChangeEventHandler"
-          />
-
-          <button class="navbar-toggler" @click="showFilterOnMobile" type="button" id="openSidebar">
-            <img src="/images/icons/filter.png" width="24" alt />
-          </button>
-        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav m-auto text-center">
             <li class="nav-item">
@@ -64,6 +47,24 @@
               <router-link to="/news-list" class="nav-link">News</router-link>
             </li>
           </ul>
+        </div>
+
+        <div class="channel-toggle-button">
+          <toggle-button
+            v-model="selected_channel"
+            :width="90"
+            :height="30"
+            :font-size="12"
+            :color="{
+                           checked: '#00adf3',unchecked: '#13b017',
+                       }"
+            :labels="{checked: 'Private', unchecked: 'Business'}"
+            @change="onChangeEventHandler"
+          />
+
+          <button class="navbar-toggler" @click="showFilterOnMobile" type="button" id="openSidebar">
+            <img src="/images/icons/filter.png" width="24" alt />
+          </button>
         </div>
       </div>
     </nav>

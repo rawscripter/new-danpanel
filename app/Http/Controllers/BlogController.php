@@ -8,6 +8,7 @@ use App\Http\Resources\BlogResource;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Webpatser\Uuid\Uuid;
@@ -27,10 +28,21 @@ class BlogController extends Controller
 
     public function getBlogs()
     {
-        $blogs = Blog::whereStatus(1)->orderBy('created_at', 'desc')->limit(6)->get();
+        if (Cache::has('blogs')) {
+            $blogs = Cache::get('blogs');
+        } else {
+            $blogs = $this->blogQuery();
+        }
         $res['success'] = true;
         $res['blogs'] = $blogs;
         return response()->json($res);
+    }
+
+    public function blogQuery()
+    {
+        $blogs = Blog::whereStatus(1)->orderBy('created_at', 'desc')->get();
+        Cache::put('blogs', $blogs, 30);
+        return $blogs;
     }
 
     public function getBlogDetails($blogSlug)
