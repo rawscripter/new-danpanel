@@ -57,8 +57,8 @@ class CategoryController extends Controller
             }
 
 
-            if ($request['gender'] || $request['short'] || $request['minPrice'] || $request['maxPrice']) {
-                $gender = $_GET['gender'];
+            if ($request['short'] || $request['minPrice'] || $request['maxPrice']) {
+//                $gender = $_GET['gender'];
                 $short = $_GET['short'];
                 $minPrice = $_GET['minPrice'];
                 $maxPrice = $_GET['maxPrice'];
@@ -77,11 +77,6 @@ class CategoryController extends Controller
 
                 if (!empty($subCategory)) {
                     $products->where('sub_category_id', $subCategory);
-                }
-
-                // to filter the gender
-                if (strtolower($gender) != 'all') {
-                    $products->where('product_type', 'like', "%\"{$gender}\"%");
                 }
 
                 // to filter the price

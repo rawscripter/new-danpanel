@@ -9,9 +9,11 @@ class Order extends Model
 {
     protected $guarded = [];
 
+
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'order_products');
+        return $this->belongsToMany(Product::class, 'order_products')
+            ->withPivot(['quantity', 'unit_price', 'total_price', 'variations']);
     }
 
     public function user()
@@ -34,12 +36,6 @@ class Order extends Model
         return $this->hasOne(OrderShippingInfo::class);
     }
 
-    public function orderVariations()
-    {
-        if (empty($this->variations)) return [];
-        $variations = json_decode($this->variations, true);
-        return OrderVariationResource::collection($variations);
-    }
 
     public function finalPaymentAmount()
     {

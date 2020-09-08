@@ -1,10 +1,13 @@
 <template>
-    <div class="container-fluid">
+    <div class="container">
 
         <div class="row">
             <loading :active.sync="isLoading"
                      :is-full-page="false"></loading>
-            <div class="col-md-8 col-lg-8 m-auto" v-if="!isLoading">
+            <!--            <div class="col-md-3">-->
+            <!--                <BlogSideBar></BlogSideBar>-->
+            <!--            </div>-->
+            <div class="col-md-9 m-auto" v-if="!isLoading">
                 <div class="blog-area shadow">
                     <div class="blog-read-title customize-sub-category-header p-3"
                          style="color: white; font-size: 20px; background-color: rgb(0 172 242)">
@@ -39,8 +42,14 @@
 </template>
 
 <script>
+import BlogSideBar from "../SideBar/BlogSideBar";
+
 export default {
+
     name: "SingleBlogDetailsPage",
+    components: {
+        BlogSideBar
+    },
     data() {
         return {
             blogSlug: null,

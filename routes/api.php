@@ -114,6 +114,7 @@ Route::post('/gls/shops', 'GlsController@getShops');;
 //routes for blogs
 
 Route::get('/blogs', 'BlogController@getBlogs');
+Route::get('/get/blog/sub-categories', 'BlogController@getBlogCategories');
 Route::get('/blog/{blog}', 'BlogController@getBlogDetails');
 Route::get('/news', 'NewsController@getNews');
 Route::get('/news/{newsSlug}', 'NewsController@getNewsDetails');

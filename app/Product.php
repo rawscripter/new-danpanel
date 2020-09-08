@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Resources\OrderVariationResource;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -74,6 +75,13 @@ class Product extends Model
     public function requests()
     {
         return $this->hasMany(ProductRequest::class);
+    }
+
+
+    public function orderVariations($variations)
+    {
+        $variations = json_decode($variations, true);
+        return OrderVariationResource::collection($variations);
     }
 
     public function isRequestProduct()

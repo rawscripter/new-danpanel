@@ -13,7 +13,6 @@ import CategoryProducts from "../components/Site/Pages/CategoryProducts";
 import ProductEdit from "../components/Admin/BodyComponents/BodyParts/Product/ProductEdit";
 import SearchPage from "../components/Site/Pages/SearchPage";
 import FavouriteProudctsPage from "../components/Site/Pages/FavouriteProudctsPage";
-import CheckoutPage from "../components/Site/Pages/CheckoutPage";
 import CheckoutStatusPage from "../components/Site/Pages/CheckoutStatusPage";
 import CustomerProfile from "../components/Site/Pages/Customer/CustomerProfile";
 import CustomerOrders from "../components/Site/Pages/Customer/CustomerOrders";
@@ -254,13 +253,6 @@ const routes = [
         }
     },
     {
-        path: '/checkout/:slug',
-        name: 'checkout',
-        component: CheckoutPage,
-        meta: {
-            title: 'Checkout Now!'
-        }
-    }, {
         path: '/final/checkout',
         name: 'final-checkout',
         component: FinalCheckoutPage,

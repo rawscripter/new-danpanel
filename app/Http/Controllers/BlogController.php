@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Blog;
 use App\Category;
 use App\Http\Resources\BlogResource;
+use App\SubCategory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,6 +25,15 @@ class BlogController extends Controller
     {
         $blogs = Blog::whereStatus(1)->orderBy('created_at', 'asc')->get();
         return view('admin.blog.index', compact('blogs'));
+    }
+
+    public function getBlogCategories()
+    {
+        $subCategories = SubCategory::has('blogs')->withCount('blogs')->get();
+
+        $res['success'] = true;
+        $res['data'] = $subCategories;
+        return response()->json($res);
     }
 
     public function getBlogs()

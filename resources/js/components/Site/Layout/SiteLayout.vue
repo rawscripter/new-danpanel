@@ -17,43 +17,43 @@
 </template>
 
 <script>
-    import SiteNavBar from "./SiteNavBar";
-    import SiteTopHeader from "./SiteTopHeader";
-    import SiteFooter from "../SiteFooter";
+import SiteNavBar from "./SiteNavBar";
+import SiteTopHeader from "./SiteTopHeader";
+import SiteFooter from "../SiteFooter";
 
-    export default {
-        name: "SiteLayout",
-        components: {
-            SiteNavBar,
-            SiteTopHeader,
-            SiteFooter
-        }
+export default {
+    name: "SiteLayout",
+    components: {
+        SiteNavBar,
+        SiteTopHeader,
+        SiteFooter
     }
+}
 </script>
 
 <style scoped>
-    /* The sticky class is added to the header with JS when it reaches its scroll position */
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%
-    }
-
-    .mt-200 {
-        margin-top: 210px;
-    }
-
-    @media (max-width: 1200px){
-.mt-200{
-    margin-top: 290px;
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
 }
+
+.mt-200 {
+    margin-top: 210px;
+}
+
+@media (max-width: 1200px) {
+    .mt-200 {
+        margin-top: 290px;
     }
+}
 
 
-    @media (max-width: 900px){
-        .mt-200{
-            margin-top: 300px;
-        }
+@media (max-width: 900px) {
+    .mt-200 {
+        margin-top: 300px;
     }
+}
 
 </style>

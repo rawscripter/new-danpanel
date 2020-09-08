@@ -4,7 +4,9 @@
              alt="blog image"
              :src='`/blog/images/${blog.image}`'>
         <div>
-            <div class="blog-title">{{ blog.title }}</div>
+            <router-link :to="{name:'blog-details',params:{blog:blog.slug}}" tag="span" class="cursour-pointer">
+                <div class="blog-title">{{ blog.title }}</div>
+            </router-link>
 
             <div class="blog-content" v-html="blog.description">
             </div>
@@ -43,11 +45,16 @@ export default {
     max-height: 110px;
     overflow: hidden;
 }
+
 .blog-single.shadow {
     text-align: center;
 }
 
 img.blog-image {
     max-height: 245px;
+}
+
+.cursour-pointer {
+    cursor: pointer;
 }
 </style>
