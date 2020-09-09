@@ -15,19 +15,19 @@ class OrderPaymentObserver
      */
     public function created(OrderPayment $orderPayment)
     {
-        try {
-            // send first Order Payment Confirmation mail
-            if ($orderPayment->type == 1) {
-                MailController::sendMailToUserAtOrderFirstPayment($orderPayment->order);
-            };
-
-            // send first Order Payment Confirmation mail
-            if ($orderPayment->type == 2) {
-                MailController::sendMailToUserAtOrderSecondPayment($orderPayment->order);
-            };
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
+//        try {
+//            // send first Order Payment Confirmation mail
+//            if ($orderPayment->type == 1) {
+////                MailController::sendMailToUserAtOrderFirstPayment($orderPayment->order);
+//            };
+//
+//            // send first Order Payment Confirmation mail
+//            if ($orderPayment->type == 2) {
+////                MailController::sendMailToUserAtOrderSecondPayment($orderPayment->order);
+//            };
+//        } catch (\Exception $e) {
+//            return $e->getMessage();
+//        }
     }
 
     /**

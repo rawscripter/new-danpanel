@@ -9,8 +9,13 @@
 
                     <div id="dibs-complete-checkout"></div>
                     <div class="main-content" v-if="!hideOrderDetailsForm">
-                        <loading :active.sync="isPaymentBoxLoading"
-                                 :is-full-page="false"></loading>
+                        <loading
+                            :color="'#00adf3'"
+                            :active.sync="isLoading"
+                            :can-cancel="false"
+                            :loader="'dots'"
+                            :is-full-page="false"
+                        ></loading>
                         <div class="user-profile-all-order p-3">
                             <h5 class="text-center">My Orders</h5>
                             <hr>
@@ -49,7 +54,10 @@
                                             {{ order.created_at }}
                                         </td>
                                         <td>
-                                            <button class="btn btn-sm btn-theme">View Details</button>
+                                            <router-link class="btn btn-sm btn-theme"
+                                                         :to="{name:'customer-order-details',params:{order:order.custom_order_id}}">
+                                                View Details
+                                            </router-link>
                                         </td>
                                     </tr>
                                     </tbody>
