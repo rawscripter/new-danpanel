@@ -788,9 +788,9 @@ button.VueCarousel-navigation-button.VueCarousel-navigation-prev img {
 }
 
 @media (max-width:800px) {
-    .hide-in-mobile {
+    /* .hide-in-mobile {
         display: none !important;
-    }
+    } */
 
     .no-padding-in-mobile {
         padding: 0px !important;
