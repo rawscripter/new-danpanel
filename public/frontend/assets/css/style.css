@@ -168,9 +168,6 @@ body {
     overflow: hidden;
 }
 
-.pricing-section .pricing-left {
-    width: 50%;
-}
 
 .pricing-section .pricing-left h6 {
     font-weight: bold;
@@ -829,4 +826,8 @@ button.VueCarousel-dot {
 
 .VueCarousel-dot-container {
     margin: 0px !important;
+}
+
+.subcategory-list ul li {
+    margin-bottom: 5px;
 }
