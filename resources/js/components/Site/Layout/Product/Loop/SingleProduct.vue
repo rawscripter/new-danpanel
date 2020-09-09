@@ -119,19 +119,20 @@
         </router-link>
 
         <div class="pricing-section" v-if="!product.is_request_product">
-            <div class="pricing-section flex-sm-column d-flex justify-content-start">
-                <div class="pricing-left text-left" v-if="product.market_price> 0">
-                    <h5 class="small-font-in-mobile">
-                        <small>Market Price</small>
-                    </h5>
+            <div class="pricing-section flex-sm-column d-flex justify-content-center flex-column align-items-center"
+                 style="flex-direction:column">
+                <div class="pricing-left text-left1" v-if="product.market_price> 0">
+                    <!-- <h5 class="small-font-in-mobile">
+                      <small>Market Price</small>
+                    </h5> -->
                     <h5 class="small-font-in-mobile">
                         <del>{{ product.market_price }} Kr</del>
                     </h5>
                 </div>
-                <div class="pricing-right" :class="product.market_price > 0 ? 'text-right' : 'text-left'">
+                <div class="pricing-right1" :class="product.market_price > 0 ? 'text-left' : 'text-left'">
                     <h5 class="small-font-in-mobile">
                         <small>
-                            <span v-if="product.market_price > 0">Offer</span> Price
+                            <span v-if="product.market_price > 0"></span>
                         </small>
                     </h5>
                     <h5 class="small-font-in-mobile">{{ product.offer_price }} kr</h5>
