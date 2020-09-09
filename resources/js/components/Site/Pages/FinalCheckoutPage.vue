@@ -58,7 +58,7 @@
                               type="text"
                               v-model="shippingInfo.city"
                               class="form-control form-control-sm rounded-0"
-                              name="city"
+                              name="city"CategoryController
                             />
                           </div>
                         </div>

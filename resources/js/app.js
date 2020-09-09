@@ -16,7 +16,7 @@ import VueCookies from "vue-cookies";
 
 Vue.use(VueCookies);
 
-var SocialSharing = require("vue-social-sharing");
+let SocialSharing = require("vue-social-sharing");
 
 Vue.use(SocialSharing);
 
@@ -68,7 +68,6 @@ Vue.use(vueAwesomeCountdown, "vac");
 
 
 Vue.component("Loading", Loading);
-
 
 
 import InfiniteLoading from "vue-infinite-loading";

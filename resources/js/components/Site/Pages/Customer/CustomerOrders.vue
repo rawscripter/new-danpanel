@@ -34,6 +34,10 @@
                                         <th scope="row">
                                             <p v-for='product in order.products'>
                                                 {{ product.name }}
+                                                <span v-for="sv in product.selected_variation">
+                                                   | {{ sv.variationOption.name }}
+                                                </span>
+
                                             </p>
                                         </th>
                                         <td>{{ order.total_price }} kr</td>

@@ -146,10 +146,6 @@
         margin-top: 150px !important;
     }
 
-    .page-wrapper.wow {
-        overflow: hidden;
-    }
-
     .back-to-home {
         font-size: 19px;
         font-weight: bold;
