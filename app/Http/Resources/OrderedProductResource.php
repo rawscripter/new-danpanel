@@ -24,6 +24,8 @@ class OrderedProductResource extends JsonResource
             'thumbImage' => $this->thumbImage(),
             'featureImage' => $this->featureImage(),
             'selected_variation' => !empty($this['pivot']['variations']) ? $this->orderVariations($this['pivot']['variations']) : [],// $this->variations ? json_decode($this->variations, true) : [],
+            'quantity' => $this['pivot']['quantity'],
+            'total' => $this['pivot']['total_price'],
             'fullImage' => $this->mainImage(),
             'short_des' => $this->short_des,
             'full_des' => $this->full_des,

@@ -12,7 +12,7 @@
                                 <div class="shadow border-bottom border-theme">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.totalOrders}}</strong></h2>
-                                        <h5 class="text-muted"><strong>Samlede begivenheder</strong></h5>
+                                        <p class="text-muted"><strong>Samlede begivenheder</strong></p>
                                     </div>
                                 </div>
                             </div>
@@ -22,7 +22,7 @@
                                 <div class="shadow  border-bottom border-active">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.activeOrders}}</strong></h2>
-                                        <h5 class="text-muted"><strong>Aktive begivenheder</strong></h5>
+                                        <p class="text-muted"><strong>Aktive begivenheder</strong></p>
                                     </div>
                                 </div>
                             </router-link>
@@ -32,7 +32,7 @@
                                 <div class="shadow  border-bottom border-green">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.completedOrders}}</strong></h2>
-                                        <h5 class="text-muted"><strong>Fuldførte begivenheder</strong></h5>
+                                        <p class="text-muted"><strong>Fuldførte begivenheder</strong></p>
                                     </div>
                                 </div>
                             </router-link>
@@ -42,27 +42,27 @@
                                 <div class="shadow  border-bottom border-red">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.canceledOrders}}</strong></h2>
-                                        <h5 class="text-muted"><strong>Annullerede begivenheder</strong></h5>
+                                        <p class="text-muted"><strong>Annullerede begivenheder</strong></p>
                                     </div>
                                 </div>
                             </router-link>
 
                             <router-link tag="div" to="/favourites"
-                                         class="col-md-3 col-lg-3 wow bounceIn cp">
+                                         class="col-md-3 col-lg-3  mt-4  wow bounceIn cp">
                                 <div class="shadow border-bottom border-pink">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.totalFavourites}}</strong></h2>
-                                        <h5 class="text-muted"><strong>Total Favourites Events</strong></h5>
+                                        <p class="text-muted"><strong>Total Favourites Events</strong></p>
                                     </div>
                                 </div>
                             </router-link>
 
                             <router-link tag="div" to="/reminder-events"
-                                         class="col-md-3 col-lg-3 wow bounceIn cp">
+                                         class="col-md-3  mt-4  col-lg-3 wow bounceIn cp">
                                 <div class="shadow border-bottom border-pink">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.totalReminders}}</strong></h2>
-                                        <h5 class="text-muted"><strong>Total Reminder Events</strong></h5>
+                                        <p class="text-muted"><strong>Total Reminder Events</strong></p>
                                     </div>
                                 </div>
                             </router-link>
@@ -72,7 +72,7 @@
                                 <div class="shadow border-bottom border-pink">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.canceledOrders}}</strong></h2>
-                                        <h5 class="text-muted"><strong>Manglende begivenhedsbetalinger</strong></h5>
+                                        <p class="text-muted"><strong>Manglende begivenhedsbetalinger</strong></p>
                                     </div>
                                 </div>
                             </div>

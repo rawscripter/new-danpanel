@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 });
 
 //Route::post('order/shipping/save', 'OrderController@saveShippingInfo');
-Route::post('/order/create', 'OrderController@createTemporaryOrder');
+Route::post('/order/create', 'OrderController@createNewOrder');
 
 
 // apis for admin
