@@ -28,10 +28,10 @@
                                         class="button-label"
                                         :for="`radio-btn-${option.id}`"
                                     >
-                <span>
-                  {{ option.name }}
-                  <span v-if="option.price >0">+{{ option.price }}kr</span>
-                </span>
+                                    <span>
+                                      {{ option.name }}
+                                      <span v-if="option.price >0">+{{ option.price }}kr</span>
+                                    </span>
                                     </label>
                                 </div>
                             </div>
@@ -42,36 +42,18 @@
             </div>
             <form action="" v-if="step === 1" @submit.prevent="submitFormData">
                 <div class="form-group">
-                    <label for="">First Name</label>
+                    <label for="">Name</label>
                     <input type="text" placeholder="First Name" class="form-control">
                 </div>
-
-                <div class="form-group">
-                    <label for="">Last Name</label>
-                    <input type="text" placeholder="Last Name" class="form-control">
-                </div>
-
 
                 <div class="form-group">
                     <label for="">Email </label>
                     <input type="text" placeholder="Email" class="form-control">
                 </div>
 
-
                 <div class="form-group">
-                    <label for="">Address</label>
-                    <input type="text" placeholder="First Name" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="">Zipcode</label>
-                    <input type="text" placeholder="Zipcode" class="form-control">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="">City</label>
-                    <input type="text" placeholder="City" class="form-control">
+                    <label for="">Phone </label>
+                    <input type="text" placeholder="Phone" class="form-control">
                 </div>
 
                 <div class="form-group">
