@@ -1,114 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div class="page-wrapper wow" id="product_area">
-    <loading
-      :color="'#00adf3'"
-      :active.sync="isLoading"
-      :can-cancel="false"
-      :loader="'dots'"
-      :is-full-page="false"
-    ></loading>
-    <div class="container no-padding-in-mobile">
-      <div class="row">
-        <div class="col-md-12 no-padding-in-mobile">
-          <!-- <HeaderVideoSection></HeaderVideoSection> -->
-          <div class="main-content">
-            <div class="product-area" v-if="requestProducts.length > 0">
-              <div class="package-products">
-                <div class="alert text-center mr-2 ml-2">
-                  <h4 class="m-0 p-0 custom-color">
-                    <strong>Hent Tilbud Products</strong>
-                  </h4>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0 padding-for-mobile">
-                    <carousel
-                      :perPageCustom="[[320, 2],[480, 2],[768, 2],[1199,4]]"
-                      :paginationActiveColor="'#00adf3'"
-                      :autoplay-timeout="4000"
-                      :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"
-                      :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
-                      :navigationEnabled="true"
-                      :loop="true"
-                      :autoplay="true"
-                      :per-page="3"
-                      :mouse-drag="true"
-                    >
-                      <slide v-for="product in requestProducts" :key="product.id">
-                        <SingleProduct :product="product"></SingleProduct>
-                        <!-- end of product single  -->
-                      </slide>
-                    </carousel>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="product-area" v-if="packageProducts.length > 0">
-              <div class="package-products">
-                <div class="alert text-center mr-2 ml-2">
-                  <h4 class="m-0 p-0 custom-color">
-                    <strong>Package Products</strong>
-                  </h4>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0 padding-for-mobile">
-                    <carousel
-                      :perPageCustom="[[320, 2],[480, 2],[768, 2],[1199,4]]"
-                      :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"
-                      :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
-                      :paginationActiveColor="'#00adf3'"
-                      :autoplay-timeout="4000"
-                      :navigationEnabled="true"
-                      :loop="true"
-                      :autoplay="true"
-                      :per-page="3"
-                      :mouse-drag="true"
-                    >
-                      <slide v-for="product in packageProducts" :key="product.id">
-                        <SingleProduct :product="product"></SingleProduct>
-                        <!-- end of product single  -->
-                      </slide>
-                    </carousel>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-             <div class="product-area" v-if="runningProducts.length > 0">
-              <div class="running-products">
-                <div class="alert text-center mr-2 ml-2">
-                  <h4 class="m-0 p-0 custom-color">
-                    <strong>Igangværende begivenheder</strong>
-                  </h4>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0 padding-for-mobile">
-                    <carousel
-                      :perPageCustom="[[320, 2],[480, 2],[768, 2],[1199,4]]"
-                      :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"
-                      :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
-                      :paginationActiveColor="'#00adf3'"
-                      :autoplay-timeout="4000"
-                      :navigationEnabled="true"
-                      :loop="true"
-                      :autoplay="true"
-                      :per-page="3"
-                      :mouse-drag="true"
-                    >
-                      <slide v-for="product in runningProducts" :key="product.id">
-                        <SingleProduct :product="product"></SingleProduct>
-                        <!-- end of product single  -->
-                      </slide>
-                    </carousel>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-=======
     <div class="page-wrapper wow" id="product_area">
         <loading
             :color="'#00adf3'"
@@ -215,7 +105,6 @@
                     </div>
                 </div>
             </div>
->>>>>>> 600d9f7427a5c4e8e899429d163c07b2ef6b14b9
         </div>
     </div>
 </template>
@@ -225,7 +114,6 @@ import SubCategoryMenuBar from "../Layout/SubCategoryMenuBar";
 import SingleProduct from "../Layout/Product/Loop/SingleProduct";
 import HeaderVideoSection from "../Layout/HeaderVideoSection";
 import {Carousel, Slide} from "vue-carousel";
-
 export default {
     name: "SiteIndex",
     components: {
@@ -306,26 +194,21 @@ export default {
     padding: 5px;
     min-height: 70vh;
 }
-
 .big-error-font {
     font-size: 48px;
     color: #3939396b;
     margin-top: 150px !important;
 }
-
 .prodcut-signle {
     border: 1px solid #dadada8c;
 }
-
 .prodcut-signle:hover {
     box-shadow: 3px 6px 2px 0px #dadada8c;
     transition-duration: 0.5s;
 }
-
 .alert {
     background: #f2f2f2;
 }
-
 .custom-color {
     color: #19606f;
 }

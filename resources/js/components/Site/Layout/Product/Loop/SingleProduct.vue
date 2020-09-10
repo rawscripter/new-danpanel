@@ -138,43 +138,12 @@
                     <h5 class="small-font-in-mobile">{{ product.offer_price }} kr</h5>
                 </div>
             </div>
-<<<<<<< HEAD
-          </div>
-          <span slot="finish" class="expired">Begivenheden er endt</span>
-        </vac>
-        <span v-else class="expired">Kommer snart</span>
-      </div>
-
-      <div class="short-description hide-in-mobile">
-        <p class="text-center">{{ product.short_des }}</p>
-      </div>
-    </router-link>
-
-    <div class="pricing-section" v-if="!product.is_request_product">
-      <div class="pricing-section flex-sm-column d-flex justify-content-center flex-column align-items-center" style="flex-direction:column">
-        <div class="pricing-left text-left1" v-if="product.market_price> 0">
-          <!-- <h5 class="small-font-in-mobile">
-            <small>Market Price</small>
-          </h5> -->
-          <h5 class="small-font-in-mobile">
-            <del>{{ product.market_price }} Kr</del>
-          </h5>
-        </div>
-        <div class="pricing-right1" :class="product.market_price > 0 ? 'text-left' : 'text-left'">
-          <h5 class="small-font-in-mobile">
-            <small>
-              <span v-if="product.market_price > 0"></span>
-            </small>
-          </h5>
-          <h5 class="small-font-in-mobile">{{ product.offer_price }} kr</h5>
-=======
             <div class="you-save" v-if="product.save_price > 0">
                 <h6 class="small-font-in-mobile">
                     You Save:
                     <strong>{{ product.save_price }} kr</strong>
                 </h6>
             </div>
->>>>>>> 8d0948753cdac282268db3371f1623c2c4b1cc49
         </div>
 
         <router-link
@@ -219,7 +188,6 @@ export default {
                 this.$toast.error("Please login first.");
                 return;
             }
-
             axios
                 .get(`/api/product/${slug}/favourite/add`)
                 .then((res) => {
@@ -272,15 +240,12 @@ export default {
 .active {
     display: block;
 }
-
 .love {
     cursor: pointer;
 }
-
 .share {
     cursor: pointer;
 }
-
 .bottom-pane {
     margin-top: 0px;
     border-radius: 5px;
@@ -290,33 +255,27 @@ export default {
     text-align: center;
     width: 35px;
 }
-
 .num {
     font-size: 16px;
     color: #000;
     font-weight: bold;
 }
-
 span.expired {
     font-weight: bold;
     color: red;
     font-size: 18px;
 }
-
 h5 {
     font-weight: 700;
     font-size: 17px;
 }
-
 .category a {
     text-decoration: none;
     color: unset;
 }
-
 .active {
     display: block;
 }
-
 span.favourite-badge {
     position: absolute;
     right: 13px;
@@ -328,11 +287,9 @@ span.favourite-badge {
     letter-spacing: 1px;
     font-size: 12px;
 }
-
 .modal-dialog {
     margin-top: 150px;
 }
-
 .modal-dialog .modal-body span {
     flex: none;
     color: #ffffff;
@@ -346,23 +303,19 @@ span.favourite-badge {
     cursor: pointer;
     margin: 0 10px 10px 0;
 }
-
 .modal-dialog .modal-body .fab {
     background-color: rgba(0, 0, 0, 0.2);
     padding: 10px;
     flex: 0 1 auto;
 }
-
 .modal-dialog .modal-body span {
     padding: 0 10px;
     flex: 1 1;
     font-weight: 500;
 }
-
 .product-link {
     color: #616161;
 }
-
 .saving-percentage {
     position: absolute;
     top: 18px;
@@ -372,22 +325,13 @@ span.favourite-badge {
     color: #fff;
     font-size: 12px;
 }
-
 .product-link:hover {
     text-decoration: none;
     color: #000000;
 }
-
 .pricing-section {
-<<<<<<< HEAD
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  height: 85px;
-=======
     display: flex;
     flex-direction: column;
     height: 85px;
->>>>>>> 8d0948753cdac282268db3371f1623c2c4b1cc49
 }
 </style>

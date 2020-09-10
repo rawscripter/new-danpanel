@@ -1,19 +1,20 @@
 <template>
-    <div class="product_view_sidebar shadow">
-        <div class="pricing-left">
-            <div v-if="product.market_price > 0">
-                <h6>Gennemsnitlig markedspris</h6>
+    <div class="product_view_sidebar shadow container">
+        <div class="pricing-left row">
+            <div class="col-md-12" v-if="product.market_price> 0">
+                <!-- <h6>Gennemsnitlig markedspris</h6> -->
                 <h5>
                     <del>{{ product.market_price }} Kr-</del>
                 </h5>
             </div>
-            <h6>Startpris</h6>
-            <h6>
+            <!-- <h6>Startpris</h6> -->
+            <div class="col-md-12"><h5>{{ product.offer_price }} Kr</h5></div>
+           <!-- <h6>
                 <h5>{{ product.offer_price }} Kr</h5>
-            </h6>
+            </h6>  -->
 
             <!--            total save-->
-            <div class="product-variations mt-3 mb-3" v-if="product.product_variation.length > 0">
+            <div class="product-variations mt-3 mb-3 col-md-12" v-if="product.product_variation.length > 0">
                 <div v-for="variation in product.product_variation" :key="variation.id" class="pt-2 pb-2">
                     <div>
                         <strong>{{ variation.name }}:</strong>
@@ -49,36 +50,46 @@
                     </div>
                 </div>
             </div>
-
-            <div class="love-section clearfix">
+        </div>
+        <div class="row">
+            <div class="love-section clearfix col-md-12 col-xs-3">
                 <button v-if="product.isLikedByCurrentUser" class="btn btn-success">
                     {{ product.totalLikes }}
                     <i class="fas fa-heart" style="color:red"></i>
                 </button>
+                
                 <button v-else @click="addProductToLikeList(product.slug)" class="btn btn-success">
                     {{ product.totalLikes }}
                     <i class="far fa-heart"></i>
                 </button>
             </div>
-            <button class="btn mt-1 btn-success">Du sparer {{ product.saving_percentage }}%</button>
+            <div class="col-md-12 col-xs-3">
+                <button class="btn mt-1 btn-success">Du sparer {{ product.saving_percentage }}%</button>
+            </div>
+        
+
+            <div class="btn btn-theme btn-block mt-2 col-md-12 col-xs-6" @click="addToCart(product)">Add To Cart</div>
         </div>
-
-        <div class="btn btn-theme btn-block mt-2" @click="addToCart(product)">Add To Cart</div>
-
-        <div class="sidebar-action">
-            <p @click="addProductToFavouriteList(product.slug)" v-if="!isUserFavourite">
-                <img src="/images/icons/favorite.png" height="20" alt/> Gem
-                till favouriter
-            </p>
+        <div class="sidebar-action row">
+            <div class="col-md-12 col-xs-4">
+                <p @click="addProductToFavouriteList(product.slug)" v-if="!isUserFavourite">
+                    <img src="/images/icons/favorite.png" height="20" alt/> Gem
+                    till favouriter
+                </p>
+            </div>
             <br/>
-            <p @click="addProductToReminderList(product.slug)">
-                <i class="fas fa-sync mr-2"></i> Pamind mig
-            </p>
-            <br/>
-            <p @click="shareProductOnSocialMedia">
-                <img src="/images/icons/share.png" height="20" width="20" alt/>
-                Del
-            </p>
+            <div class="col-md-12 col-xs-4">
+                <p @click="addProductToReminderList(product.slug)">
+                    <i class="fas fa-sync mr-2"></i> Pamind mig
+                </p>
+                <!-- <br/> -->
+            </div>
+            <div class="col-md-12 col-xs-4">
+                <p @click="shareProductOnSocialMedia">
+                    <img src="/images/icons/share.png" height="20" width="20" alt/>
+                    Del
+                </p>
+            </div>
             <div class="sidebar-social mt-2 d-flex justify-content-around"></div>
         </div>
 

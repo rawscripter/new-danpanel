@@ -9,7 +9,7 @@ require("./bootstrap");
 window.Vue = require("vue");
 
 // window.APP_URL = "http://danpanel.test";
-window.APP_URL = "http://up-danpanel.danpanel.dk";
+window.APP_URL = "http://danpanel.test:8081";
 window.CURRENCY = "dkk";
 
 import VueCookies from "vue-cookies";
