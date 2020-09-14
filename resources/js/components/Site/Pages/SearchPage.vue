@@ -86,7 +86,7 @@
                                     }
                                 });
                             } else {
-                                this.errorText = 'No Product Found';
+                                this.errorText = 'Ingen resultater';
                             }
 
 

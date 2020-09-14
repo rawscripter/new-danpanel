@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="sticky-header" class="fixed-top">
+        <div id="sticky-header arrow-id" class="fixed-top">
             <SiteTopHeader></SiteTopHeader>
             <hr class="m-0 p-0">
             <SiteNavBar></SiteNavBar>

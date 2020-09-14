@@ -16,7 +16,7 @@
                             <div class="package-products">
                                 <div class="alert text-center mr-2 ml-2">
                                     <h4 class="m-0 p-0 custom-color">
-                                        <strong>Hent Tilbud Products</strong>
+                                        <strong>Hent Tilbud</strong>
                                     </h4>
                                 </div>
                                 <div class="row">
@@ -42,41 +42,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="product-area" v-if="runningProducts.length > 0">
-                            <div class="running-products">
-                                <div class="alert text-center mr-2 ml-2">
-                                    <h4 class="m-0 p-0 custom-color">
-                                        <strong>Igangværende begivenheder</strong>
-                                    </h4>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0 padding-for-mobile">
-                                        <carousel
-                                            :perPageCustom="[[320, 2],[480, 2],[768, 2],[1199,4]]"
-                                            :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"
-                                            :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
-                                            :paginationActiveColor="'#00adf3'"
-                                            :autoplay-timeout="4000"
-                                            :navigationEnabled="true"
-                                            :loop="true"
-                                            :autoplay="true"
-                                            :per-page="3"
-                                            :mouse-drag="true"
-                                        >
-                                            <slide v-for="product in runningProducts" :key="product.id">
-                                                <SingleProduct :product="product"></SingleProduct>
-                                                <!-- end of product single  -->
-                                            </slide>
-                                        </carousel>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-area" v-if="packageProducts.length > 0">
+                        
+                         <div class="product-area" v-if="packageProducts.length > 0">
                             <div class="package-products">
                                 <div class="alert text-center mr-2 ml-2">
                                     <h4 class="m-0 p-0 custom-color">
-                                        <strong>Package Products</strong>
+                                        <strong>Pakketilbud</strong>
                                     </h4>
                                 </div>
                                 <div class="row">
@@ -102,6 +73,38 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="product-area" v-if="runningProducts.length > 0">
+                            <div class="running-products">
+                                <div class="alert text-center mr-2 ml-2">
+                                    <h4 class="m-0 p-0 custom-color">
+                                        <strong>Shop</strong>
+                                    </h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 ml-0 pl-5 pr-5 mr-0 pr-0 padding-for-mobile">
+                                        <carousel
+                                            :perPageCustom="[[320, 2],[480, 2],[768, 2],[1199,4]]"
+                                            :navigationNextLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left'>`"
+                                            :navigationPrevLabel="`<img src='/images/icons/next-icon.png' width='16px' class='icon-left rotate-180'>`"
+                                            :paginationActiveColor="'#00adf3'"
+                                            :autoplay-timeout="4000"
+                                            :navigationEnabled="true"
+                                            :loop="true"
+                                            :autoplay="true"
+                                            :per-page="3"
+                                            :mouse-drag="true"
+                                        >
+                                            <slide v-for="product in runningProducts" :key="product.id">
+                                                <SingleProduct :product="product"></SingleProduct>
+                                                <!-- end of product single  -->
+                                            </slide>
+                                        </carousel>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
                     </div>
                 </div>
             </div>

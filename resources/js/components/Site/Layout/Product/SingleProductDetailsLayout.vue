@@ -118,9 +118,9 @@
         <!-- discription div  -->
         <div class="discription" v-html="product.full_des"></div>
         <br/>
-        <h5 class="mt-2">
+        <!-- <h5 class="mt-2">
             <strong>Ordrenotat:</strong>
-        </h5>
+        </h5> -->
         <div class="orderNote" v-html="product.order_note"></div>
     </div>
 </template>

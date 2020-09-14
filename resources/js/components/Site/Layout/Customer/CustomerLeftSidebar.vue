@@ -19,7 +19,7 @@
 
                 <router-link tag="a" class="dropdown-item" exact
                              :to="{name:'customer-canceled-orders',query:{type:'canceled'}}">
-                    Annullerede begivenheder
+                    Annullerede ordrer
                 </router-link>
 
                 <div class="dropdown-divider"></div>

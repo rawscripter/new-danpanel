@@ -13,8 +13,8 @@
                                 <th>Produktbillede</th>
                                 <th>Begivenheds</th>
                                 <th>
-                                    Deltagelsespris
-                                    <br/>(del 1 of two betalinger)
+                                    Pris
+                                    <!-- <br/>(del 1 of two betalinger) -->
                                 </th>
                                 <th>Antal</th>
                                 <!--                                <th>Bemærk</th>-->
@@ -85,7 +85,7 @@
                             </tbody>
                         </table>
                         <div v-else class="text-center">
-                            <h4 class="text-muted">Your Cart is empty.</h4>
+                            <h4 class="text-muted">Indkøbskurven er tom.</h4>
 
                             <br><br>
 
@@ -121,7 +121,7 @@
 
                                                 <tr>
                                                     <td>
-                                                        <strong>Vat:</strong>
+                                                        <strong>Moms:</strong>
                                                     </td>
                                                     <td>0 dkk</td>
                                                 </tr>
@@ -139,7 +139,7 @@
                                                             tag="button"
                                                             :to="{name:'final-checkout'}"
                                                             class="btn btn-block mt-3 btn-success"
-                                                        >Checkout
+                                                        >Bestilling
                                                         </router-link>
                                                     </td>
                                                 </tr>

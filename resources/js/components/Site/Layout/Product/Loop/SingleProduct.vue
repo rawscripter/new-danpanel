@@ -5,7 +5,7 @@
                 <img :src="product.featureImage" alt style="width:100%"/>
 
                 <div class="saving-percentage" v-if="product.saving_percentage > 0">
-                    <span>save {{ product.saving_percentage }}%</span>
+                    <span>Spare {{ product.saving_percentage }}%</span>
                 </div>
             </router-link>
             <span
@@ -140,7 +140,7 @@
             </div>
             <div class="you-save" v-if="product.save_price > 0">
                 <h6 class="small-font-in-mobile">
-                    You Save:
+                    Du sparer:
                     <strong>{{ product.save_price }} kr</strong>
                 </h6>
             </div>
@@ -150,7 +150,7 @@
             class="btn btn-success btn-block mt-3 small-font-in-mobile"
             tag="button"
             :to="{name: 'product-details', params:{slug:product.slug}}"
-        >Deatils
+        >Detaljer
         </router-link>
     </div>
 </template>

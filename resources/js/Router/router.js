@@ -162,7 +162,7 @@ const routes = [
         path: '/',
         component: SiteIndex,
         meta: {
-            title: 'Welcome to Join Offer!'
+            title: 'DanPanel'
         }
     },  // routes for site
     {
@@ -250,7 +250,7 @@ const routes = [
         name: 'product-details',
         component: ProductDetailsPage,
         meta: {
-            title: 'Welcome to Join Offer!'
+            title: 'DanPanel!'
         }
     },
     {

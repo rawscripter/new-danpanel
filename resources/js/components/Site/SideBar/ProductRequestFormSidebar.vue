@@ -4,7 +4,7 @@
 
         <div class="form">
             <div class="form-header mt-3 mb-3">
-                <h5><strong>Please fill the form</strong></h5>
+                <h5><strong>Udfyld venligst formularen</strong></h5>
             </div>
 
             <div class="product-question" v-if="this.product.product_variation.length">
@@ -28,10 +28,10 @@
                                         class="button-label"
                                         :for="`radio-btn-${option.id}`"
                                     >
-                <span>
-                  {{ option.name }}
-                  <span v-if="option.price >0">+{{ option.price }}kr</span>
-                </span>
+                                    <span>
+                                      {{ option.name }}
+                                      <span v-if="option.price >0">+{{ option.price }}kr</span>
+                                    </span>
                                     </label>
                                 </div>
                             </div>
@@ -42,44 +42,30 @@
             </div>
             <form action="" v-if="step === 1" @submit.prevent="submitFormData">
                 <div class="form-group">
-                    <label for="">First Name</label>
-                    <input type="text" placeholder="First Name" class="form-control">
+                    <!-- <label for="">Navn</label> -->
+                    <input type="text" placeholder="Navn" class="form-control">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Last Name</label>
-                    <input type="text" placeholder="Last Name" class="form-control">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="">Email </label>
+                    <!-- <label for="">Email </label> -->
                     <input type="text" placeholder="Email" class="form-control">
                 </div>
 
-
                 <div class="form-group">
-                    <label for="">Address</label>
-                    <input type="text" placeholder="First Name" class="form-control">
+                    <!-- <label for="">Telefon </label> -->
+                    <input type="text" placeholder="Telefon" class="form-control">
+                </div>
+                  <div class="form-group">
+                    <!-- <label for="">Telefon </label> -->
+                    <input type="text" placeholder="CVR" class="form-control">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Zipcode</label>
-                    <input type="text" placeholder="Zipcode" class="form-control">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="">City</label>
-                    <input type="text" placeholder="City" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="">Note</label>
-                    <textarea name="" id="" cols="10" rows="5" class="form-control"></textarea>
+                    <!-- <label for="">Besked</label> -->
+                    <textarea name="" id="" placeholder="Besked" cols="10" rows="5" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-theme btn-block" type="submit">Submit</button>
+                    <button class="btn btn-theme btn-block" type="submit">Indsend</button>
                 </div>
             </form>
         </div>
@@ -107,12 +93,12 @@ export default {
     },
     methods: {
         submitFormData() {
-            this.$toast.success("Form submitted.");
+            this.$toast.success("Formular indsendt.");
         },
         goToFormSection() {
             let totalVariationsOfProduct = this.product.product_variation.length;
             if (totalVariationsOfProduct !== this.formData.selectedVariations.length) {
-                this.$toast.error("Please answer the questions first.");
+                this.$toast.error("Besvar spørgsmålene først.");
                 return 0;
             } else {
                 this.step = 1;

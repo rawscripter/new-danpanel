@@ -1,20 +1,19 @@
 <template>
-    <div class="product_view_sidebar shadow container">
-        <div class="pricing-left row">
-            <div class="col-md-12" v-if="product.market_price> 0">
+    <div class="product_view_sidebar shadow">
+        <div class="pricing-left">
+            <div v-if="product.market_price > 0">
                 <!-- <h6>Gennemsnitlig markedspris</h6> -->
                 <h5>
                     <del>{{ product.market_price }} Kr-</del>
                 </h5>
             </div>
             <!-- <h6>Startpris</h6> -->
-            <div class="col-md-12"><h5>{{ product.offer_price }} Kr</h5></div>
-           <!-- <h6>
+            <h6>
                 <h5>{{ product.offer_price }} Kr</h5>
-            </h6>  -->
+            </h6>
 
             <!--            total save-->
-            <div class="product-variations mt-3 mb-3 col-md-12" v-if="product.product_variation.length > 0">
+            <div class="product-variations mt-3 mb-3" v-if="product.product_variation.length > 0">
                 <div v-for="variation in product.product_variation" :key="variation.id" class="pt-2 pb-2">
                     <div>
                         <strong>{{ variation.name }}:</strong>
@@ -50,46 +49,36 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="love-section clearfix col-md-12 col-xs-3">
+
+            <div class="love-section clearfix">
                 <button v-if="product.isLikedByCurrentUser" class="btn btn-success">
                     {{ product.totalLikes }}
                     <i class="fas fa-heart" style="color:red"></i>
                 </button>
-                
                 <button v-else @click="addProductToLikeList(product.slug)" class="btn btn-success">
                     {{ product.totalLikes }}
                     <i class="far fa-heart"></i>
                 </button>
             </div>
-            <div class="col-md-12 col-xs-3">
-                <button class="btn mt-1 btn-success">Du sparer {{ product.saving_percentage }}%</button>
-            </div>
-        
-
-            <div class="btn btn-theme btn-block mt-2 col-md-12 col-xs-6" @click="addToCart(product)">Add To Cart</div>
+            <button class="btn mt-1 btn-success">Du sparer {{ product.saving_percentage }}%</button>
         </div>
-        <div class="sidebar-action row">
-            <div class="col-md-12 col-xs-4">
-                <p @click="addProductToFavouriteList(product.slug)" v-if="!isUserFavourite">
-                    <img src="/images/icons/favorite.png" height="20" alt/> Gem
-                    till favouriter
-                </p>
-            </div>
+
+        <div class="btn btn-theme btn-block mt-2" @click="addToCart(product)">Læg i kurv</div>
+
+        <div class="sidebar-action">
+            <p @click="addProductToFavouriteList(product.slug)" v-if="!isUserFavourite">
+                <img src="/images/icons/favorite.png" height="20" alt/> Gem
+                till favouriter
+            </p>
             <br/>
-            <div class="col-md-12 col-xs-4">
-                <p @click="addProductToReminderList(product.slug)">
-                    <i class="fas fa-sync mr-2"></i> Pamind mig
-                </p>
-                <!-- <br/> -->
-            </div>
-            <div class="col-md-12 col-xs-4">
-                <p @click="shareProductOnSocialMedia">
-                    <img src="/images/icons/share.png" height="20" width="20" alt/>
-                    Del
-                </p>
-            </div>
+            <p @click="addProductToReminderList(product.slug)">
+                <i class="fas fa-sync mr-2"></i> Pamind mig
+            </p>
+            <br/>
+            <p @click="shareProductOnSocialMedia">
+                <img src="/images/icons/share.png" height="20" width="20" alt/>
+                Del
+            </p>
             <div class="sidebar-social mt-2 d-flex justify-content-around"></div>
         </div>
 
@@ -135,7 +124,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-theme btn-block">Submit Request</button>
+                                <button type="submit" class="btn btn-theme btn-block">Send anmodning</button>
                             </div>
                         </form>
                     </div>
@@ -172,28 +161,22 @@ export default {
         },
         addToCart(item) {
             // console.log(item)
-
             // check if product has variation and user selected the variation
-
             let totalVariationsOfProduct = this.product.product_variation.length;
             if (totalVariationsOfProduct > 0) {
                 if (totalVariationsOfProduct !== this.selectedVariations.length) {
                     this.$toast.error("Please select product variation first.");
-
                     return;
                 } else {
                     Vue.set(item, "variations", this.selectedVariations);
                 }
             }
             let randomUuid = Math.floor(Math.random() * 99999) + 999;
-
             Vue.set(item, "uuid", randomUuid);
-
             this.$store.commit("addToCart", item);
             this.$store.commit("saveCart");
             this.selectedVariations = [];
             this.$toast.success("Product added to cart.");
-
         },
         shareProductOnSocialMedia() {
             this.$root.$emit("shareProduct", this.product);
@@ -207,27 +190,20 @@ export default {
             let selectedIndex = this.selectedVariations.findIndex(
                 (x) => x.variationID === variationID
             );
-
             // already selected
             if (selectedIndex !== -1) {
                 if (this.selectedVariations[selectedIndex].optionID === optionID)
                     return;
-
                 let optionVariationOptionId = this.selectedVariations[selectedIndex]
                     .optionID;
-
                 let productVariations = this.product.product_variation[selectedIndex];
                 let optionVariationOptionIndex = productVariations.options.findIndex(
                     (x) => x.id === parseInt(optionVariationOptionId)
                 );
-
                 let optionVariationOption =
                     productVariations.options[optionVariationOptionIndex];
-
                 //let newPrice = ((this.product.join_payment_percentage / 100) * price);
-
                 this.product.offer_price -= optionVariationOption.price;
-
                 this.selectedVariations[selectedIndex].optionID = optionID;
                 this.selectedVariations[selectedIndex].optionName = optionName;
             } else {
@@ -238,13 +214,11 @@ export default {
                 };
                 this.selectedVariations.push(newObject);
             }
-
             //   this.$cookies.set(
             //     `product-variation-${this.product.id}`,
             //     JSON.stringify(this.selectedVariations),
             //     60 * 5
             //   );
-
             this.product.offer_price += price;
         },
         submitProductRequest() {
@@ -282,7 +256,6 @@ export default {
             if (!this.isUserLogin) {
                 // this.$root.$emit("callProductRequestModal", this.product);
                 this.$toast.error("Please login first.");
-
                 return;
             }
             axios
@@ -328,7 +301,6 @@ export default {
         getProductUrl() {
             return `${APP_URL}/product/${this.product.slug}`;
         },
-
         isExpired() {
             let now = new Date();
             let expire = new Date(this.product.expire_date);
@@ -360,46 +332,37 @@ small {
     font-weight: bold;
     letter-spacing: 1px;
 }
-
 h5 {
     font-weight: 700;
     font-size: 17px;
 }
-
 .sidebar-action {
     cursor: pointer;
 }
-
 .variations {
     display: flow-root;
 }
-
 .active {
     display: block;
 }
-
 .product_view_sidebar.shadow.position-fixed {
     min-width: 280px;
     max-width: 300px;
 }
-
 .button-wrap {
     position: relative;
     text-align: center;
     top: 50%;
     margin-top: -2.5em;
 }
-
 @media (max-width: 40em) {
     .button-wrap {
         margin-top: -1.5em;
     }
 }
-
 .variation {
     float: left;
 }
-
 .button-label {
     display: inline-block;
     padding: 5px 15px;
@@ -417,41 +380,34 @@ h5 {
     user-select: none;
     font-size: 15px;
 }
-
 .button-label h1 {
     font-size: 1em;
     font-family: "Lato", sans-serif;
 }
-
 .button-label:hover {
     background: #d6d6d6;
     color: #101010;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.32);
 }
-
 .button-label:active {
     -webkit-transform: translateY(2px);
     transform: translateY(2px);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2),
     inset 0px -1px 0 rgba(0, 0, 0, 0.22);
 }
-
 @media (max-width: 40em) {
     .button-label {
         padding: 0em 1em 3px;
         margin: 0.25em;
     }
 }
-
 .radio-label:checked + .button-label {
     background: #ff844e;
     color: #efefef;
 }
-
 .hidden {
     display: none;
 }
-
 .clearfix {
     clear: both;
 }

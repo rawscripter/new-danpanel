@@ -12,17 +12,15 @@ class GlsController extends Controller
         $city = $request->city;
         $zip = $request->zip_code;
         $address = $request->address;
-        $amount = "4000";
+        $amount = "10";
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'www.gls.dk/webservices_v4/wsShopFinder.asmx/GetParcelShopsInZipcode', [
+        $response = $client->request('POST', 'www.gls.dk/webservices_v4/wsShopFinder.asmx/SearchNearestParcelShops', [
             'body' => 'street=' . $address . '&zipcode=' . $zip . '&countryIso3166A2=dk&Amount=' . $amount . '',
             'headers' => [
                 'Content-Type' => 'application/x-www-form-urlencoded',
             ],
         ]);
         $xml = $response->getBody();
-
-
         $xml = new SimpleXMLElement($xml);
 
         $json = json_encode($xml);

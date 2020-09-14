@@ -86,9 +86,9 @@
                                 <network class="social" network="googleplus">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---Google+.png" alt/> Google +
                                 </network>
-                                <network class="social" network="line">
+                                <!-- <network class="social" network="line">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---Line.png" alt/> Line
-                                </network>
+                                </network> -->
                                 <network class="social" network="linkedin">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---LinkedIn.png" alt/>
                                     LinkedIn
@@ -97,29 +97,29 @@
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---Pinterest.png" alt/>
                                     Pinterest
                                 </network>
-                                <network class="social" network="reddit">
+                                <!-- <network class="social" network="reddit">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---Reddit.png" alt/> Reddit
-                                </network>
+                                </network> -->
                                 <network class="social" network="skype">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---Skype.png" alt/> Skype
                                 </network>
                                 <network class="social" network="sms">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---SMS.png" alt/> SMS
                                 </network>
-                                <network class="social" network="telegram">
+                                <!-- <network class="social" network="telegram">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---Telegram.png" alt/>
                                     Telegram
-                                </network>
+                                </network> -->
                                 <network class="social" network="twitter">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---Twitter.png" alt/> Twitter
                                 </network>
-                                <network class="social" network="vk">
+                                <!-- <network class="social" network="vk">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---Vkontakte.png" alt/>
                                     VKontakte
-                                </network>
-                                <network class="social" network="weibo">
+                                </network> -->
+                                <!-- <network class="social" network="weibo">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---Weibo.png" alt/> Weibo
-                                </network>
+                                </network> -->
                                 <network class="social" network="whatsapp">
                                     <img width="20" src="/images/icons/JoinOffers---Ikon---Whatsapp.png" alt/>
                                     Whatsapp

@@ -116,7 +116,7 @@ class OrderController extends Controller
         return $order;
     }
 
-    public function createTemporaryOrder(Request $request)
+    public function createNewOrder(Request $request)
     {
         // if user is not logged in then create a new user
         if (Auth::guard('api')->user()) {
@@ -127,71 +127,13 @@ class OrderController extends Controller
 
         $order = $this->createOrder($request, $user);
 
-        echo PaymentController::createPaymentId($order);
+        $paymentID = PaymentController::createPaymentId($order);
+        $paymentData = json_decode($paymentID, true);
+        $order->payment_id = $paymentData['paymentId'] ?? '';
+        $order->save();
 
+        echo $paymentID;
 
-//        $user = $user = Auth::guard('api')->user();
-//        $product = Product::find($request->orderDetails['productId']);
-//        $totalOrder = Order::all()->count();
-//        $productCategory = $product->category->name;
-//        $serialNum = !empty($totalOrder) ? $totalOrder + 1 : 1;
-//        $newCustomerId = strtoupper($productCategory[0]) . '-00200' . +$serialNum;
-//
-//        $variations = !empty($request->variations) ? json_encode($request->variations) : '';
-//
-//        if ($request->orderDetails['newsletter']) {
-//
-//            if (!$user->isSubscribed()) {
-//                Subscriber::create([
-//                    'user_id' => $user->id,
-//                    'email' => $user->email
-//                ]);
-//            }
-//        }
-//
-//        $newOrder = TemporaryOrder::create(
-//            [
-//                'custom_order_id' => $newCustomerId,
-//                'product_id' => $product->id,
-//                'user_id' => $user->id,
-//                'quantity' => $request->orderDetails['quantity'],
-//                'join_price' => $product->join_price,
-//                'current_price' => $product->current_price,
-//                'is_join_payment_enable' => $product->join_price > 0 ? 1 : 0,
-//                'total_price' => $request->orderDetails['totalPrice'],
-//                'variant_total' => $request->orderDetails['variantTotal'],
-//                'variations' => $variations,
-//
-//            ]
-//        );
-////return $newOrder;
-//        echo PaymentController::createPaymentId($newOrder);
-
-    }
-
-    public static function createNewOrder(TemporaryOrder $order)
-    {
-//        $newOrder = Order::create(
-//            [
-//                'custom_order_id' => $order->custom_order_id,
-//                'product_id' => $order->product_id,
-//                'user_id' => $order->user_id,
-//                'quantity' => $order->quantity,
-//                'join_price' => $order->join_price,
-//                'current_price' => $order->current_price,
-//                'is_join_payment_enable' => $order->is_join_payment_enable,
-//                'total_price' => $order->total_price,
-//                'variations' => $order->variations,
-//                'variant_total' => $order->variant_total,
-//                'payment_deadline' => Carbon::parse($order->product->expire_date)->addDays(7),
-//            ]
-//        );
-//
-//        OrderShippingInfo::create([
-//            'order_id' => $newOrder->id,
-//        ]);
-//
-//        return $newOrder;
     }
 
     public function customerOrders(Request $request)

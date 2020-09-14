@@ -141,7 +141,7 @@ export default {
                                 }
                             });
                         } else {
-                            this.errorText = "No Product Found";
+                            this.errorText = "Ingen resultater"; 
                         }
                         vm.page += 1;
                     });

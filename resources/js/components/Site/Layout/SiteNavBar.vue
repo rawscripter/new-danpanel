@@ -36,7 +36,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <router-link to="/about-us" class="nav-link">About Us</router-link>
+                            <router-link to="/about-us" class="nav-link">Om os</router-link>
                         </li>
 
                         <li class="nav-item">
@@ -44,7 +44,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <router-link to="/news-list" class="nav-link">News</router-link>
+                            <router-link to="/news-list" class="nav-link">Nyheder</router-link>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +58,7 @@
                         :color="{
                            checked: '#00adf3',unchecked: '#13b017',
                        }"
-                        :labels="{checked: 'Private', unchecked: 'Business'}"
+                        :labels="{checked: 'Privat', unchecked: 'Erhverv'}"
                         @change="onChangeEventHandler"
                     />
 

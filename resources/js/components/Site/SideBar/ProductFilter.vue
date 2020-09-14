@@ -73,29 +73,15 @@
                     <input v-model="filter.short" value="new" type="radio"/>
                     <span class="checkmark"></span>
                 </label>
-                <!-- end of checkbox single  -->
-                <!-- checkbox single  -->
+
                 <label class="checkbox_container">
                     Populær
                     <input v-model="filter.short" value="popular" type="radio"/>
                     <span class="checkmark"></span>
                 </label>
-                <!-- end of checkbox single  -->
-                <!-- checkbox single  -->
-                <!-- checkbox single  -->
-                <!-- <label class="checkbox_container">
-                  Sidste chance
-                  <input v-model="filter.short" value="old" type="radio" />
-                  <span class="checkmark"></span>
-                </label>-->
-
-                <!-- <label class="checkbox_container">Kommer snart
-                            <input v-model="filter.short" value="coming_soon" type="radio">
-                            <span class="checkmark"></span>
-                </label>-->
 
                 <label class="checkbox_container">
-                    Discount
+                    Tilbud
                     <input v-model="filter.short" value="discount" type="radio"/>
                     <span class="checkmark"></span>
                 </label>
@@ -104,10 +90,6 @@
             </div>
             <div class="price_filter">
                 <br/>
-                <!-- <label for="amount">Price range:</label> -->
-                <!--                <vue-range-slider @change="signalChange" :min="10" :max="10000"-->
-                <!--                                  v-model="range"></vue-range-slider>-->
-
                 <vue-slider :max="max" v-model="range"></vue-slider>
 
                 <div class="price-range-text mt-2">
@@ -222,7 +204,7 @@ export default {
 .price-range-text {
     text-align: center;
     font-weight: bold;
-    color: #ff652e;
+    color: #1eaae1;
     font-size: 20px;
     z-index: 10;
 }
@@ -237,8 +219,8 @@ export default {
 }
 
 .vue-slider-dot-tooltip-inner {
-    border-color: #ff622c !important;
-    background-color: #ff652d !important;
+    border-color: #1eaae1 !important;
+    background-color: #1eaae1 !important;
 }
 
 input[type="number"] {

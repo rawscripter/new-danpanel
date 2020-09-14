@@ -26,7 +26,7 @@
 
       <div class="row" v-if="!isLoading">
         <div class="col-md-12 mt-30">
-          <h3 class="bg-secondary align-center p-3">You might find your relavent products here.</h3>
+          <h3 class="bg-secondary align-center p-3">Relevante produkter.</h3>
         </div>
 
         <div class="col-md-12 col-lg-12 wow bounceInRight">

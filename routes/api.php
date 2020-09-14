@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 });
 
 //Route::post('order/shipping/save', 'OrderController@saveShippingInfo');
-Route::post('/order/create', 'OrderController@createTemporaryOrder');
+Route::post('/order/create', 'OrderController@createNewOrder');
 
 
 // apis for admin
@@ -109,6 +109,7 @@ Route::get('/sub-category/{categorySlug}/products', 'SubCategoryController@produ
 Route::get('/category/{categorySlug}/sub-categories', 'CategoryController@subCategoriesForSite');
 // for gls posts for user shipping method
 Route::post('/gls/shops', 'GlsController@getShops');;
+
 
 
 //routes for blogs

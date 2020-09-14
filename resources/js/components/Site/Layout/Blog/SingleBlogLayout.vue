@@ -1,17 +1,17 @@
 <template>
-    <div class="blog-single shadow">
+    <div class="blog-single shadow" style="height:100%">
         <img class="blog-image"
              alt="blog image"
              :src='`/blog/images/${blog.image}`'>
         <div>
-            <router-link :to="{name:'blog-details',params:{blog:blog.slug}}" tag="span" class="cursour-pointer">
+            <router-link :to="{name:'blog-details',params:{blog:blog.slug}}" tag="span" style="height:3rem" class="cursour-pointer">
                 <div class="blog-title">{{ blog.title }}</div>
             </router-link>
 
-            <div class="blog-content" v-html="blog.description">
+            <div class="blog-content" v-html="blog.description" style="height:5rem">
             </div>
 
-            <div class="blog-button mt-5">
+            <div class="blog-button mt-5 lasmere">
                 <router-link :to="{name:'blog-details',params:{blog:blog.slug}}" class="btn btn-theme btn-block">Læs
                     mere
                 </router-link>
@@ -29,20 +29,22 @@ export default {
 
 <style scoped>
 .blog-image {
-    max-width: 100%;
+    width: 12rem;
+    height: 10rem;
 }
 
 .blog-title {
     font-size: 20px;
     text-align: center;
     margin: 0px;
+    height: 4rem;
     margin-top: 20px !important;
 }
 
 .blog-content {
     margin-top: 22px;
     text-align: center;
-    max-height: 110px;
+    height: 5rem;
     overflow: hidden;
 }
 
@@ -50,11 +52,12 @@ export default {
     text-align: center;
 }
 
-img.blog-image {
+/* img.blog-image {
     max-height: 245px;
-}
+} */
 
 .cursour-pointer {
     cursor: pointer;
 }
+
 </style>
