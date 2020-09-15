@@ -27,9 +27,9 @@ export default {
 
 <style scoped>
 .news-image {
-    max-width: 100%;
+    width: 18rem;
     /*max-height: ;*/
-    max-height: 245px;
+    height: 15rem;
 }
 
 .news-title {
@@ -37,13 +37,15 @@ export default {
     text-align: center;
     margin: 0px;
     margin-top: 20px !important;
+    height: 4rem;
+    overflow: hidden;
 }
 
 .news-content {
     margin-top: 22px;
     text-align: center;
-    max-height: 110px;
-    overflow: hidden;
+    height: 5rem;
+    overflow:hidden;
 }
 
 </style>

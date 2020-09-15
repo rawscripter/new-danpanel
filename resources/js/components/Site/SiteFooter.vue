@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-6 FooterSectionGap">
                         <h4>DanPanel ApS</h4>
-                        <p>Farverland 6,<br> 2600 Glostrup,</br> Danmark </p>
+                        <p>Farverland 6,<br> 2600 Glostrup,<br> Danmark </p>
                         <p class="footer-line-gap">CVR-Nummer: 38362925</p>
 
                     </div>

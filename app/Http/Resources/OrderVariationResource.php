@@ -19,7 +19,7 @@ class OrderVariationResource extends JsonResource
         $variationOption = ProductVariationOption::with('productVariation')->find($this['optionID']);
 
         return [
-            'variation' =>  $variationOption,
+            'variationOption' => $variationOption,
         ];
     }
 }

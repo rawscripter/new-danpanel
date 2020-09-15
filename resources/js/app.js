@@ -10,13 +10,14 @@ window.Vue = require("vue");
 
 window.APP_URL = "http://danpanel.test:8081";
 // window.APP_URL = "http://up-danpanel.danpanel.dk";
+
 window.CURRENCY = "dkk";
 
 import VueCookies from "vue-cookies";
 
 Vue.use(VueCookies);
 
-var SocialSharing = require("vue-social-sharing");
+let SocialSharing = require("vue-social-sharing");
 
 Vue.use(SocialSharing);
 
@@ -68,7 +69,6 @@ Vue.use(vueAwesomeCountdown, "vac");
 
 
 Vue.component("Loading", Loading);
-
 
 
 import InfiniteLoading from "vue-infinite-loading";

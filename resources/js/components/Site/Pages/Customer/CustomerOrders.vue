@@ -9,20 +9,25 @@
 
                     <div id="dibs-complete-checkout"></div>
                     <div class="main-content" v-if="!hideOrderDetailsForm">
-                        <loading :active.sync="isPaymentBoxLoading"
-                                 :is-full-page="false"></loading>
+                        <loading
+                            :color="'#00adf3'"
+                            :active.sync="isLoading"
+                            :can-cancel="false"
+                            :loader="'dots'"
+                            :is-full-page="false"
+                        ></loading>
                         <div class="user-profile-all-order p-3">
-                            <h5 class="text-center">My Orders</h5>
+                            <h5 class="text-center">Mine ordrer</h5>
                             <hr>
                             <div class="table-responsive shadow wow bounceInUp">
                                 <table class="table table-bordered text-center">
                                     <thead>
                                     <tr>
                                         <th scope="col">#Sl.</th>
-                                        <th scope="col">Order ID</th>
-                                        <th scope="col">Products</th>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Paid Status</th>
+                                        <th scope="col">Ordre ID</th>
+                                        <th scope="col">Produkter</th>
+                                        <th scope="col">Beløb</th>
+                                        <th scope="col">Betalingsstatus</th>
                                         <th scope="col">Created At</th>
                                         <th scope="col">Action</th>
                                     </tr>
@@ -34,18 +39,25 @@
                                         <th scope="row">
                                             <p v-for='product in order.products'>
                                                 {{ product.name }}
+                                                <span v-for="sv in product.selected_variation">
+                                                   | {{ sv.variationOption.name }}
+                                                </span>
+
                                             </p>
                                         </th>
                                         <td>{{ order.total_price }} kr</td>
                                         <td>
-                                            <span v-if="order.is_full_price_paid">Paid</span>
-                                            <span v-else>Not Paid</span>
+                                            <span v-if="order.is_full_price_paid">Betalt</span>
+                                            <span v-else>Ikke betalt</span>
                                         </td>
                                         <td>
                                             {{ order.created_at }}
                                         </td>
                                         <td>
-                                            <button class="btn btn-sm btn-theme">View Details</button>
+                                            <router-link class="btn btn-sm btn-theme"
+                                                         :to="{name:'customer-order-details',params:{order:order.custom_order_id}}">
+                                                Se detaljer
+                                            </router-link>
                                         </td>
                                     </tr>
                                     </tbody>

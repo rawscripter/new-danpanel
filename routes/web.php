@@ -64,7 +64,10 @@ Route::get('/password/reset/{
     return view('site.index');
 })->name('password.reset');
 
-
+// Routes for PrivatePolikCookies, Handelsbetingelser og vilkår
+Route::get('/handelsbetingelser', 'handelsbetingelserController@handelsbetingelser')->name('site.handelsbetingelser');
+Route::get('/privatlivspolitikCookies', 'handelsbetingelserController@privatlivspolitikCookies')->name('site.privatlivspolitikCookies');
+ 
 // for payment
 Route::get('/checkout/payment/status', 'PaymentController@storePaymentDetails');
 

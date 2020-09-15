@@ -86,7 +86,7 @@
                                     }
                                 });
                             } else {
-                                this.errorText = 'No Product Found';
+                                this.errorText = 'Ingen resultater';
                             }
 
 
@@ -144,10 +144,6 @@
         font-size: 48px;
         color: #3939396b;
         margin-top: 150px !important;
-    }
-
-    .page-wrapper.wow {
-        overflow: hidden;
     }
 
     .back-to-home {

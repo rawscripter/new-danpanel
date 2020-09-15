@@ -13,7 +13,6 @@ import CategoryProducts from "../components/Site/Pages/CategoryProducts";
 import ProductEdit from "../components/Admin/BodyComponents/BodyParts/Product/ProductEdit";
 import SearchPage from "../components/Site/Pages/SearchPage";
 import FavouriteProudctsPage from "../components/Site/Pages/FavouriteProudctsPage";
-import CheckoutPage from "../components/Site/Pages/CheckoutPage";
 import CheckoutStatusPage from "../components/Site/Pages/CheckoutStatusPage";
 import CustomerProfile from "../components/Site/Pages/Customer/CustomerProfile";
 import CustomerOrders from "../components/Site/Pages/Customer/CustomerOrders";
@@ -37,6 +36,7 @@ import Blogs from "../components/Site/Pages/Blogs";
 import News from "../components/Site/Pages/News";
 import SingleBlogDetailsPage from "../components/Site/Pages/SingleBlogDetailsPage";
 import SingleNewsDetailsPage from "../components/Site/Pages/SingleNewsDetailsPage";
+import CustomerOrderDetails from "../components/Site/Pages/Customer/CustomerOrderDetails";
 //importing components
 Vue.use(VueRouter);
 
@@ -162,7 +162,7 @@ const routes = [
         path: '/',
         component: SiteIndex,
         meta: {
-            title: 'Welcome to Join Offer!'
+            title: 'DanPanel'
         }
     },  // routes for site
     {
@@ -250,17 +250,10 @@ const routes = [
         name: 'product-details',
         component: ProductDetailsPage,
         meta: {
-            title: 'Welcome to Join Offer!'
+            title: 'DanPanel!'
         }
     },
     {
-        path: '/checkout/:slug',
-        name: 'checkout',
-        component: CheckoutPage,
-        meta: {
-            title: 'Checkout Now!'
-        }
-    }, {
         path: '/final/checkout',
         name: 'final-checkout',
         component: FinalCheckoutPage,
@@ -272,6 +265,15 @@ const routes = [
         path: '/order/payment',
         name: 'order-payment-status',
         component: CheckoutStatusPage,
+        meta: {
+            title: 'Order Details!',
+            requireAuth: true,
+            requireAdmin: false,
+        }
+    }, {
+        path: '/customer/order/:order/details',
+        name: 'customer-order-details',
+        component: CustomerOrderDetails,
         meta: {
             title: 'Order Details!',
             requireAuth: true,

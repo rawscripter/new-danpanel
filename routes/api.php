@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 });
 
 //Route::post('order/shipping/save', 'OrderController@saveShippingInfo');
-Route::post('/order/create', 'OrderController@createTemporaryOrder');
+Route::post('/order/create', 'OrderController@createNewOrder');
 
 
 // apis for admin
@@ -111,9 +111,11 @@ Route::get('/category/{categorySlug}/sub-categories', 'CategoryController@subCat
 Route::post('/gls/shops', 'GlsController@getShops');;
 
 
+
 //routes for blogs
 
 Route::get('/blogs', 'BlogController@getBlogs');
+Route::get('/get/blog/sub-categories', 'BlogController@getBlogCategories');
 Route::get('/blog/{blog}', 'BlogController@getBlogDetails');
 Route::get('/news', 'NewsController@getNews');
 Route::get('/news/{newsSlug}', 'NewsController@getNewsDetails');
