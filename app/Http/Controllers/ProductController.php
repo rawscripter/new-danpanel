@@ -136,7 +136,7 @@ class ProductController extends Controller
         if ($request->hasCookie('product-channel')) {
             $selected_channel = strtolower($request->cookie('product-channel'));
         } else {
-            $selected_channel = '';
+            $selected_channel = 'private';
         }
         //        return $selected_channel;
         $products = Product::where('is_archive', 0)
@@ -157,7 +157,7 @@ class ProductController extends Controller
         if ($request->hasCookie('product-channel')) {
             $selected_channel = strtolower($request->cookie('product-channel'));
         } else {
-            $selected_channel = '';
+            $selected_channel = 'private';
         }
         $products = Product::where('is_archive', 0)
             ->where('product_channel', 'like', "%$selected_channel%")
@@ -178,7 +178,7 @@ class ProductController extends Controller
         if ($request->hasCookie('product-channel')) {
             $selected_channel = strtolower($request->cookie('product-channel'));
         } else {
-            $selected_channel = '';
+            $selected_channel = 'private';
         }
         $products = Product::where('product_channel', 'like', "%$selected_channel%")
             ->where('category_id', '=', 3)
@@ -325,11 +325,20 @@ class ProductController extends Controller
      * @param $slug
      * @return JsonResponse
      */
-    public function showRelatedForSite($slug)
+    public function showRelatedForSite(Request $request, $slug)
     {
         $product = Product::where('slug', $slug)->first();
+
+        if ($request->hasCookie('product-channel')) {
+            $selected_channel = strtolower($request->cookie('product-channel'));
+        } else {
+            $selected_channel = 'private';
+        }
+
+
         $products = Product::inRandomOrder()
             ->where('category_id', $product->category->id)
+            ->where('product_channel', 'like', "%$selected_channel%")
             ->where('id', '!=', $product->id)->limit(20)->get();
         if (!empty($products)) {
             $res['status'] = 200;
