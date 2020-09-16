@@ -96,16 +96,13 @@
                     </h3>
                 </div>
                 <div class="col-md-4 col-xs-12 three-subheading-container">
-                    <div class="p-0 m-0 three-subheading border shadow" style="height:30rem">
+                    <div class="p-0 m-0 three-subheading border shadow" style="height:27rem">
                         <img
-                            src="/images/Hent-tilbud-baggrund.png"
+                            src="/images/Hent-tilbud.png"
                             width="100%"
                             height="auto"
                             alt="Hent-tilbud-baggrund-img"
                         />
-                        <h3 class="three-subheading-title wow bounce p-2 text-center m-0">
-                            <strong>Hent Tilbud</strong>
-                        </h3>
                         <p
                             class="p-2 wow zoomIn text-center"
                         >Hent et gratis tilbud ved enten at logge ind eller fortsæt uden log ind.</p>
@@ -117,18 +114,13 @@
                 </div>
 
                 <div class="col-md-4 col-xs-12 three-subheading-container">
-                    <div class="p-0 m-0 three-subheading border shadow" style="height:30rem">
+                    <div class="p-0 m-0 three-subheading border shadow" style="height:27rem">
                         <img
-                            src="/images/Bliv-kontaktet-baggrund.png"
+                            src="/images/Bliv-kontaktet.png"
                             width="100%"
                             height="auto"
                             alt="Bliv-kontaktet-baggrund-img"
                         />
-
-                        <h3 class="three-subheading-title wow bounce p-2 text-center m-0">
-                            <strong>Bliv Kontaktet</strong>
-                        </h3>
-
                         <p
                             class="pt-2 pl-3 pr-3 pb-2 m-0 wow zoomIn text-center"
                         >Når du har udfyldt formularen, sender vi forespørgslen til vores samarbejdspartner.</p>
@@ -143,17 +135,13 @@
                 </div>
 
                 <div class="col-md-4 col-xs-12 three-subheading-container">
-                    <div class="p-0 m-0 border three-subheading shadow" style="height:30rem">
+                    <div class="p-0 m-0 border three-subheading shadow" style="height:27rem">
                         <img
-                            src="/images/Hent-tilbud-Trin-3-Accepter-eller-afvis.png"
+                            src="/images/Hent-tilbud-Accepter-eller-afvis.png"
                             width="100%"
                             height="auto"
                             alt="Hent-tilbud-Trin-3-Accepter-eller-afvis-img"
                         />
-                        <h3 class="three-subheading-title wow bounce p-2 text-center m-0">
-                            <strong>Accepter/Afvis</strong>
-                        </h3>
-
                         <p
                             class="p-3 m-0 wow zoomIn text-center"
                         >Når du har modtaget dit tilbud, kan du vælge at accepteret eller afvise samarbejdspartnerens
@@ -303,62 +291,6 @@
                     abonnementsløsning, alt afhængigt at produkt-/løsningstype.
                 </p>
             </div>
-            <div class="row">
-                <p class="h4 m-auto text-center text-black pt-3">Så simpelt er det:</p>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-xs-12" style="margin-bottom:10rem;">
-                    <div class="text-center soSimpeltSection" style="">
-                        <p class="h5 font-weight-bold wow zoomIn"> Hent pratis tilbud</p>
-                        <p class="h6 font-weight-bold wow zoomIn"> udfyld formularen på ønskede</p>
-                        <div class="wow zoomIn">
-                            <p class="font-weight-bold p-0 m-0" style="">Gratis <img class="" style="margin-left:1rem"
-                                                                                     src="/images/icons/Check-point-ja-resize.png"
-                                                                                     width="8%" height="auto"
-                                                                                     alt="Check-point-gratis-img"></p>
-                            <p class="font-weight-bold p-0 m-0" style="">Enkelt <img class="" style="margin-left:1rem"
-                                                                                     src="/images/icons/Check-point-ja-resize.png"
-                                                                                     width="8%" height="auto"
-                                                                                     alt="Check-point-enkelt-img"></p>
-                            <p class="font-weight-bold p-0 m-0" style="">Hurtigt <img class=""
-                                                                                      style="margin-left: .7rem"
-                                                                                      src="/images/icons/Check-point-ja-resize.png"
-                                                                                      width="8%" height="auto"
-                                                                                      alt="Check-point-Hurtigt-img"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xs-12" style="margin-bottom:10rem;">
-                    <div class="text-center soSimpeltSection" style="">
-                        <p class="h5 font-weight-bold wow zoomIn"> Vi ringer dig op</p>
-                        <p class="h6 font-weight-bold wow zoomIn"> Du bliver kontakter af en konsulent</p>
-                        <img class="wow zoomIn" style=""
-                             src="/images/icons/customer-service.png" width="20%" height="auto"
-                             alt="customer-service-img">
-                    </div>
-                </div>
-                <div class="col-md-4 col-xs-12" style="margin-bottom:10rem;">
-                    <div class="text-center soSimpeltSection" style="">
-                        <p class="h5 font-weight-bold wow zoomIn"> Accepter/Afvis</p>
-                        <p class="h6 font-weight-bold wow zoomIn"> Du modtager et gratis tilbud</p>
-                        <div class="d-flex wow zoomIn" style="justify-content:space-around">
-                            <p class="h6 font-weight-bold">Accepter</p>
-                            <p class="h6 font-weight-bold">Afvis</p>
-                        </div>
-
-                        <div class="d-flex wow zoomIn" style="justify-content:space-around">
-                            <p><img class="" style=""
-                                    src="/images/icons/Check-point-ja-resize.png"
-                                    width="20%" height="auto" alt="Check-point-ja"></p>
-                            <p class="font-weight-bold text-center">eller </p>
-                            <p><img class="" style=""
-                                    src="/images/icons/Check-point-nej-resize.png"
-                                    width="20%" height="auto" alt="Check-point-nej"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
         <!-- Vores Koncept i DanPanel section end -->
@@ -682,14 +614,6 @@
                     <!-- <div class="container"> -->
                         <div class="row">
                             <div class="col-xs-12 col-lg-12">
-                                <div class="w3-text-black standrad-text wow zoomIn w3-center"><br>
-                                    Opret en gratis kundekonto
-                                    <br>
-                                    <p class="w3-button operate-profil-li btn-log-prof" style="padding:4px;">
-                                        <!-- <a href="{{route('register')}}" class="btn btn-success rounded-4"
-                                            style="color: #fff; padding:8px; border-radius:4px;">Opret Profil</a> -->
-                                    </p> <br><br>
-
                                     <div class="row om-member-logo-" style="margin:0em 4em">
                                         <div class="col-sm-4">
                                             <!--<img class="img-fluid om-vilkar-img"-->
@@ -699,8 +623,8 @@
                                             <!--</p>-->
                                         </div>
                                         <div class="col-sm-4">
-                                            <img class="img-fluid om-vilkar-img"
-                                                 src="/images/icons/Ikon-til-vilkar-offentlige.png">
+                                            <a href="http://danpanel.test:8081/handelsbetingelser"><img class="img-fluid om-vilkar-img"
+                                                 src="/images/icons/Ikon-til-vilkar-offentlige.png"></a>
                                             <!-- <p><a href="{{asset('assets/site/assets/OtherFiles/Handelsbetingelser-og-vilkar-Samlet.pdf')}}"
                                                     target="_blank">Læs handelsbetingelser og vilkår</a></b>
                                             </p> -->
@@ -713,8 +637,6 @@
                                             <!--</p>-->
                                         </div>
                                     </div>
-
-                                </div>
                             </div>
                         </div>
                     <!-- </div> -->
