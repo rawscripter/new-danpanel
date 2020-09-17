@@ -60,7 +60,9 @@
                     <i class="far fa-heart"></i>
                 </button>
             </div>
-            <button class="btn mt-1 btn-success">Du sparer {{ product.saving_percentage }}%</button>
+            <button class="btn mt-1 btn-success" v-if="product.saving_percentage > 0"> Du sparer
+                {{ product.saving_percentage }}%
+            </button>
         </div>
 
         <div class="btn btn-theme btn-block mt-2" @click="addToCart(product)">Læg i kurv</div>

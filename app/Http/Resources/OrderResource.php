@@ -21,6 +21,7 @@ class OrderResource extends JsonResource
             'custom_order_id' => $this->custom_order_id,
             'products' => OrderedProductResource::collection($this->products),
             'total_price' => $this->total_price,
+            'shipping_cost' => $this->shipping_cost,
             'customer' => (new CustomerResource($this->user)),
             'shipping_info' => (new OrderShippingInfoResource($this->shippingInfo)),
             'is_full_price_paid' => $this->is_full_price_paid ? true : false,

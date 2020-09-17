@@ -55,6 +55,7 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany(Order::class)
+            ->where('is_full_price_paid', 1)
             ->where('is_canceled', '=', 0)
             ->orderByDesc('created_at');
     }
@@ -62,6 +63,7 @@ class User extends Authenticatable
     public function runningOrders()
     {
         return $this->hasMany(Order::class)
+            ->where('is_full_price_paid', 1)
             ->where('is_canceled', '=', 0)
             ->where('order_status', '=', 0)
             ->orderByDesc('created_at');
@@ -70,6 +72,7 @@ class User extends Authenticatable
     public function completedOrders()
     {
         return $this->hasMany(Order::class)
+            ->where('is_full_price_paid', 1)
             ->where('is_canceled', '=', 0)
             ->where('order_status', '=', 1)
             ->orderByDesc('created_at');
@@ -78,6 +81,7 @@ class User extends Authenticatable
     public function canceledOrders()
     {
         return $this->hasMany(Order::class)
+            ->where('is_full_price_paid', 1)
             ->where('is_canceled', '=', 1);
     }
 

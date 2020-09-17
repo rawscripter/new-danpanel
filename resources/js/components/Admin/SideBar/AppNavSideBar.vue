@@ -234,14 +234,14 @@ export default {
               name: "All Orders",
               link: "/admin/orders?status=all",
             },
-            {
-              name: "Running Orders",
-              link: "/admin/orders?status=running",
-            },
-            {
-              name: "Completed Orders",
-              link: "/admin/orders?status=complete",
-            },
+              // {
+              //   name: "Running Orders",
+              //   link: "/admin/orders?status=running",
+              // },
+              // {
+              //   name: "Completed Orders",
+              //   link: "/admin/orders?status=complete",
+              // },
             {
               name: "Canceled Orders",
               link: "/admin/orders?status=canceled",
