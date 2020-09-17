@@ -625,6 +625,8 @@
                                         <div class="col-sm-4">
                                             <a href="http://danpanel.test:8081/handelsbetingelser"><img class="img-fluid om-vilkar-img"
                                                  src="/images/icons/Ikon-til-vilkar-offentlige.png"></a>
+                                            <!-- <a href="http://up-danpanel.danpanel.dk/handelsbetingelser"><img class="img-fluid om-vilkar-img"
+                                                 src="/images/icons/Ikon-til-vilkar-offentlige.png"></a> -->
                                             <!-- <p><a href="{{asset('assets/site/assets/OtherFiles/Handelsbetingelser-og-vilkar-Samlet.pdf')}}"
                                                     target="_blank">Læs handelsbetingelser og vilkår</a></b>
                                             </p> -->
