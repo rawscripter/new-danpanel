@@ -123,7 +123,7 @@
                                                     <td>
                                                         <strong>Moms:</strong>
                                                     </td>
-                                                    <td>0 dkk</td>
+                                                    <td>{{ totalVat }} dkk</td>
                                                 </tr>
 
                                                 <tr>
@@ -202,6 +202,15 @@ export default {
                 total += item.totalPrice;
             }
             return total.toFixed(2);
+        },
+
+        totalVat() {
+            let taxPrice = 0;
+
+            for (let item of this.$store.state.cart) {
+                taxPrice += item.taxPrice;
+            }
+            return taxPrice.toFixed(2);
         },
     },
 };

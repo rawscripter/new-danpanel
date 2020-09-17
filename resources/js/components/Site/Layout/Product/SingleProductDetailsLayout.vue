@@ -12,13 +12,19 @@
                 id="prev-img"
             />
 
-            <img
-                :src="displayProductImage"
-                id="mainImage"
-                alt="Product Image"
-                style="display:block; width:80%; height:80%; margin:auto;"
-            />
-
+            <div class="full-image">
+                <img
+                    :src="displayProductImage"
+                    id="mainImage"
+                    alt="Product Image"
+                    style="display:block; width:80%; height:80%; margin:auto;"
+                />
+                <span
+                    class="favourite-badge"
+                    @click="removeProductToFavouriteList(product.slug)"
+                    v-if="isUserFavourite"
+                >Favourite</span>
+            </div>
             <img
                 v-if="hasImages"
                 @click="nextSliderImage"
@@ -27,6 +33,8 @@
                 alt
                 id="next-img"
             />
+
+
         </div>
 
         <!-- Secondary carousel image thumbnail gallery -->
@@ -79,7 +87,7 @@
                             <div id="days-text" class="text">Dage</div>
                         </div>
                         <div class="well bottom-pane">
-                            <div id="days" class="num">{{timeObj.d}}</div>
+                            <div id="days" class="num">{{ timeObj.d }}</div>
                         </div>
                     </div>
 
@@ -88,7 +96,7 @@
                             <div id="hours-text" class="text">Timer</div>
                         </div>
                         <div class="well bottom-pane">
-                            <div id="hours" class="num">{{timeObj.h}}</div>
+                            <div id="hours" class="num">{{ timeObj.h }}</div>
                         </div>
                     </div>
                     <div class="clock">
@@ -96,7 +104,7 @@
                             <div id="mins-text" class="text">Min</div>
                         </div>
                         <div class="well bottom-pane">
-                            <div id="mins" class="num">{{timeObj.m}}</div>
+                            <div id="mins" class="num">{{ timeObj.m }}</div>
                         </div>
                     </div>
 
@@ -105,7 +113,7 @@
                             <div id="secs-text" class="text">Sek</div>
                         </div>
                         <div class="well bottom-pane">
-                            <div id="secs" class="num">{{timeObj.s}}</div>
+                            <div id="secs" class="num">{{ timeObj.s }}</div>
                         </div>
                     </div>
                 </div>
@@ -114,7 +122,7 @@
             <span v-else class="expired">Kommer snart</span>
         </div>
 
-        <h3 class="title mt-2 text-center">{{product.name}}</h3>
+        <h3 class="title mt-2 text-center">{{ product.name }}</h3>
         <!-- discription div  -->
         <div class="discription" v-html="product.full_des"></div>
         <br/>
@@ -140,9 +148,26 @@ export default {
         return {
             displayProductImage: this.product.featureImage,
             active_img: null,
+            isUserFavourite: false,
+
         };
     },
     methods: {
+        removeProductToFavouriteList(slug) {
+            axios
+                .get(`/api/product/${slug}/favourite/remove`)
+                .then((res) => {
+                    if (res.data.status === 200) {
+                        this.isUserFavourite = false;
+                        this.$toast.warning("Begivenhed fjernet fra favoritlisten.");
+                        this.$root.$emit("updateFavouriteProductList", true);
+                    } else {
+                        alert(res.data.message);
+                    }
+                })
+                .catch((err) => console.log(err));
+        },
+
         changeMainImage(index) {
             this.active_img = index;
             this.displayProductImage = this.product.productImages[index].featureImage;
@@ -173,6 +198,10 @@ export default {
             return this.product.productImages.length > 0;
         },
     },
+    mounted() {
+        this.isUserFavourite = this.product.isFavouriteByCurrentUser;
+
+    }
 };
 </script>
 
@@ -261,5 +290,24 @@ img#next-img {
 
 img.icon-left.rotate {
     transform: rotate(0deg);
+}
+
+
+span.favourite-badge {
+    position: absolute;
+    right: 20%;
+    background: #21a9df;
+    cursor: pointer;
+    padding: 1px 10px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 12px;
+    top: 16px;
+}
+
+
+.full-image {
+    position: relative;
 }
 </style>

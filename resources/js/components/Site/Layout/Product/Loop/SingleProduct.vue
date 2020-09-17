@@ -192,8 +192,8 @@ export default {
                 .get(`/api/product/${slug}/favourite/add`)
                 .then((res) => {
                     if (res.data.status === 200) {
-                        this.isUserFavourite = res.data.product.isFavouriteByCurrentUser;
-                        Alert.showSuccessAlert("Begivenhed føjet til favoritlisten.");
+                        this.isUserFavourite = true;
+                        this.$toast.success("Begivenhed føjet til favoritlisten.");
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
                         alert(res.data.message);
@@ -206,8 +206,8 @@ export default {
                 .get(`/api/product/${slug}/favourite/remove`)
                 .then((res) => {
                     if (res.data.status === 200) {
-                        this.isUserFavourite = res.data.product.isFavouriteByCurrentUser;
-                        Alert.showSuccessAlert("Begivenhed fjernet fra favoritlisten.");
+                        this.isUserFavourite = false;
+                        this.$toast.warning("Begivenhed fjernet fra favoritlisten.");
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
                         alert(res.data.message);
@@ -240,12 +240,15 @@ export default {
 .active {
     display: block;
 }
+
 .love {
     cursor: pointer;
 }
+
 .share {
     cursor: pointer;
 }
+
 .bottom-pane {
     margin-top: 0px;
     border-radius: 5px;
@@ -255,30 +258,36 @@ export default {
     text-align: center;
     width: 35px;
 }
+
 .num {
     font-size: 16px;
     color: #000;
     font-weight: bold;
 }
+
 span.expired {
     font-weight: bold;
     color: red;
     font-size: 18px;
 }
+
 h5 {
     font-weight: 700;
     font-size: 17px;
 }
+
 .category a {
     text-decoration: none;
     color: unset;
 }
+
 .active {
     display: block;
 }
+
 span.favourite-badge {
     position: absolute;
-    right: 13px;
+    right: 0px;
     background: #21a9df;
     cursor: pointer;
     padding: 1px 10px;
@@ -287,9 +296,11 @@ span.favourite-badge {
     letter-spacing: 1px;
     font-size: 12px;
 }
+
 .modal-dialog {
     margin-top: 150px;
 }
+
 .modal-dialog .modal-body span {
     flex: none;
     color: #ffffff;
@@ -303,35 +314,45 @@ span.favourite-badge {
     cursor: pointer;
     margin: 0 10px 10px 0;
 }
+
 .modal-dialog .modal-body .fab {
     background-color: rgba(0, 0, 0, 0.2);
     padding: 10px;
     flex: 0 1 auto;
 }
+
 .modal-dialog .modal-body span {
     padding: 0 10px;
     flex: 1 1;
     font-weight: 500;
 }
+
 .product-link {
     color: #616161;
 }
+
 .saving-percentage {
     position: absolute;
-    top: 18px;
+    top: 0px;
     padding: 1px 15px;
     background: #19606fc7;
     font-weight: normal;
     color: #fff;
     font-size: 12px;
 }
+
 .product-link:hover {
     text-decoration: none;
     color: #000000;
 }
+
 .pricing-section {
     display: flex;
     flex-direction: column;
     height: 85px;
+}
+
+.product_image {
+    position: relative;
 }
 </style>

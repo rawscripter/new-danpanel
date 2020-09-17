@@ -217,7 +217,7 @@
                                                 <td>
                                                     <strong>Moms:</strong>
                                                 </td>
-                                                <td>{{ 0 }} kr</td>
+                                                <td>{{ totalVat }} kr</td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -288,6 +288,14 @@ export default {
 
         shipping_method(value) {
             if (value === 'gls') {
+                this.getGLSPickupPoints();
+                if (this.orderDetails.total < 799) {
+                    this.shipping_cost = 49;
+                } else {
+                    this.shipping_cost = 0;
+                }
+
+            } else if (value === 'home_delivery') {
                 this.getGLSPickupPoints();
                 if (this.orderDetails.total < 799) {
                     this.shipping_cost = 49;
@@ -394,7 +402,9 @@ export default {
                 total += item.totalPrice;
             }
             return total.toFixed(2);
-        }, totalPrice() {
+        },
+
+        totalPrice() {
             let total = this.shipping_cost;
 
             for (let item of this.$store.state.cart) {
@@ -402,6 +412,15 @@ export default {
             }
             this.orderDetails.total = total.toFixed(2);
             return total.toFixed(2);
+        },
+
+        totalVat() {
+            let taxPrice = 0;
+
+            for (let item of this.$store.state.cart) {
+                taxPrice += item.taxPrice;
+            }
+            return taxPrice.toFixed(2);
         },
 
         enablePaymentArea() {

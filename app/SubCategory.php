@@ -12,7 +12,8 @@ class SubCategory extends Model
         'icon',
         'name',
         'slug',
-        'priority'
+        'priority',
+        'channel'
     ];
 
     public function category()

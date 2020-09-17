@@ -16,7 +16,7 @@ class MailController extends Controller
     public static function sendMailToAdminOnNewUserRegister($user)
     {
         $sendToMail = $user->email;
-        $mail = Mail::to($sendToMail)->send(new UserCreateAccountMail($user));
+        $mail = Mail::to([$sendToMail,'hej@danpanel.dk'])->send(new UserCreateAccountMail($user));
         return $mail ? true : false;
     }
 

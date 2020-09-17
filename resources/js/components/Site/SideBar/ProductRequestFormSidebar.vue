@@ -55,7 +55,7 @@
                     <!-- <label for="">Telefon </label> -->
                     <input type="text" placeholder="Telefon" class="form-control">
                 </div>
-                  <div class="form-group">
+                <div class="form-group" v-if="!private_channel">
                     <!-- <label for="">Telefon </label> -->
                     <input type="text" placeholder="CVR" class="form-control">
                 </div>
@@ -79,6 +79,7 @@ export default {
     data() {
         return {
             step: this.product.product_variation.length > 0 ? 0 : 1,
+            private_channel: true,
             formData: {
                 selectedVariations: [],
                 first_name: null,
@@ -90,6 +91,11 @@ export default {
                 note: null,
             }
         }
+    },
+    created() {
+        let previous_selected_channel = this.$cookies.get(`product-channel`);
+        this.private_channel = previous_selected_channel !== "business";
+        console.log(this.private_channel)
     },
     methods: {
         submitFormData() {

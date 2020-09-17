@@ -109,6 +109,8 @@ class AuthController extends Controller
                 'user_id' => $user->id,
             ]);
 
+            MailController::sendMailToAdminOnNewUserRegister($user);
+
             $http = new \GuzzleHttp\Client;
             try {
                 $response = $http->post(env('PASSPORT_AUTH_URL'), [

@@ -7,6 +7,7 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\SubCategoryResource;
 use App\Product;
+use App\SubCategory;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -103,13 +104,23 @@ class CategoryController extends Controller
         return response()->json($res);
     }
 
-    public function subCategoriesForSite($categorySlug)
+    public function subCategoriesForSite(Request $request, $categorySlug)
     {
-        $category = Category::where('slug', $categorySlug)->first();
+        $category = Category::where('slug', $categorySlug)
+            ->first();
+
+        if ($request->hasCookie('product-channel')) {
+            $selected_channel = strtolower($request->cookie('product-channel'));
+        } else {
+            $selected_channel = 'private';
+        }
+        $subcategories = SubCategory::where('category_id', $category->id)
+            ->where('channel', 'like', "%$selected_channel%")->get();
+
         if (!empty($category)) {
             $res['status'] = 200;
             $res['message'] = 'Category Found Successfully.';
-            $res['subCategories'] = SubCategoryResource::collection($category->subCategories);
+            $res['subCategories'] = SubCategoryResource::collection($subcategories);
         } else {
             $res['status'] = 201;
             $res['message'] = 'No Category Found';
