@@ -37,6 +37,7 @@ import News from "../components/Site/Pages/News";
 import SingleBlogDetailsPage from "../components/Site/Pages/SingleBlogDetailsPage";
 import SingleNewsDetailsPage from "../components/Site/Pages/SingleNewsDetailsPage";
 import CustomerOrderDetails from "../components/Site/Pages/Customer/CustomerOrderDetails";
+
 //importing components
 Vue.use(VueRouter);
 

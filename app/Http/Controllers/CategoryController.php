@@ -16,12 +16,6 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @param Request $request
-     * @return JsonResponse
-     */
     public function index(Request $request)
     {
         $res['status'] = 200;
@@ -56,10 +50,7 @@ class CategoryController extends Controller
             } else {
                 $selected_channel = '';
             }
-
-
             if ($request['short'] || $request['minPrice'] || $request['maxPrice']) {
-//                $gender = $_GET['gender'];
                 $short = $_GET['short'];
                 $minPrice = $_GET['minPrice'];
                 $maxPrice = $_GET['maxPrice'];
@@ -71,15 +62,11 @@ class CategoryController extends Controller
                 if ($category->id == 2) {
                     $products->where('expire_date', '>', Carbon::now());
                 };
-
                 $products->where('is_archive', 0);
                 $products->where('product_channel', 'like', "%$selected_channel%");
-
-
                 if (!empty($subCategory)) {
                     $products->where('sub_category_id', $subCategory);
                 }
-
                 // to filter the price
                 $products->whereBetween('offer_price', [$minPrice, $maxPrice]);
 
@@ -87,15 +74,13 @@ class CategoryController extends Controller
                 if (strtolower($short) === 'new') {
                     $products->orderByDesc('created_at');
                 }
-
                 if (strtolower($short) === 'popular') {
                     $products->orderByDesc('total_clicks');
                 }
-                $products = $products->paginate(6);
+                $products = $products->paginate(30);
             } else {
-                $products = Product::where('category_id', $category->id)->orderBy('created_at', 'desc')->paginate(6);
+                $products = Product::where('category_id', $category->id)->orderBy('created_at', 'desc')->paginate(30);
             }
-
             $res['products'] = ProductResource::collection($products);
         } else {
             $res['status'] = 201;
@@ -128,22 +113,6 @@ class CategoryController extends Controller
         return response()->json($res);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return void
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return JsonResponse
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -167,12 +136,6 @@ class CategoryController extends Controller
         return response()->json($res);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Category $category
-     * @return JsonResponse
-     */
     public function show(Category $category)
     {
         if (!empty($category)) {
@@ -186,24 +149,6 @@ class CategoryController extends Controller
         return response()->json($res);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Category $category
-     * @return Response
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param \App\Category $category
-     * @return JsonResponse
-     */
     public function update(Request $request, Category $category)
     {
         $request->validate([
@@ -226,12 +171,6 @@ class CategoryController extends Controller
         return response()->json($res);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Category $category
-     * @return JsonResponse
-     */
     public function destroy(Category $category)
     {
 
@@ -244,7 +183,6 @@ class CategoryController extends Controller
         }
         return response()->json($res);
     }
-
 
     public function subCategories(Category $category)
     {
