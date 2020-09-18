@@ -56,10 +56,7 @@ class CategoryController extends Controller
             } else {
                 $selected_channel = '';
             }
-
-
             if ($request['short'] || $request['minPrice'] || $request['maxPrice']) {
-//                $gender = $_GET['gender'];
                 $short = $_GET['short'];
                 $minPrice = $_GET['minPrice'];
                 $maxPrice = $_GET['maxPrice'];
@@ -71,15 +68,11 @@ class CategoryController extends Controller
                 if ($category->id == 2) {
                     $products->where('expire_date', '>', Carbon::now());
                 };
-
                 $products->where('is_archive', 0);
                 $products->where('product_channel', 'like', "%$selected_channel%");
-
-
                 if (!empty($subCategory)) {
                     $products->where('sub_category_id', $subCategory);
                 }
-
                 // to filter the price
                 $products->whereBetween('offer_price', [$minPrice, $maxPrice]);
 
@@ -87,15 +80,13 @@ class CategoryController extends Controller
                 if (strtolower($short) === 'new') {
                     $products->orderByDesc('created_at');
                 }
-
                 if (strtolower($short) === 'popular') {
                     $products->orderByDesc('total_clicks');
                 }
-                $products = $products->paginate(6);
+                $products = $products->paginate(30);
             } else {
-                $products = Product::where('category_id', $category->id)->orderBy('created_at', 'desc')->paginate(6);
+                $products = Product::where('category_id', $category->id)->orderBy('created_at', 'desc')->paginate(30);
             }
-
             $res['products'] = ProductResource::collection($products);
         } else {
             $res['status'] = 201;

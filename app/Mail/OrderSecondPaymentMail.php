@@ -30,9 +30,9 @@ class OrderSecondPaymentMail extends Mailable
      */
     public function build()
     {
-        $subject = 'Payment Successful!';
+        $subject = 'Din ordrer1 fra DanPanel';
         return $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
             ->subject($subject)
-            ->view('layouts.email.order-second-payment')->with('order', $this->order);
+            ->view('layouts.email.on-order-mail')->with('order', $this->order);
     }
 }

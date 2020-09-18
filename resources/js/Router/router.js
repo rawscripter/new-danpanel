@@ -37,6 +37,8 @@ import News from "../components/Site/Pages/News";
 import SingleBlogDetailsPage from "../components/Site/Pages/SingleBlogDetailsPage";
 import SingleNewsDetailsPage from "../components/Site/Pages/SingleNewsDetailsPage";
 import CustomerOrderDetails from "../components/Site/Pages/Customer/CustomerOrderDetails";
+import handelsbetingelser from "../components/Site/pages/handelsbetingelser";
+import PrivatlivspolitikCookies from "../components/Site/pages/PrivatlivspolitikCookies";
 //importing components
 Vue.use(VueRouter);
 
@@ -174,7 +176,7 @@ const routes = [
         }
     },
     {
-        path: '/about-us',
+        path: '/om-os',
         component: AboutsUs,
         name: 'about-us',
         meta: {
@@ -198,7 +200,7 @@ const routes = [
         }
     },
     {
-        path: '/news-list',
+        path: '/nyheder',
         component: News,
         name: 'news',
         meta: {
@@ -335,11 +337,11 @@ const routes = [
         }
     },
     {
-        path: '/customer/dashboard',
+        path: '/customer/Oversigt',
         name: 'customer-dashboard',
         component: CustomerDashboard,
         meta: {
-            title: 'Dashboard! ',
+            title: 'Oversigt! ',
             requireAuth: true,
             requireAdmin: false,
         }
@@ -383,7 +385,23 @@ const routes = [
             requireAdmin: false,
         }
     },
+    {
+        path: '/handelsbetingelser',
+        name: 'handelsbetingelser',
+        component: handelsbetingelser,
+        meta:{
+            title:'handelsbetingelser',
+            }
+        },
 
+        {
+            path: '/Privatlivspolitik-cookies',
+            name: 'Privatlivspolitik-cookies',
+            component: PrivatlivspolitikCookies,
+            meta: {
+                title:'Privatlivspolitik-cookies'
+            }
+        },
 ];
 const router = new VueRouter({
     scrollBehavior(to, from, savedPosition) {

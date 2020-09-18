@@ -30,9 +30,9 @@ class OrderFirstPaymentMail extends Mailable
      */
     public function build()
     {
-        $subject = 'Deposit Payment Successful!';
+        $subject = 'Din ordrer fra DanPanel';
         return $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
             ->subject($subject)
-            ->view('layouts.email.order-first-payment')->with('order', $this->order);
+            ->view('layouts.email.on-order-mail')->with('order', $this->order);
     }
 }

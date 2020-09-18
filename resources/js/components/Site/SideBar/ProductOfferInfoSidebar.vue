@@ -68,11 +68,11 @@
         <div class="sidebar-action">
             <p @click="addProductToFavouriteList(product.slug)" v-if="!isUserFavourite">
                 <img src="/images/icons/favorite.png" height="20" alt/> Gem
-                till favouriter
+                till favoritter
             </p>
             <br/>
             <p @click="addProductToReminderList(product.slug)">
-                <i class="fas fa-sync mr-2"></i> Pamind mig
+                <i class="fas fa-sync mr-2"></i> Påmind mig
             </p>
             <br/>
             <p @click="shareProductOnSocialMedia">
@@ -165,7 +165,7 @@ export default {
             let totalVariationsOfProduct = this.product.product_variation.length;
             if (totalVariationsOfProduct > 0) {
                 if (totalVariationsOfProduct !== this.selectedVariations.length) {
-                    this.$toast.error("Please select product variation first.");
+                    this.$toast.error("Vælg først produktvariation.");
                     return;
                 } else {
                     Vue.set(item, "variations", this.selectedVariations);
@@ -176,7 +176,7 @@ export default {
             this.$store.commit("addToCart", item);
             this.$store.commit("saveCart");
             this.selectedVariations = [];
-            this.$toast.success("Product added to cart.");
+            this.$toast.success("Produkt tilføjet til indkøbskurv");
         },
         shareProductOnSocialMedia() {
             this.$root.$emit("shareProduct", this.product);
@@ -263,7 +263,7 @@ export default {
                 .then((res) => {
                     if (res.data.status === 200) {
                         this.isUserFavourite = res.data.product.isFavouriteByCurrentUser;
-                        this.$toast.success("Begivenhed føjet til favoritlisten.");
+                        this.$toast.success("Produkt føjet til favoritlisten.");
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
                         alert(res.data.message);
@@ -291,7 +291,7 @@ export default {
                 .then((res) => {
                     if (res.data.status === 200) {
                         this.isUserFavourite = res.data.product.isFavouriteByCurrentUser;
-                        Alert.showSuccessAlert("Event removed from favourite list.");
+                        Alert.showSuccessAlert("Produkt fjernet fra favoritlisten.");
                     }
                 })
                 .catch((err) => console.log(err));

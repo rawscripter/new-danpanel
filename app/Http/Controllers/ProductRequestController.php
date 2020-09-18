@@ -74,38 +74,30 @@ class ProductRequestController extends Controller
     public function store($slug, Request $request)
     {
         $product = Product::whereSlug($slug)->first();
-        if ($product) {
-            $isAlreadyRequested = ProductRequest::where('product_id', $product->id)
-                ->where('email', $request->email)
-                ->where('type', $request->type)
-                ->first();
-
-            if ($isAlreadyRequested) {
-                $res['status'] = 200;
-                $res['message'] = 'Already Request Sent';
-            } else {
-                $request = ProductRequest::create(
-                    [
-                        'product_id' => $product->id,
-                        'email' => $request->email,
-                        'note' => $request->note,
-                        'type' => $request->type,
-                    ]
-                );
-                if ($request) {
-                    $res['status'] = 200;
-                    $res['message'] = 'Request Sent';
-                } else {
-                    $res['status'] = 200;
-                    $res['message'] = 'Request Sent';
-                }
-            }
 
 
+        $request = ProductRequest::create(
+            [
+                'product_id' => $product->id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'cvr_number' => $request->cvr_number,
+                'phone' => $request->phone,
+                'note' => $request->note,
+                'variations' => json_encode($request->selectedVariations),
+                'type' => 'hent',
+            ]
+        );
+        if ($request) {
+            $res['status'] = 200;
+            $res['message'] = 'Request Sent';
+
+            MailController::sendProductRequestMail($request);
         } else {
-            $res['status'] = 201;
-            $res['message'] = 'No product Found!';
+            $res['status'] = 200;
+            $res['message'] = 'Request Sent';
         }
+
 
         return response()->json($res);
     }

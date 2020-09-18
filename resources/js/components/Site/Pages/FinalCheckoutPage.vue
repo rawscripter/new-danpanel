@@ -211,7 +211,7 @@
                                                 <td>
                                                     <strong>Fragt omkostninger:</strong>
                                                 </td>
-                                                <td>{{ ((shipping_cost)) }} kr</td>
+                                                <td>{{ ((orderDetails.shipping_cost)) }} kr</td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -227,8 +227,8 @@
                                             </tr>
                                             <tr>
                                                 <td rowspan="2" colspan="2">
-                                                    <button @click="payNow" class="btn btn-block mt-3 btn-success">Ordre
-                                                        Nu
+                                                    <button @click="payNow" class="btn btn-block mt-3 btn-success">Ordrer
+                                                        nu
                                                     </button>
                                                 </td>
                                             </tr>
@@ -257,7 +257,6 @@ export default {
         return {
             hideOrderDetailsForm: false,
             shipping_method: null,
-            shipping_cost: 0,
             selectedMethod: 0,
             isLoading: false,
             isShippingMethodLoading: false,
@@ -278,6 +277,7 @@ export default {
             },
             orderDetails: {
                 newsletter: 0,
+                shipping_cost: 0,
                 total: 0,
             },
             shippingMethods: [],
@@ -290,21 +290,21 @@ export default {
             if (value === 'gls') {
                 this.getGLSPickupPoints();
                 if (this.orderDetails.total < 799) {
-                    this.shipping_cost = 49;
+                    this.orderDetails.shipping_cost = 49;
                 } else {
-                    this.shipping_cost = 0;
+                    this.orderDetails.shipping_cost = 0;
                 }
 
             } else if (value === 'home_delivery') {
                 this.getGLSPickupPoints();
                 if (this.orderDetails.total < 799) {
-                    this.shipping_cost = 49;
+                    this.orderDetails.shipping_cost = 49;
                 } else {
-                    this.shipping_cost = 0;
+                    this.orderDetails.shipping_cost = 0;
                 }
 
             } else {
-                this.shipping_cost = 0;
+                this.orderDetails.shipping_cost = 0;
                 this.shippingMethods = [];
             }
         },
@@ -405,7 +405,7 @@ export default {
         },
 
         totalPrice() {
-            let total = this.shipping_cost;
+            let total = this.orderDetails.shipping_cost;
 
             for (let item of this.$store.state.cart) {
                 total += item.totalPrice;

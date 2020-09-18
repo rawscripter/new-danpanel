@@ -106,7 +106,7 @@ Route::get('/max/product/price', 'ProductController@maxProductPrice');
 Route::get('/product/{slug}/related-products', 'ProductController@showRelatedForSite');
 Route::get('/category/{categorySlug}/products', 'CategoryController@products');
 Route::get('/sub-category/{categorySlug}/products', 'SubCategoryController@products');
-Route::get('/category/{categorySlug}/sub-categories', 'CategoryController@r');
+Route::get('/category/{categorySlug}/sub-categories', 'CategoryController@subCategoriesForSite');
 // for gls posts for user shipping method
 Route::post('/gls/shops', 'GlsController@getShops');;
 

@@ -23,7 +23,7 @@
                     class="favourite-badge"
                     @click="removeProductToFavouriteList(product.slug)"
                     v-if="isUserFavourite"
-                >Favourite</span>
+                >favoritter</span>
             </div>
             <img
                 v-if="hasImages"
@@ -159,7 +159,7 @@ export default {
                 .then((res) => {
                     if (res.data.status === 200) {
                         this.isUserFavourite = false;
-                        this.$toast.warning("Begivenhed fjernet fra favoritlisten.");
+                        this.$toast.warning("Produkt fjernet fra favoritlisten.");
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
                         alert(res.data.message);
@@ -215,9 +215,9 @@ img#mainImage {
 }
 
 .bottom-pane {
-    background-color: rgb(255, 124, 59) !important;
-    border-color: rgb(255, 175, 128) !important;
-    background-image: linear-gradient(to right, #ff3e00, #ffa74d);
+    background-color: rgb(128, 255, 191) !important;
+    border-color: rgb(0, 179, 89) !important;
+    background-image: linear-gradient(to right, #00994d, #006633);
     color: #fff !important;
 }
 

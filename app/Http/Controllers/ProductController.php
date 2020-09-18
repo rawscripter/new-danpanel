@@ -337,7 +337,7 @@ class ProductController extends Controller
 
 
         $products = Product::inRandomOrder()
-            ->where('category_id', $product->category->id)
+            ->where('sub_category_id', $product->subCategory->id)
             ->where('product_channel', 'like', "%$selected_channel%")
             ->where('id', '!=', $product->id)->limit(20)->get();
         if (!empty($products)) {

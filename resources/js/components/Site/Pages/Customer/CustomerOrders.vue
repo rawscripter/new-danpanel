@@ -24,12 +24,12 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">#Sl.</th>
-                                        <th scope="col">Ordre ID</th>
-                                        <th scope="col">Produkter</th>
+                                        <th scope="col">Ordrer ID</th>
+                                        <th scope="col">Produkt</th>
                                         <th scope="col">Beløb</th>
-                                        <th scope="col">Betalingsstatus</th>
-                                        <th scope="col">Created At</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Betalt</th>
+                                        <th scope="col">Dato</th>
+                                        <th scope="col">Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>

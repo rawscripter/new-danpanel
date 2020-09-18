@@ -5,14 +5,14 @@
                 <img :src="product.featureImage" alt style="width:100%"/>
 
                 <div class="saving-percentage" v-if="product.saving_percentage > 0">
-                    <span>Spare {{ product.saving_percentage }}%</span>
+                    <span><strong> {{ product.saving_percentage }}%</strong></span>
                 </div>
             </router-link>
             <span
                 class="favourite-badge"
                 @click="removeProductToFavouriteList(product.slug)"
                 v-if="isUserFavourite"
-            >Favourite</span>
+            >Favoritter</span>
         </div>
         <div class="p_category_and_love d-flex justify-content-between hide-in-mobile">
             <div class="category">
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    <span slot="finish" class="expired">Begivenheden er endt</span>
+                    <span slot="finish" class="expired">Produkt er endt</span>
                 </vac>
                 <span v-else class="expired">Kommer snart</span>
             </div>
@@ -185,7 +185,7 @@ export default {
         },
         addProductToFavouriteList(slug) {
             if (!this.isUserLogin) {
-                this.$toast.error("Please login first.");
+                this.$toast.error("Log ind først");
                 return;
             }
             axios
@@ -193,7 +193,7 @@ export default {
                 .then((res) => {
                     if (res.data.status === 200) {
                         this.isUserFavourite = true;
-                        this.$toast.success("Begivenhed føjet til favoritlisten.");
+                        this.$toast.success("Produkt føjet til favoritlisten.");
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
                         alert(res.data.message);
@@ -207,7 +207,7 @@ export default {
                 .then((res) => {
                     if (res.data.status === 200) {
                         this.isUserFavourite = false;
-                        this.$toast.warning("Begivenhed fjernet fra favoritlisten.");
+                        this.$toast.warning("Produkt fjernet fra favoritlisten.");
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
                         alert(res.data.message);
@@ -334,11 +334,12 @@ span.favourite-badge {
 .saving-percentage {
     position: absolute;
     top: 0px;
-    padding: 1px 15px;
+    right:0;
+    padding: 10px 10px;
     background: #19606fc7;
-    font-weight: normal;
+    font-weight: bold;
     color: #fff;
-    font-size: 12px;
+    font-size: 20px;
 }
 
 .product-link:hover {
