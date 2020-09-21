@@ -18,7 +18,7 @@ import VueCookies from "vue-cookies";
 Vue.use(VueCookies);
 
 let SocialSharing = require("vue-social-sharing");
-
+git
 Vue.use(SocialSharing);
 
 import axios from "axios";
