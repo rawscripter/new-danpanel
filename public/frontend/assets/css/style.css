@@ -166,6 +166,9 @@ body {
 
 .pricing-section {
     overflow: hidden;
+    position: relative;
+    margin-top:1rem;
+   
 }
 
 
@@ -237,7 +240,7 @@ body {
 }
 
 .num {
-    font-size: 29px;
+    /* font-size: 29px; */
     color: #000;
 }
 

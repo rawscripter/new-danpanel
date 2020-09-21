@@ -276,7 +276,7 @@ export default {
                 .get(`/api/product/${slug}/reminder/add`)
                 .then((res) => {
                     if (res.data.status === 200) {
-                        Alert.showSuccessAlert("Event added to reminder list.");
+                        Alert.showSuccessAlert("Produkt tilføjet til påmindelsesliste");
                         this.$root.$emit("updateFavouriteProductList", true);
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {

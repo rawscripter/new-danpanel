@@ -4,7 +4,7 @@ class Notification {
     showSuccessAlert(message) {
         Vue.swal({
             icon: 'success',
-            title: 'Congratulations.',
+            // title: 'Congratulations.',
             text: message,
             type: 'success',
             timer: 3000

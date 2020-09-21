@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\OrderPaymentMail;
+use App\Mail\ProductOrderMail;
 use App\Mail\OrderSecondPaymentMail;
 use App\Mail\PaymentReminderMailBeforeExpire;
 use App\Mail\ProductReminderMail;
@@ -24,7 +24,7 @@ class MailController extends Controller
     public static function sendMailToUserAtOrderPayment($order)
     {
         $sendToMail = $order->user->email;
-        $mail = Mail::to($sendToMail)->send(new OrderPaymentMail($order));
+        $mail = Mail::to($sendToMail)->send(new ProductOrderMail($order));
         return $mail ? true : false;
     }
 

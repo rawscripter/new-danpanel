@@ -121,7 +121,7 @@
         <div class="pricing-section" v-if="!product.is_request_product">
             <div class="pricing-section flex-sm-column d-flex justify-content-center flex-column align-items-center"
                  style="flex-direction:column">
-                <div class="pricing-left text-left1" v-if="product.market_price> 0">
+                <div class="pricing-left" v-if="product.market_price> 0">
                     <!-- <h5 class="small-font-in-mobile">
                       <small>Market Price</small>
                     </h5> -->
@@ -256,7 +256,7 @@ export default {
     padding: 5px;
     border: 0px;
     text-align: center;
-    width: 35px;
+    /* width: 35px; */
 }
 
 .num {
@@ -350,7 +350,7 @@ span.favourite-badge {
 .pricing-section {
     display: flex;
     flex-direction: column;
-    height: 85px;
+    /* height: 85px; */
 }
 
 .product_image {

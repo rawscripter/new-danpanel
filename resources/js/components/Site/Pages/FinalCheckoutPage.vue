@@ -367,7 +367,7 @@ export default {
         },
         initCheckout(paymentID) {
             var checkoutOptions = {
-                checkoutKey: "test-checkout-key-500b92cc5d264cf88f5653ddc7a362d0", // for live [Required] Test or Live GUID with dashes
+                checkoutKey: "live-checkout-key-014b3802470340e090c2e8f0f8295861", // for live [Required] Test or Live GUID with dashes
                 paymentId: paymentID, //[required] GUID without dashes
                 partnerMerchantNumber: "123456789", //[optional] Number
                 containerId: "dibs-complete-checkout", //[optional] defaultValue: dibs-checkout-content
