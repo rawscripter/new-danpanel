@@ -10,7 +10,7 @@
                     Profil
                 </router-link>
                 <router-link tag="a" class="dropdown-item" exact :to="{name:'customer-orders',query:{type:'running'}}">
-                    Aktive begivenheder
+                    Mine Ordrer
                 </router-link>
 <!--                <router-link tag="a" class="dropdown-item" exact-->
                 <!--                             :to="{name:'customer-completed-orders',query:{type:'completed'}}">-->
@@ -19,7 +19,7 @@
 
                 <router-link tag="a" class="dropdown-item" exact
                              :to="{name:'customer-canceled-orders',query:{type:'canceled'}}">
-                    Annullerede ordrer
+                    Annullerede Ordrer
                 </router-link>
 
                 <div class="dropdown-divider"></div>

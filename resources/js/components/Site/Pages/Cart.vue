@@ -11,14 +11,14 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Produktbillede</th>
-                                <th>Begivenheds</th>
+                                <th>Varer</th>
                                 <th>
                                     Pris
                                     <!-- <br/>(del 1 of two betalinger) -->
                                 </th>
                                 <th>Antal</th>
                                 <!--                                <th>Bemærk</th>-->
-                                <th>Alt</th>
+                                <th>I alt</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -123,7 +123,7 @@
                                                     <td>
                                                         <strong>Moms:</strong>
                                                     </td>
-                                                    <td>0 dkk</td>
+                                                    <td>{{ totalVat }} dkk</td>
                                                 </tr>
 
                                                 <tr>
@@ -179,7 +179,7 @@ export default {
 
             this.$store.commit("removeFromCart", item);
             this.$store.commit("saveCart");
-            this.$toast.success("Item removed from cart");
+            this.$toast.success("Vare fjernet fra kurv");
         },
         increaseOrderQuantity(product) {
             this.$store.commit("increaseOrderQuantity", product);
@@ -190,7 +190,7 @@ export default {
                 this.$store.commit("decreaseOrderQuantity", product);
                 this.$store.commit("saveCart");
             } else {
-                this.$toast.error("Minimum order quantity is 1.");
+                this.$toast.error("Minimum ordremængde er 1");
             }
         },
     },
@@ -202,6 +202,15 @@ export default {
                 total += item.totalPrice;
             }
             return total.toFixed(2);
+        },
+
+        totalVat() {
+            let taxPrice = 0;
+
+            for (let item of this.$store.state.cart) {
+                taxPrice += item.taxPrice;
+            }
+            return taxPrice.toFixed(2);
         },
     },
 };

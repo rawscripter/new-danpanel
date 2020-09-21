@@ -40,10 +40,6 @@
                 <label for="cvrNum">CVR nummer (Kun for virksomheder)</label>
                 <input id="cvrNum" v-model="userInfo.cvr_number" type="text" class="form-control" name="cvr">
             </div>
-            <div class="form-group">
-                <label for="eanNum">CVR nummer (Kun for virksomheder)</label>
-                <input id="eanNum" v-model="userInfo.ean_number" type="text" class="form-control" name="ean">
-            </div>
 
             <div class="form-group text-right">
                 <input type="submit" class="btn btn-block btn-success rounded-0"

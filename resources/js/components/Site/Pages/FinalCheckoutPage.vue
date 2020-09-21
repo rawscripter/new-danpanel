@@ -211,13 +211,13 @@
                                                 <td>
                                                     <strong>Fragt omkostninger:</strong>
                                                 </td>
-                                                <td>{{ ((shipping_cost)) }} kr</td>
+                                                <td>{{ ((orderDetails.shipping_cost)) }} kr</td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <strong>Moms:</strong>
                                                 </td>
-                                                <td>{{ 0 }} kr</td>
+                                                <td>{{ totalVat }} kr</td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -227,8 +227,8 @@
                                             </tr>
                                             <tr>
                                                 <td rowspan="2" colspan="2">
-                                                    <button @click="payNow" class="btn btn-block mt-3 btn-success">Ordre
-                                                        Nu
+                                                    <button @click="payNow" class="btn btn-block mt-3 btn-success">Ordrer
+                                                        nu
                                                     </button>
                                                 </td>
                                             </tr>
@@ -257,7 +257,6 @@ export default {
         return {
             hideOrderDetailsForm: false,
             shipping_method: null,
-            shipping_cost: 0,
             selectedMethod: 0,
             isLoading: false,
             isShippingMethodLoading: false,
@@ -278,6 +277,7 @@ export default {
             },
             orderDetails: {
                 newsletter: 0,
+                shipping_cost: 0,
                 total: 0,
             },
             shippingMethods: [],
@@ -290,13 +290,21 @@ export default {
             if (value === 'gls') {
                 this.getGLSPickupPoints();
                 if (this.orderDetails.total < 799) {
-                    this.shipping_cost = 49;
+                    this.orderDetails.shipping_cost = 49;
                 } else {
-                    this.shipping_cost = 0;
+                    this.orderDetails.shipping_cost = 0;
+                }
+
+            } else if (value === 'home_delivery') {
+                this.getGLSPickupPoints();
+                if (this.orderDetails.total < 799) {
+                    this.orderDetails.shipping_cost = 49;
+                } else {
+                    this.orderDetails.shipping_cost = 0;
                 }
 
             } else {
-                this.shipping_cost = 0;
+                this.orderDetails.shipping_cost = 0;
                 this.shippingMethods = [];
             }
         },
@@ -359,7 +367,7 @@ export default {
         },
         initCheckout(paymentID) {
             var checkoutOptions = {
-                checkoutKey: "test-checkout-key-500b92cc5d264cf88f5653ddc7a362d0", // for live [Required] Test or Live GUID with dashes
+                checkoutKey: "live-checkout-key-014b3802470340e090c2e8f0f8295861", // for live [Required] Test or Live GUID with dashes
                 paymentId: paymentID, //[required] GUID without dashes
                 partnerMerchantNumber: "123456789", //[optional] Number
                 containerId: "dibs-complete-checkout", //[optional] defaultValue: dibs-checkout-content
@@ -394,14 +402,25 @@ export default {
                 total += item.totalPrice;
             }
             return total.toFixed(2);
-        }, totalPrice() {
-            let total = this.shipping_cost;
+        },
+
+        totalPrice() {
+            let total = this.orderDetails.shipping_cost;
 
             for (let item of this.$store.state.cart) {
                 total += item.totalPrice;
             }
             this.orderDetails.total = total.toFixed(2);
             return total.toFixed(2);
+        },
+
+        totalVat() {
+            let taxPrice = 0;
+
+            for (let item of this.$store.state.cart) {
+                taxPrice += item.taxPrice;
+            }
+            return taxPrice.toFixed(2);
         },
 
         enablePaymentArea() {

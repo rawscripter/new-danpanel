@@ -5,14 +5,14 @@
                 <img :src="product.featureImage" alt style="width:100%"/>
 
                 <div class="saving-percentage" v-if="product.saving_percentage > 0">
-                    <span>Spare {{ product.saving_percentage }}%</span>
+                    <span><strong> {{ product.saving_percentage }}%</strong></span>
                 </div>
             </router-link>
             <span
                 class="favourite-badge"
                 @click="removeProductToFavouriteList(product.slug)"
                 v-if="isUserFavourite"
-            >Favourite</span>
+            >Favoritter</span>
         </div>
         <div class="p_category_and_love d-flex justify-content-between hide-in-mobile">
             <div class="category">
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    <span slot="finish" class="expired">Begivenheden er endt</span>
+                    <span slot="finish" class="expired">Produkt er endt</span>
                 </vac>
                 <span v-else class="expired">Kommer snart</span>
             </div>
@@ -121,7 +121,7 @@
         <div class="pricing-section" v-if="!product.is_request_product">
             <div class="pricing-section flex-sm-column d-flex justify-content-center flex-column align-items-center"
                  style="flex-direction:column">
-                <div class="pricing-left text-left1" v-if="product.market_price> 0">
+                <div class="pricing-left" v-if="product.market_price> 0">
                     <!-- <h5 class="small-font-in-mobile">
                       <small>Market Price</small>
                     </h5> -->
@@ -185,15 +185,15 @@ export default {
         },
         addProductToFavouriteList(slug) {
             if (!this.isUserLogin) {
-                this.$toast.error("Please login first.");
+                this.$toast.error("Log ind først");
                 return;
             }
             axios
                 .get(`/api/product/${slug}/favourite/add`)
                 .then((res) => {
                     if (res.data.status === 200) {
-                        this.isUserFavourite = res.data.product.isFavouriteByCurrentUser;
-                        Alert.showSuccessAlert("Begivenhed føjet til favoritlisten.");
+                        this.isUserFavourite = true;
+                        this.$toast.success("Produkt føjet til favoritlisten.");
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
                         alert(res.data.message);
@@ -206,8 +206,8 @@ export default {
                 .get(`/api/product/${slug}/favourite/remove`)
                 .then((res) => {
                     if (res.data.status === 200) {
-                        this.isUserFavourite = res.data.product.isFavouriteByCurrentUser;
-                        Alert.showSuccessAlert("Begivenhed fjernet fra favoritlisten.");
+                        this.isUserFavourite = false;
+                        this.$toast.warning("Produkt fjernet fra favoritlisten.");
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
                         alert(res.data.message);
@@ -240,12 +240,15 @@ export default {
 .active {
     display: block;
 }
+
 .love {
     cursor: pointer;
 }
+
 .share {
     cursor: pointer;
 }
+
 .bottom-pane {
     margin-top: 0px;
     border-radius: 5px;
@@ -253,32 +256,38 @@ export default {
     padding: 5px;
     border: 0px;
     text-align: center;
-    width: 35px;
+    /* width: 35px; */
 }
+
 .num {
     font-size: 16px;
     color: #000;
     font-weight: bold;
 }
+
 span.expired {
     font-weight: bold;
     color: red;
     font-size: 18px;
 }
+
 h5 {
     font-weight: 700;
     font-size: 17px;
 }
+
 .category a {
     text-decoration: none;
     color: unset;
 }
+
 .active {
     display: block;
 }
+
 span.favourite-badge {
     position: absolute;
-    right: 13px;
+    right: 0px;
     background: #21a9df;
     cursor: pointer;
     padding: 1px 10px;
@@ -287,9 +296,11 @@ span.favourite-badge {
     letter-spacing: 1px;
     font-size: 12px;
 }
+
 .modal-dialog {
     margin-top: 150px;
 }
+
 .modal-dialog .modal-body span {
     flex: none;
     color: #ffffff;
@@ -303,35 +314,46 @@ span.favourite-badge {
     cursor: pointer;
     margin: 0 10px 10px 0;
 }
+
 .modal-dialog .modal-body .fab {
     background-color: rgba(0, 0, 0, 0.2);
     padding: 10px;
     flex: 0 1 auto;
 }
+
 .modal-dialog .modal-body span {
     padding: 0 10px;
     flex: 1 1;
     font-weight: 500;
 }
+
 .product-link {
     color: #616161;
 }
+
 .saving-percentage {
     position: absolute;
-    top: 18px;
-    padding: 1px 15px;
+    top: 0px;
+    right:0;
+    padding: 10px 10px;
     background: #19606fc7;
-    font-weight: normal;
+    font-weight: bold;
     color: #fff;
-    font-size: 12px;
+    font-size: 20px;
 }
+
 .product-link:hover {
     text-decoration: none;
     color: #000000;
 }
+
 .pricing-section {
     display: flex;
     flex-direction: column;
-    height: 85px;
+    /* height: 85px; */
+}
+
+.product_image {
+    position: relative;
 }
 </style>

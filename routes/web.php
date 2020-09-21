@@ -24,24 +24,6 @@ Route::get('/admin', function () {
 });
 
 
-// to load admin dashboard
-Route::get('/test/graph', function () {
-//    $order = Order::latest()->first();
-//    return  $order->orderVariations();
-    $product = Product::where('event_id', '848ZNOAI')->first();
-//    return$product;
-    $data = [];
-    foreach ($product->orders as $ket => $order) {
-        $temp['price'] = $order->current_price;
-        $temp['order'] = $ket;
-        array_push($data, $temp);
-        $temp = [];
-    }
-    return $data;
-
-
-});
-
 // to load main site
 Route::get('/', function () {
     return view('site.index');
@@ -59,15 +41,12 @@ Route::get('/register', function () {
 });
 
 //// to load main site
-Route::get('/password/reset/{
-        token}', function () {
+Route::get('/password/reset/{token}', function () {
     return view('site.index');
 })->name('password.reset');
 
 // Routes for PrivatePolikCookies, Handelsbetingelser og vilkår
-Route::get('/handelsbetingelser', 'handelsbetingelserController@handelsbetingelser')->name('site.handelsbetingelser');
-Route::get('/privatlivspolitikCookies', 'handelsbetingelserController@privatlivspolitikCookies')->name('site.privatlivspolitikCookies');
- 
+
 // for payment
 Route::get('/checkout/payment/status', 'PaymentController@storePaymentDetails');
 

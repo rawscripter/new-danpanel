@@ -51,7 +51,7 @@
             </div>
 
             <div class="love-section clearfix">
-                <button v-if="product.isLikedByCurrentUser" class="btn btn-success">
+                <button v-if="isUserLiked" class="btn btn-success">
                     {{ product.totalLikes }}
                     <i class="fas fa-heart" style="color:red"></i>
                 </button>
@@ -68,11 +68,11 @@
         <div class="sidebar-action">
             <p @click="addProductToFavouriteList(product.slug)" v-if="!isUserFavourite">
                 <img src="/images/icons/favorite.png" height="20" alt/> Gem
-                till favouriter
+                till favoritter
             </p>
             <br/>
             <p @click="addProductToReminderList(product.slug)">
-                <i class="fas fa-sync mr-2"></i> Pamind mig
+                <i class="fas fa-sync mr-2"></i> Påmind mig
             </p>
             <br/>
             <p @click="shareProductOnSocialMedia">
@@ -165,7 +165,7 @@ export default {
             let totalVariationsOfProduct = this.product.product_variation.length;
             if (totalVariationsOfProduct > 0) {
                 if (totalVariationsOfProduct !== this.selectedVariations.length) {
-                    this.$toast.error("Please select product variation first.");
+                    this.$toast.error("Vælg først produktvariation.");
                     return;
                 } else {
                     Vue.set(item, "variations", this.selectedVariations);
@@ -176,7 +176,7 @@ export default {
             this.$store.commit("addToCart", item);
             this.$store.commit("saveCart");
             this.selectedVariations = [];
-            this.$toast.success("Product added to cart.");
+            this.$toast.success("Produkt tilføjet til indkøbskurv");
         },
         shareProductOnSocialMedia() {
             this.$root.$emit("shareProduct", this.product);
@@ -244,7 +244,7 @@ export default {
                 .get(`/api/product/${slug}/like/add`)
                 .then((res) => {
                     if (res.data.status === 200) {
-                        this.isUserLiked = res.data.product.isLikedByCurrentUser;
+                        this.isUserLiked = true;
                         this.totalLikes++;
                     } else {
                         alert(res.data.message);
@@ -263,7 +263,7 @@ export default {
                 .then((res) => {
                     if (res.data.status === 200) {
                         this.isUserFavourite = res.data.product.isFavouriteByCurrentUser;
-                        Alert.showSuccessAlert("Event added to favourite list.");
+                        this.$toast.success("Produkt føjet til favoritlisten.");
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
                         alert(res.data.message);
@@ -276,7 +276,7 @@ export default {
                 .get(`/api/product/${slug}/reminder/add`)
                 .then((res) => {
                     if (res.data.status === 200) {
-                        Alert.showSuccessAlert("Event added to reminder list.");
+                        Alert.showSuccessAlert("Produkt tilføjet til påmindelsesliste");
                         this.$root.$emit("updateFavouriteProductList", true);
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
@@ -291,7 +291,7 @@ export default {
                 .then((res) => {
                     if (res.data.status === 200) {
                         this.isUserFavourite = res.data.product.isFavouriteByCurrentUser;
-                        Alert.showSuccessAlert("Event removed from favourite list.");
+                        Alert.showSuccessAlert("Produkt fjernet fra favoritlisten.");
                     }
                 })
                 .catch((err) => console.log(err));
@@ -332,37 +332,46 @@ small {
     font-weight: bold;
     letter-spacing: 1px;
 }
+
 h5 {
     font-weight: 700;
     font-size: 17px;
 }
+
 .sidebar-action {
     cursor: pointer;
 }
+
 .variations {
     display: flow-root;
 }
+
 .active {
     display: block;
 }
+
 .product_view_sidebar.shadow.position-fixed {
     min-width: 280px;
     max-width: 300px;
 }
+
 .button-wrap {
     position: relative;
     text-align: center;
     top: 50%;
     margin-top: -2.5em;
 }
+
 @media (max-width: 40em) {
     .button-wrap {
         margin-top: -1.5em;
     }
 }
+
 .variation {
     float: left;
 }
+
 .button-label {
     display: inline-block;
     padding: 5px 15px;
@@ -380,34 +389,41 @@ h5 {
     user-select: none;
     font-size: 15px;
 }
+
 .button-label h1 {
     font-size: 1em;
     font-family: "Lato", sans-serif;
 }
+
 .button-label:hover {
     background: #d6d6d6;
     color: #101010;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.32);
 }
+
 .button-label:active {
     -webkit-transform: translateY(2px);
     transform: translateY(2px);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2),
     inset 0px -1px 0 rgba(0, 0, 0, 0.22);
 }
+
 @media (max-width: 40em) {
     .button-label {
         padding: 0em 1em 3px;
         margin: 0.25em;
     }
 }
+
 .radio-label:checked + .button-label {
     background: #ff844e;
     color: #efefef;
 }
+
 .hidden {
     display: none;
 }
+
 .clearfix {
     clear: both;
 }

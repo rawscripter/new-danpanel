@@ -8,8 +8,8 @@ require("./bootstrap");
 
 window.Vue = require("vue");
 
-window.APP_URL = "http://danpanel.test:8081";
-// window.APP_URL = "http://up-danpanel.danpanel.dk";
+// window.APP_URL = "http://danpanel.test:8081";
+window.APP_URL = "https://danpanel.dk";
 
 window.CURRENCY = "dkk";
 
@@ -18,7 +18,7 @@ import VueCookies from "vue-cookies";
 Vue.use(VueCookies);
 
 let SocialSharing = require("vue-social-sharing");
-
+git
 Vue.use(SocialSharing);
 
 import axios from "axios";

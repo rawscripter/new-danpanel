@@ -71,27 +71,27 @@
             </div>
 
             <div class="col-md-12 col-sm-6"> 
-                <button class="btn btn-theme btn-block col-md-12 col-sm-6" @click="addToCart(product)">Add To Cart </button>
+                <button class="btn btn-theme btn-block col-md-12 col-sm-6" @click="addToCart(product)">Tilføj til kurv </button>
             </div>
         </div>
         <div class="sidebar-action row">
             <div class="col-12 col-sm-4">
                 <p @click="addProductToFavouriteList(product.slug)" v-if="!isUserFavourite">
                     <img src="/images/icons/favorite.png" height="20" alt/> Gem
-                    till favouriter
+                    till favoritter
                 </p>
             </div>
             <!-- <br/> -->
             <div class="col-12 col-sm-4">
                 <p @click="addProductToReminderList(product.slug)">
-                    <i class="fas fa-sync mr-2"></i> Pamind mig
+                    <i class="fas fa-sync mr-2"></i> Påmind mig
                 </p>
                 <!-- <br/> -->
             </div>
             <div class="col-12 col-sm-2">
                 <p @click="shareProductOnSocialMedia">
                     <img src="/images/icons/share.png" height="20" width="20" alt/>
-                    Del
+                    Del produkt
                 </p>
             </div>
         </div>
@@ -136,7 +136,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-theme btn-block">Submit Request</button>
+                                    <button type="submit" class="btn btn-theme btn-block">Indsend anmodning</button>
                                 </div>
                             </form>
                         </div>
@@ -179,7 +179,7 @@ export default {
             let totalVariationsOfProduct = this.product.product_variation.length;
             if (totalVariationsOfProduct > 0) {
                 if (totalVariationsOfProduct !== this.selectedVariations.length) {
-                    this.$toast.error("Please select product variation first.");
+                    this.$toast.error("Vælg først produktvariation");
 
                     return;
                 } else {
@@ -193,7 +193,7 @@ export default {
             this.$store.commit("addToCart", item);
             this.$store.commit("saveCart");
             this.selectedVariations = [];
-            this.$toast.success("Product added to cart.");
+            this.$toast.success("Produktet er tilføjet til indkøbskurv");
 
         },
         shareProductOnSocialMedia() {
@@ -282,7 +282,7 @@ export default {
         addProductToFavouriteList(slug) {
             if (!this.isUserLogin) {
                 // this.$root.$emit("callProductRequestModal", this.product);
-                this.$toast.error("Please login first.");
+                this.$toast.error("Log ind først.");
 
                 return;
             }
@@ -291,7 +291,7 @@ export default {
                 .then((res) => {
                     if (res.data.status === 200) {
                         this.isUserFavourite = res.data.product.isFavouriteByCurrentUser;
-                        Alert.showSuccessAlert("Event added to favourite list.");
+                        Alert.showSuccessAlert("Produktet er tilføjet til favoritlisten.");
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
                         alert(res.data.message);
@@ -304,7 +304,7 @@ export default {
                 .get(`/api/product/${slug}/reminder/add`)
                 .then((res) => {
                     if (res.data.status === 200) {
-                        Alert.showSuccessAlert("Event added to reminder list.");
+                        Alert.showSuccessAlert("Produktet er tilføjet til påmindelsesliste.");
                         this.$root.$emit("updateFavouriteProductList", true);
                         this.$root.$emit("updateFavouriteProductList", true);
                     } else {
@@ -319,7 +319,7 @@ export default {
                 .then((res) => {
                     if (res.data.status === 200) {
                         this.isUserFavourite = res.data.product.isFavouriteByCurrentUser;
-                        Alert.showSuccessAlert("Event removed from favourite list.");
+                        Alert.showSuccessAlert("Produktet er fjernet fra favoritlisten.");
                     }
                 })
                 .catch((err) => console.log(err));

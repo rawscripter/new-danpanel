@@ -78,6 +78,7 @@ class SubCategoryController extends Controller
         $data['user_id'] = auth()->user()->id;
         $data['category_id'] = $request->category_id;
         $data['priority'] = $request->priority;
+        $data['channel'] = $request->channel;
 
         $subCategory = SubCategory::create($data);
         if ($subCategory) {
@@ -136,6 +137,7 @@ class SubCategoryController extends Controller
         $data['user_id'] = auth()->user()->id;
         $data['category_id'] = $request->category_id ?? $subCategory->category_id;
         $data['priority'] = $request->priority ?? $subCategory->priority;
+        $data['channel'] = $request->channel;
 
         if ($subCategory->update($data)) {
             $res['status'] = 200;

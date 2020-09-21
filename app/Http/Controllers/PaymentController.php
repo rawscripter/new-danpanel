@@ -136,24 +136,10 @@ class PaymentController extends Controller
         }
         // payment complete
         $order = Order::where('custom_order_id', $orderId)->first();
-//        if (empty($order)) {
-//            // now store payment data to order Table
-////            $temporaryOrder = TemporaryOrder::where('custom_order_id', $orderId)->orderBy('created_at', 'desc')->first();
-////            $order = OrderController::createNewOrder($temporaryOrder);
-//            //delete temporary table data
-////            $temporaryOrder->delete();
-//            // reduce product price
-////            $product = Product::find($order->product->id);
-////            $product->reduceProductPriceOnUserOrder($order->quantity);
-//            //set join offer paid as true
-//            $order->is_join_price_paid = 1;
-//            $type = 1;
-//        } else {
         // set order full payment paid as true
         $order->is_full_price_paid = 1;
         $order->order_status = 1;
         $type = 1;
-//        }
         //save order payment info
         $order->save();
         //save order payment info
@@ -166,6 +152,10 @@ class PaymentController extends Controller
             'status' => 'paid',
             'amount' => $receivedAmount / 100,
         ]);
+
+        MailController::sendMailToUserAtOrderPayment($order);
+
+
         return redirect('/order/payment?status=success&order=' . $order->custom_order_id . '&type=' . $type);
     }
 }

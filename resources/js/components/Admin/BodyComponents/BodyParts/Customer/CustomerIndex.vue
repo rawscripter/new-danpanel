@@ -21,6 +21,15 @@
                                         :columns="columns"
                                         :options="options">
 
+
+                                <span slot="total_orders"
+                                      slot-scope="{row}">
+                                    <router-link :to="{name:'orders',query:{status:'all',customer:row.id}}"
+                                                 class="btn btn-primary btn-sm">
+                                        {{ row.total_orders }}
+                                    </router-link>
+                            </span>
+
                         </v-server-table>
                         <!--end: Datatable -->
                     </div>
@@ -33,110 +42,110 @@
 <script>
 
 
-    export default {
-        name: "CustomerIndex",
-        data() {
-            return {
-                columns: [
-                    'id',
-                    'name',
-                    'email',
-                    'info.phone',
-                    'info.company_name',
-                    'info.cvr_number',
-                    'info.ean_number',
-                    'info.city',
-                    'info.zip_code',
-                    'total_orders',
-                    'created_at',
-                    // 'actions'
-                ],
-                options: {
-                    headings: {
-                        id: 'ID',
-                        name: 'Name',
-                        email: 'Email',
-                        'info.phone': 'Phone',
-                        'info.company_name': 'Email',
-                        'info.cvr_number': 'CVR Number',
-                        'info.ean_number': 'EAN Number',
-                        'info.city': 'city',
-                        'info.zip_code': 'zip_code',
-                        'total_orders': 'Orders',
-                        'created_at': 'Join Date',
-                        // actions: 'Actions'
-                    },
-                    perPage: 10,
-                    perPageValues: [10, 20, 25, 50, 100],
-                    sortable: ['name'],
-                    filterable: ['name'],
-                    responseAdapter: function (resp) {
-                        return {
-                            data: resp.data.customers,
-                            count: resp.data.total,
-                        }
-                    }
+export default {
+    name: "CustomerIndex",
+    data() {
+        return {
+            columns: [
+                'id',
+                'name',
+                'email',
+                'info.phone',
+                'info.company_name',
+                'info.cvr_number',
+                'info.ean_number',
+                'info.city',
+                'info.zip_code',
+                'total_orders',
+                'created_at',
+                // 'actions'
+            ],
+            options: {
+                headings: {
+                    id: 'ID',
+                    name: 'Name',
+                    email: 'Email',
+                    'info.phone': 'Phone',
+                    'info.company_name': 'Email',
+                    'info.cvr_number': 'CVR Number',
+                    'info.ean_number': 'EAN Number',
+                    'info.city': 'city',
+                    'info.zip_code': 'zip_code',
+                    'total_orders': 'Orders',
+                    'created_at': 'Join Date',
+                    // actions: 'Actions'
                 },
-            }
-        },
-        methods: {
-            orderDetails(categoryID) {
+                perPage: 10,
+                perPageValues: [10, 20, 25, 50, 100],
+                sortable: ['name'],
+                filterable: ['name'],
+                responseAdapter: function (resp) {
+                    return {
+                        data: resp.data.customers,
+                        count: resp.data.total,
+                    }
+                }
             },
+        }
+    },
+    methods: {
+        orderDetails(categoryID) {
         },
-        computed: {
-            serverRequestUrl() {
-                return `${APP_URL}/api/admin/customers`;
-            },
+    },
+    computed: {
+        serverRequestUrl() {
+            return `${APP_URL}/api/admin/customers`;
         },
-    }
+    },
+}
 </script>
 
 <style>
-    .VueTables__search-field {
-        display: flex !important;
-    }
+.VueTables__search-field {
+    display: flex !important;
+}
 
-    .VueTables__search-field label, .VueTables__limit-field label {
-        margin-right: 10px;
-    }
+.VueTables__search-field label, .VueTables__limit-field label {
+    margin-right: 10px;
+}
 
-    .VueTables__limit-field {
-        display: flex !important;
-    }
+.VueTables__limit-field {
+    display: flex !important;
+}
 
-    .running-orders {
-        background: #5578eb;
-    }
+.running-orders {
+    background: #5578eb;
+}
 
-    .running-orders .kt-font-brand {
-        color: #ffffff !important;
-    }
+.running-orders .kt-font-brand {
+    color: #ffffff !important;
+}
 
-    .running-orders h3 {
-        color: #fff !important;
-    }
+.running-orders h3 {
+    color: #fff !important;
+}
 
-    .complete-orders {
-        background: #0abb87;
-    }
+.complete-orders {
+    background: #0abb87;
+}
 
-    .complete-orders .kt-font-brand {
-        color: #ffffff !important;
-    }
+.complete-orders .kt-font-brand {
+    color: #ffffff !important;
+}
 
-    .complete-orders h3 {
-        color: #fff !important;
-    }
+.complete-orders h3 {
+    color: #fff !important;
+}
 
-    .canceled-orders {
-        background: #fd397a;
-    }
+.canceled-orders {
+    background: #fd397a;
+}
 
-    .canceled-orders .kt-font-brand {
-        color: #ffffff !important;
-    }
+.canceled-orders .kt-font-brand {
+    color: #ffffff !important;
+}
 
-    .canceled-orders h3 {
-        color: #fff !important;
-    }
+.canceled-orders h3 {
+    color: #fff !important;
+}
 </style>

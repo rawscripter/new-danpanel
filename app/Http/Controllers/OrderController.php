@@ -22,10 +22,16 @@ class OrderController extends Controller
         $res['status'] = 200;
         $res['message'] = 'All Categories';
         $orders = Order::query();
+        $orders->where('is_full_price_paid', 1);
 
         // only product orders
         if (isset($request->product)) {
             $orders->where('product_id', $request->product);
+        }
+
+        // only product orders
+        if (isset($request->customer)) {
+            $orders->where('user_id', $request->customer);
         }
 
         // all running orders
@@ -63,6 +69,10 @@ class OrderController extends Controller
     function createTempUser($request)
     {
         $shippingInfo = $request->shipping_info;
+
+        $user = User::where('email', $shippingInfo['email'])->first();
+
+        if (!empty($user)) return $user;
         $user = User::create([
             'name' => $shippingInfo['name'],
             'email' => $shippingInfo['email'],
@@ -93,6 +103,7 @@ class OrderController extends Controller
                 'custom_order_id' => $newCustomerId,
                 'user_id' => $user->id,
                 'total_price' => $orderDetails['total'],
+                'shipping_cost' => $orderDetails['shipping_cost'],
             ]
         );
         //TODO: store order products
@@ -158,13 +169,13 @@ class OrderController extends Controller
         $order = Order::where('custom_order_id', $orderId)->first();
         if ($order) {
             $res['status'] = 200;
-            $res['message'] = 'Payment Successful';
+            $res['message'] = 'Betaling vellykket';
             $res['payment']['isPaid'] = true;
             $res['order'] = new OrderResource($order);
         } else {
             $res['status'] = 201;
             $res['payment']['isPaid'] = false;
-            $res['message'] = 'No Record Found.';
+            $res['message'] = 'Ingen registrering fundet.';
         }
         return response()->json($res);
     }
@@ -205,7 +216,7 @@ class OrderController extends Controller
         $mail = MailController::paymentReminderBeforeDeadline($order);
         if ($mail) {
             $res['status'] = 200;
-            $res['message'] = 'Reminder mail sent.';
+            $res['message'] = 'Påmindelse mail sendt.';
         } else {
             $res['status'] = 201;
         }
