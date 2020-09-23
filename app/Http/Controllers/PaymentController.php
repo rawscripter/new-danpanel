@@ -47,7 +47,7 @@ class PaymentController extends Controller
                }
            },
     }';
-        $ch = curl_init('https://test.api.dibspayment.eu/v1/payments');
+        $ch = curl_init('https://api.dibspayment.eu/v1/payments');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $datastring);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -93,7 +93,7 @@ class PaymentController extends Controller
                }
            },
     }';
-        $ch = curl_init('https://test.api.dibspayment.eu/v1/payments');
+        $ch = curl_init('https://api.dibspayment.eu/v1/payments');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $datastring);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -109,7 +109,7 @@ class PaymentController extends Controller
     {
         $paymentFailed = $request->paymentFailed;
         $paymentId = $request->paymentId;
-        $ch = curl_init('https://test.api.dibspayment.eu/v1/payments/' . $paymentId . '');
+        $ch = curl_init('https://api.dibspayment.eu/v1/payments/' . $paymentId . '');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER,
@@ -146,8 +146,6 @@ class PaymentController extends Controller
         OrderPayment::create([
             'order_id' => $order->id,
             'paymentId' => $paymentId,
-            //1 for join payment
-            //2 for full payment
             'type' => $type,
             'status' => 'paid',
             'amount' => $receivedAmount / 100,

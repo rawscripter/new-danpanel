@@ -15,13 +15,13 @@ class handelsbetingelserController extends Controller
     {
         //
     }
-    public function handelsbetingelser(){
-        return view('site.handelsbetingelser');
-    }
+    // public function handelsbetingelser(){
+    //     return view('site.handelsbetingelser');
+    // }
 
-    public function privatlivspolitikCookies(){
-        return view('site.privatlivspolitik-cookies');
-    }
+    // public function privatlivspolitikCookies(){
+    //     return view('site.privatlivspolitik-cookies');
+    // }
     /**
      * Show the form for creating a new resource.
      *

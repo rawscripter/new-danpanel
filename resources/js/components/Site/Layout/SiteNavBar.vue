@@ -36,7 +36,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <router-link to="/about-us" class="nav-link">Om os</router-link>
+                            <router-link to="/om-os" class="nav-link">Om os</router-link>
                         </li>
 
                         <li class="nav-item">
@@ -44,8 +44,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <router-link to="/news-list" class="nav-link">Nyheder</router-link>
+                            <router-link to="/nyheder" class="nav-link">Nyheder</router-link>
                         </li>
+
+                         <!-- <li class="nav-item">
+                            <router-link to="/handelsbetingelser" class="nav-link">handelsbetingelser</router-link>
+                        </li> -->
                     </ul>
                 </div>
 

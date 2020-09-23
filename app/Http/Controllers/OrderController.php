@@ -169,13 +169,13 @@ class OrderController extends Controller
         $order = Order::where('custom_order_id', $orderId)->first();
         if ($order) {
             $res['status'] = 200;
-            $res['message'] = 'Payment Successful';
+            $res['message'] = 'Betaling vellykket';
             $res['payment']['isPaid'] = true;
             $res['order'] = new OrderResource($order);
         } else {
             $res['status'] = 201;
             $res['payment']['isPaid'] = false;
-            $res['message'] = 'No Record Found.';
+            $res['message'] = 'Ingen registrering fundet.';
         }
         return response()->json($res);
     }
@@ -216,7 +216,7 @@ class OrderController extends Controller
         $mail = MailController::paymentReminderBeforeDeadline($order);
         if ($mail) {
             $res['status'] = 200;
-            $res['message'] = 'Reminder mail sent.';
+            $res['message'] = 'Påmindelse mail sendt.';
         } else {
             $res['status'] = 201;
         }

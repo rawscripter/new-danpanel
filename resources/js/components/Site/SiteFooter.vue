@@ -1,20 +1,20 @@
 <template>
-    <footer class="container-fluid w3-padding-32 w3-left text-white footer-section">
+    <footer class="container-fluid w3-left text-white footer-section">
         <div class="row footer-row-contianer">
             <div class="col-md-5">
                 <div class="row">
                     <div class="col-md-6 FooterSectionGap">
                         <h4>DanPanel ApS</h4>
                         <p>Farverland 6,<br> 2600 Glostrup,<br> Danmark </p>
-                        <p class="footer-line-gap">CVR-Nummer: 38362925</p>
+                        <p class="">CVR-Nummer: 38362925</p>
 
                     </div>
                     <div class="col-md-6 FooterSectionGap">
                         <h4>Kontakt</h4>
-                        <p class="" style="">Tlf.: +45 32 22 32 03</p>
-                        <p class="footer-line-gap">Mail: hej@danpanel.dk</p><br>
-                        <p class="footer-line-gap">Man-Fre fra kl. 09:00 - 15:00 </p>
-                        <p class="">Vi svarer inden for 24 timer <br> alle arbejdsdage </p>
+                        <span class="" style="">Tlf.: +45 32 22 32 03</span><br>
+                        <span class="">Mail: hej@danpanel.dk</span><br>
+                        <span class="">Man-Fre fra kl. 09:00 - 15:00 </span><br>
+                        <span class="">Vi svarer inden for 24 timer alle arbejdsdage </span>
                     </div>
                 </div>
 
@@ -24,28 +24,31 @@
                 <div class="row">
                     <div class="col-md-6 FooterSectionGap">
                         <h4>DanPanel Group</h4>
-                        <p class="" style=""><a class="text-white h6 footer-hover"
-                                                href="https://danpanel.dk/products/Hent%20Tilbud">Hent tilbud</a></p>
-                        <!--<p class="footer-line-gap"><a class="text-white h6 footer-hover" href="https://danpanel.dk/products/Privat">Privat</a></p>-->
-                        <p class="footer-line-gap"><a class="text-white h6 footer-hover"
+                        <!-- <p class="" style=""><a class="text-white h6 footer-hover"
+                                                href="https://danpanel.dk/products/Hent%20Tilbud">Hent tilbud</a></p> -->
+                        <p class=""><a class="text-white h6 footer-hover"
                                                       href="https://offentlige.danpanel.dk/"
                                                       target="_blank">Offentlige</a></p>
-                        <p class="footer-line-gap"><a class="text-white h6 footer-hover"
+                        <!-- <p class=""><a class="text-white h6 footer-hover"
                                                       href="https://webshop.danpanel.dk/" target="_blank">Webshop</a>
-                        </p>
+                        </p> -->
                     </div>
                     <div class="col-md-6 FooterSectionGap">
+                        <!-- <router-link to="/om-os" style="color:white" target="_blank">Om os</router-link> -->
                         <h4><a class="text-white footer-hover h4" href="https://danpanel.dk/om" target="_blank">Om
                             os</a></h4>
-                        <p class="">Bliv partner</p>
-                        <p class="footer-line-gap">Bliv ambassadør</p> </br>
-                        <p class="footer-line-gap"><a class="text-white h6 footer-hover"
-                                                      href="/assets/site/assets/OtherFiles/Handelsbetingelser-og-vilkar-Samlet.pdf"
-                                                      target="_blank">Handelsbetingelser </a></p>
-                        <p class="footer-line-gap"><a class="text-white h6 footer-hover"
+                        <!-- <span class="">Bliv partner</span><br>
+                        <span class="">Bliv ambassadør</span> <br> -->
+                        <p class="">
+                            <router-link to="/handelsbetingelser" style="color:white">Handelsbetingelser</router-link>
+                        </p>
+                         <p class="" style="">
+                            <router-link to="/Privatlivspolitik-cookies" style="color:white">Privatlivspolitik & Cookies</router-link>
+                        </p>
+                        <!-- <p class="footer-line-gap"><a class="text-white h6 footer-hover"
                                                       href="/assets/site/assets/OtherFiles/Cookie-og-privatlivspolitik-DanPanel.pdf"
-                                                      target="_blank">Privatlivspolitik & Cookies</a></p>
-                        <p class="footer-line-gap"><a class="text-white h6 footer-hover"
+                                                      target="_blank">Privatlivspolitik & Cookies</a></p> -->
+                        <p class=""><a class="text-white h6 footer-hover"
                                                       href="https://certifikat.emaerket.dk/danpanel.dk?fbclid=IwAR2VDaxwELCwtxtC_xBNCEEf-V1JRRzknI1VgWITjoM3vFm7Cf1MZI_Xrh0"
                                                       target="_blank">E-mærket certifikat</a></p>
                     </div>
@@ -101,7 +104,7 @@ export default {
 
 <style scoped>
 .footer-section {
-    position: relative !important;
+    /* position: relative !important; */
     margin-top: 50px;
 }
 

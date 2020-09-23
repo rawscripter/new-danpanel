@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+<script>
+function funcionAsociadaBoton(){
+/*otraFuncionJavascript();*/
+history.go(-1);
+} 
+</script>
+</head>
+<body>
+
+<table border="0" width="100%">
+<tr>
+  <td align="center"><div class="container"><div class="col-md-6" align="center">
+
+<img src="neopil.png" width="90" height="81" align="center" /></div></td>
+</tr>
+<tr><td>
+<p align="center">Este es el formulario de registro de afiliados nuevos</p></div>
+</td><tr><td>
+<form role="form" action="registry.php" method="post" name="registro">
+<table width="200" border="0" align="center">
+  <tr>
+    <td align="right"><div class="form-group">ID</div></td>
+    <td><div class="form-group"><input name="iduniq" type="text" /></div></td>
+    <td align="right"><div class="form-group">REFERIDO</div></td>
+    <td><div class="form-group"><input name="idrefer" type="text" /></div></td>
+  </tr>
+  <tr>
+    <td align="right"><div class="form-group">NOMBRE</div></td>
+    <td><div class="form-group"><input name="nombre" type="text" /></div></td>
+    <td align="right"><div class="form-group">APELLIDO</div></td>
+    <td><div class="form-group"><input name="apellido" type="text" /></div></td>
+  </tr>
+  <tr>
+    <td align="right"><div class="form-group">TELEFONO</div></td>
+    <td><div class="form-group"><input name="phone" type="text" /></div></td>
+    <td align="right"><div class="form-group">EMAIL</div></td>
+    <td><div class="form-group"><input name="email" type="text" /></div></td>
+  </tr>
+  <tr>
+    <tr>
+    <td align="right"><div class="form-group">USUARIO</div></td>
+    <td><div class="form-group"><input name="usuario" type="text" /></div></td>
+    <td align="right"><div class="form-group">CONTRASEÑA</div></td>
+    <td><div class="form-group"><input name="contrasena" type="text" /></div></td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><div class="form-group"></br><input name="" type="submit" value="Registrar" />
+    <input type="button" value="Volver" onClick="history.go(-1);"></div></td>
+  </tr>
+</table>
+</form>
+</td>
+</tr>
+</div>
+</div>
+</div>
+</table>
+</body>
+</html>

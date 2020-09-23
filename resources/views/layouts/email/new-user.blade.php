@@ -5,15 +5,23 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Thank you for creating a user at JoinOffers.dk!</title>
+    <title>Din bruger er blevet oprettet med succes!</title>
 </head>
 <body>
-<h2>Your user has been successfully created!</h2>
+<h2 class="text-center">Tak fordi du har oprettet en bruger på DanPanel! </h2>
 <br>
-<p>We at JoinOffers are delighted that you have chosen our website and it means the world for us to meet our customer's
-    needs. We have arranged to negotiate favorable prices with our partners for your benefit. We are ready to process
-    your participation in our events and help you with our products / solutions. We do our best to convey events that
-    are in the best interest of our customers. In collaboration with partners and suppliers, we will continuously start
-    new events. Keep up to date on our site joinoffers.dk</p>
+<p class="text-center"> Vi er hos DanPanel glade for, at du har valgt vores hjemmeside, og det betyder verden 
+    for os at vore kunders behov imødekommes. Vi har sørget for at forhandle fordelagtige priser 
+    med vores samarbejdspartnere, til fordel for dig. Vi er parate til at behandle din deltagelse 
+    vi vores begivendheder og hjælpe dig med vores produkter/løsninger. Vi gør vores bedste for at formidle begivenheder, som er i vore kunders interesse. I samarbejde med partnere og leverandører 
+    vil vi løbende starte nye begivenheder. Hold dig opdateret på vores side danpanel.dk 
+</p>
+<br>
+<br>
+<div>
+    <p class="text-left" style="text-align: left">Med venlig hilsen</p>
+    <p class="text-left" style="text-align: left">DanPanel Aps</p>
+</div>
+
 </body>
 </html>

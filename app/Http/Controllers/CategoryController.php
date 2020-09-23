@@ -100,6 +100,7 @@ class CategoryController extends Controller
             $selected_channel = 'private';
         }
         $subcategories = SubCategory::where('category_id', $category->id)
+            ->where('is_archive', 0)
             ->where('channel', 'like', "%$selected_channel%")->get();
 
         if (!empty($category)) {

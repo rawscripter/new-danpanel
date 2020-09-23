@@ -8,8 +8,8 @@ require("./bootstrap");
 
 window.Vue = require("vue");
 
-window.APP_URL = "http://danpanel.test";
-// window.APP_URL = "http://up-danpanel.danpanel.dk";
+// window.APP_URL = "http://danpanel.test:8081";
+window.APP_URL = "https://danpanel.dk";
 
 window.CURRENCY = "dkk";
 
@@ -18,7 +18,6 @@ import VueCookies from "vue-cookies";
 Vue.use(VueCookies);
 
 let SocialSharing = require("vue-social-sharing");
-
 Vue.use(SocialSharing);
 
 import axios from "axios";
@@ -80,21 +79,6 @@ import 'vue-toast-notification/dist/theme-default.css';
 Vue.use(VueToast, {
     position: 'top-right'
 });
-// import Vue from 'vue';
-// import VueCarousel from 'vue-carousel';
-//
-// Vue.use(VueCarousel);
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
 Vue.component(
     "app-admin-home",
     require("./components/Admin/AppHome.vue").default
@@ -104,11 +88,6 @@ Vue.component(
     require("./components/Site/AppHomeForSite.vue").default
 );
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 import router from "./Router/router";
 
 import Vue from 'vue'

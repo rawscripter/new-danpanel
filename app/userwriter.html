@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+<script>
+function funcionAsociadaBoton(){
+/*otraFuncionJavascript();*/
+history.go(-1);
+} 
+</script>
+</head>
+<body>
+<!-- contenedor imagen neopil-->
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+		<div class="container"><div class="col-md-6" align="center">
+<img src="neopil.png" width="90" height="81" align="center" /></div></div><br /><br />
+<div class="container">
+<!-- contenedor general para el formulario-->
+<p>Por favor ingrese los siguientes datos del Nuevo Distribuidor:</p>
+<form name="userwriter" method="POST" action="userwriter.php">
+<table border="0" style="margin-left: 25%;">
+	<tr>
+	<td align="right">Cedula / RUC:</td>
+	<td><input type="text" name="ID"></td>
+	</tr>
+	<tr>
+	<td align="right">Nombre de Usuario:</td>
+	<td><input type="text" name="user_login"  ></td>
+	</tr>
+	<tr>
+	<td align="right">Contraseña:</td>
+	<td><input type="text" name="user_pass"  ></td>
+	</tr>
+	<tr>
+	<td align="right">Nombre y Apellido:</td>
+	<td><input type="text" name="user_nicename"  ></td>
+	</tr>
+	<tr>
+	<td align="right">Correo Electronico:</td>
+	<td><input type="text" name="user_email"  ></td>
+	</tr>
+	<tr>
+	<td align="right">Telefono:</td>
+	<td><input type="text" name="phone"  ></td>
+	</tr>
+	<tr>
+	<td align="right">Nombre para Mostrar:</td>
+	<td><input type="text" name="display_name"  ></td>
+	</tr>
+	<tr>
+	<tr>
+	<td align="right">Referido Por:</td>
+	<td><input type="text" name="parent"  ></td>
+	</tr>
+	<tr>
+	<td align="right"><input type="submit" name="enviar" value="Enviar"></td>
+	<td><input type="button" onclick="history.back()" name="Volver Atras" value="Volver Atras"></td>
+	</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

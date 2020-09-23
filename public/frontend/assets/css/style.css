@@ -669,7 +669,7 @@ span.social {
 .footer-section {
     background-color: #252525;
     font-family: 'Nunito', sans-serif;
-    position: absolute;
+    position: relative !important;
     z-index: -1;
 }
 
@@ -781,15 +781,8 @@ button.VueCarousel-navigation-button.VueCarousel-navigation-prev img {
     min-height: 55px;
 }
 
-<<<<<<< HEAD
-@media (max-width:800px) {
-    /* .hide-in-mobile {
-=======
+
 @media (max-width: 800px) {
-    .hide-in-mobile {
->>>>>>> 8d0948753cdac282268db3371f1623c2c4b1cc49
-        display: none !important;
-    } */
 
     .no-padding-in-mobile {
         padding: 0px !important;

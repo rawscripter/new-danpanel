@@ -108,7 +108,7 @@
                           class="form-control rounded-0"
                           id="searchForm"
                           style="border: 1px solid transparent; !important"
-                          placeholder="Søg efter begivenhed"
+                          placeholder="Søg her"
                           value
                         />
                         <span class="input-group-btn">
@@ -173,7 +173,7 @@
                         tag="a"
                         class="dropdown-item"
                         :to="{name:'customer-orders'}"
-                      >Ordres</router-link>
+                      >Ordrer</router-link>
                       <div class="dropdown-divider"></div>
                       <router-link class="dropdown-item" to="/logout">Log ud</router-link>
                     </div>

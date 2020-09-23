@@ -13,7 +13,8 @@ class SubCategory extends Model
         'name',
         'slug',
         'priority',
-        'channel'
+        'channel',
+        'is_archive'
     ];
 
     public function category()

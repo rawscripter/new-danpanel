@@ -24,7 +24,7 @@ class MailController extends Controller
     public static function sendMailToUserAtOrderPayment($order)
     {
         $sendToMail = $order->user->email;
-        $mail = Mail::to($sendToMail)->send(new OrderPaymentMail($order));
+        $mail = Mail::to([$sendToMail,'hej@danpanel.dk'])->send(new OrderPaymentMail($order));
         return $mail ? true : false;
     }
 
@@ -64,7 +64,7 @@ class MailController extends Controller
         $sendToMail = $request->email;
 
         try {
-            Mail::to($sendToMail)->send(new ProductRequestReminderMail($request));
+            Mail::to([$sendToMail,'hej@danpanel.dk'])->send(new ProductRequestReminderMail($request));
         } catch (\Exception $exception) {
             return false;
         }

@@ -141,7 +141,7 @@ export default {
                                 }
                             });
                         } else {
-                            this.errorText = "Ingen resultater";
+                            this.errorText = "Ingen resultater"; 
                         }
                         vm.page += 1;
                     });

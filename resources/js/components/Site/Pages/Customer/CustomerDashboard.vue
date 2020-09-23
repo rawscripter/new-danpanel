@@ -8,34 +8,34 @@
                 <div class="col-md-9 col-lg-10" style="background:#fff">
                     <div class="main-content">
                         <div class="row">
-                            <div class="col-md-3 col-lg-3 wow bounceIn">
+                            <!-- <div class="col-md-3 col-lg-3 wow bounceIn">
                                 <div class="shadow border-bottom border-theme">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.totalOrders}}</strong></h2>
-                                        <p class="text-muted"><strong>Samlede begivenheder</strong></p>
+                                        <p class="text-muted"><strong>Samlede Order</strong></p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <router-link tag="div" to="/customer/orders?type=running"
                                          class="col-md-3 col-lg-3 wow bounceIn cp">
                                 <div class="shadow  border-bottom border-active">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.activeOrders}}</strong></h2>
-                                        <p class="text-muted"><strong>Aktive begivenheder</strong></p>
+                                        <p class="text-muted"><strong>Mine Ordrer</strong></p>
                                     </div>
                                 </div>
                             </router-link>
 
-                            <router-link tag="div" to="/customer/complete/orders?type=completed"
+                            <!-- <router-link tag="div" to="/customer/complete/orders?type=completed"
                                          class="col-md-3 col-lg-3 wow bounceIn cp">
                                 <div class="shadow  border-bottom border-green">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.completedOrders}}</strong></h2>
-                                        <p class="text-muted"><strong>Fuldførte begivenheder</strong></p>
+                                        <p class="text-muted"><strong>Fuldførte Ordrer</strong></p>
                                     </div>
                                 </div>
-                            </router-link>
+                            </router-link> -->
 
                             <router-link tag="div" to="/customer/canceled/orders?type=canceled"
                                          class="col-md-3 col-lg-3 wow bounceIn cp">
@@ -52,7 +52,7 @@
                                 <div class="shadow border-bottom border-pink">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.totalFavourites}}</strong></h2>
-                                        <p class="text-muted"><strong>Antal favoritter</strong></p>
+                                        <p class="text-muted"><strong>Antal Favoritter</strong></p>
                                     </div>
                                 </div>
                             </router-link>
@@ -62,20 +62,20 @@
                                 <div class="shadow border-bottom border-pink">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.totalReminders}}</strong></h2>
-                                        <p class="text-muted"><strong>Antal Reminder Events</strong></p>
+                                        <p class="text-muted"><strong>Samlet Påmindelse</strong></p>
                                     </div>
                                 </div>
                             </router-link>
 
 
-                            <div class="col-md-3 col-lg-3 mt-4 wow bounceIn">
+                            <!-- <div class="col-md-3 col-lg-3 mt-4 wow bounceIn">
                                 <div class="shadow border-bottom border-pink">
                                     <div class="card-body text-center">
                                         <h2 class="text-muted"><strong>{{dashboardData.canceledOrders}}</strong></h2>
-                                        <p class="text-muted"><strong>Manglende begivenhedsbetalinger</strong></p>
+                                        <p class="text-muted"><strong>Manglende Varerbetalinger</strong></p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
 
                         </div>
