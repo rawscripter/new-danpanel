@@ -109,8 +109,22 @@
                 </div>
             </div>
         </div>
+	    <div class="cookie" style="position:sticky; top:auto; bottom:0; z-index:1; background:rgba(51, 51, 0, 0.6)">
+            <img width="32px" src="/images/icons/Cookies-ikon-hvid.png" alt="cookies icon"> 
+		<span>For at give
+				dig den bedste oplevelse hos DanPanel anvender vi cookies. Ved at anvende DanPanels platform og klikke rundt
+				på vores site accepterer du brugen af cookies. 
+                <router-link to="/Privatlivspolitik-cookies">læs mere</router-link> 
+                </span>
+		<span class="text-right cookie-close-x ml-auto">x</span>
+	    </div>
+
     </div>
+	
+       
 </template>
+
+
 <script>
 import ProductFilter from "../SideBar/ProductFilter";
 import SubCategoryMenuBar from "../Layout/SubCategoryMenuBar";
@@ -189,13 +203,15 @@ export default {
         this.getRequestProducts();
     },
 };
+   
 </script>
 
 <style scoped>
 .product-area {
     background: #fff;
     padding: 5px;
-    min-height: 70vh;
+    /* height:auto; */
+    /* min-height: 70vh; */
 }
 .big-error-font {
     font-size: 48px;
@@ -214,5 +230,19 @@ export default {
 }
 .custom-color {
     color: #19606f;
+}
+
+.cookie {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+
+.cookie-close-x {
+    position: absolute;
+    right: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }
 </style>

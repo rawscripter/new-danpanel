@@ -14,4 +14,6 @@
 </div>
 </body>
 <script src="js/app.js"></script>
+<script type="text/javascript" src="https://widget.emaerket.dk/js/285e6787598729651bd255fd54d23fec" async></script>
+<!-- Start e-maerket widget --><!-- // end e-maerket widget -->
 </html>

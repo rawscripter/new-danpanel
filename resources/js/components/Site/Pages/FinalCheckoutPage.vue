@@ -29,7 +29,7 @@
                                 <div class="card border-0 shadow">
                                     <div class="card-body">
                                         <div class="form-title mb-4 text-muted">
-                                            <h5>Shipping Address</h5>
+                                            <h5>Shipping Adresse</h5>
                                         </div>
                                         <form action="#" id="checkoutInforForm" @submit.prevent="saveShippingMethod">
                                             <div class="form-group">
@@ -93,7 +93,7 @@
                                                 />
                                             </div>
                                             <div class="form-group">
-                                                <label>Bemærk</label>
+                                                <label>Bemærkning</label>
                                                 <textarea
                                                     v-model="shippingInfo.note"
                                                     class="form-control form-control-sm"
@@ -103,7 +103,7 @@
                                             </div>
 
                                             <div class="form-group mt-3">
-                                                <button type="submit" class="btn btn-block btn-theme">Gemme</button>
+                                                <button type="submit" class="btn btn-block btn-theme">Gem</button>
                                             </div>
                                         </form>
                                     </div>
@@ -126,14 +126,14 @@
                                         <div class="select-shipping-method">
 
                                             <label class="checkbox_container">
-                                                Send til Kunden adresse
-                                                <input v-model="shipping_method" value="home_delivery" type="radio"/>
+                                                Send til min adresse
+                                                <input v-model="shipping_method" value="hjemmelevering" type="radio"/>
                                                 <span class="checkmark"></span>
                                             </label>
 
                                             <label class="checkbox_container">
-                                                Hent selv(Faverland 6, 2600, Glostrup)
-                                                <input v-model="shipping_method" value="pick_from_office" type="radio"/>
+                                                Hent selv (Faverland 6, 2600 Glostrup)
+                                                <input v-model="shipping_method" value="hent_selv" type="radio"/>
                                                 <span class="checkmark"></span>
                                             </label>
 
@@ -196,7 +196,7 @@
                                 <div class="cards shadow">
                                     <div class="card-header-title">
                                         <h5 class="text-center">
-                                            <strong>Ordre detaljer</strong>
+                                            <strong>Ordredetaljer</strong>
                                         </h5>
                                     </div>
                                     <div class="card-body">
@@ -227,8 +227,7 @@
                                             </tr>
                                             <tr>
                                                 <td rowspan="2" colspan="2">
-                                                    <button @click="payNow" class="btn btn-block mt-3 btn-success">Ordrer
-                                                        nu
+                                                    <button @click="payNow" class="btn btn-block mt-3 btn-success">Godkend og betal
                                                     </button>
                                                 </td>
                                             </tr>
@@ -295,7 +294,7 @@ export default {
                     this.orderDetails.shipping_cost = 0;
                 }
 
-            } else if (value === 'home_delivery') {
+            } else if (value === 'hjemmelevering') {
                 this.getGLSPickupPoints();
                 if (this.orderDetails.total < 799) {
                     this.orderDetails.shipping_cost = 49;
@@ -424,7 +423,7 @@ export default {
         },
 
         enablePaymentArea() {
-            if (this.shipping_method === 'home_delivery' || this.shipping_method === 'pick_from_office') {
+            if (this.shipping_method === 'hjemmelevering' || this.shipping_method === 'hent_selv') {
                 return true;
             }
             if (Array.isArray(this.shippingMethods)) {

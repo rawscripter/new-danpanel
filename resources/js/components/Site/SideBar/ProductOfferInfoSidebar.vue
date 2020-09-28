@@ -60,7 +60,9 @@
                     <i class="far fa-heart"></i>
                 </button>
             </div>
-            <button class="btn mt-1 btn-success">Du sparer {{ product.saving_percentage }}%</button>
+            <button class="btn mt-1 btn-success" v-if="product.saving_percentage > 0">Du sparer
+                {{ product.saving_percentage }}%
+            </button>
         </div>
 
         <div class="btn btn-theme btn-block mt-2" @click="addToCart(product)">Læg i kurv</div>
@@ -192,11 +194,16 @@ export default {
             );
             // already selected
             if (selectedIndex !== -1) {
+                // check if user click same option
                 if (this.selectedVariations[selectedIndex].optionID === optionID)
                     return;
                 let optionVariationOptionId = this.selectedVariations[selectedIndex]
                     .optionID;
-                let productVariations = this.product.product_variation[selectedIndex];
+
+                let productVariationIndex = this.product.product_variation.findIndex(
+                    (x) => x.id === variationID
+                );
+                let productVariations = this.product.product_variation[productVariationIndex];
                 let optionVariationOptionIndex = productVariations.options.findIndex(
                     (x) => x.id === parseInt(optionVariationOptionId)
                 );

@@ -10,7 +10,7 @@
     }
 
     .header_top_button {
-        display: none !important;
+        /* display: none !important; */
     }
 
     a.hide-desktop {

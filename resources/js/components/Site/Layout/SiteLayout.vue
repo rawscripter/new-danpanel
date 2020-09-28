@@ -6,9 +6,10 @@
             <SiteNavBar></SiteNavBar>
         </div>
         <!--to load body-->
-        <div class="mt-200" id="main_body_area">
+        <div class="mt" id="main_body_area">
             <slot></slot>
         </div>
+       
 
         <div class="site-footer">
             <SiteFooter></SiteFooter>
@@ -39,14 +40,14 @@ export default {
     width: 100%
 }
 
-.mt-200 {
+/* .mt-200 {
     margin-top: 210px;
-}
+} */
 
 @media (max-width: 1200px) {
-    .mt-200 {
+    /* .mt-200 {
         margin-top: 290px;
-    }
+    } */
 }
 
 

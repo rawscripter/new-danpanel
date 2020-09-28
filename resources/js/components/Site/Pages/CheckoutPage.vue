@@ -78,7 +78,7 @@
                             <div class="checkout-customer-info">
                                 <div class="cards shadow">
                                     <div class="card-header-title">
-                                        <h5 class="text-center"><strong>Ordre detaljer</strong></h5>
+                                        <h5 class="text-center"><strong>Ordredetaljer</strong></h5>
                                     </div>
                                     <div class="card-body">
                                         <table class="checkout-table table table-hover" style="width:100%">
@@ -325,9 +325,9 @@
             initCheckout(paymentID) {
                 this.isPaymentLoading = false;
                 var checkoutOptions = {
-                    checkoutKey: "test-checkout-key-500b92cc5d264cf88f5653ddc7a362d0", // for live [Required] Test or Live GUID with dashes
+                    checkoutKey: "live-checkout-key-014b3802470340e090c2e8f0f8295861", // for live [Required] Test or Live GUID with dashes
                     paymentId: paymentID, //[required] GUID without dashes
-                    partnerMerchantNumber: "123456789", //[optional] Number
+                    //partnerMerchantNumber: "123456789", [optional] Number
                     containerId: "dibs-complete-checkout", //[optional] defaultValue: dibs-checkout-content
                     language: "da-DK", //[optional] defaultValue: en-GB
                     theme: { // [optional] - will change defaults in the checkout

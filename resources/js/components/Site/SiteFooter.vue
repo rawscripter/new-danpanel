@@ -86,7 +86,6 @@
             <div class="col-md-12 copyright-text1">
                 <p style="text-align:center">Copyright &copy; 2020 DanPanel Aps. All Right Reserved.</p>
             </div>
-
         </div>
     </footer>
 </template>
@@ -103,9 +102,6 @@ export default {
 </script>
 
 <style scoped>
-.footer-section {
-    /* position: relative !important; */
-    margin-top: 50px;
-}
+
 
 </style>

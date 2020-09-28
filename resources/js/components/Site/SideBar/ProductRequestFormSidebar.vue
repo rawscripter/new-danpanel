@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-theme btn-block" @click="goToFormSection">Next</button>
+                        <button class="btn btn-theme btn-block" @click="goToFormSection">Næste</button>
                     </div>
                 </div>
                 <form action="" v-if="step === 1" @submit.prevent="submitFormData">
@@ -81,7 +81,7 @@
             <div v-else>
                 <div class="alert">
                     <div class="alert-success p-3">
-                        Product Request Sent Successfully.
+                        Anmodning sendt med succes.
                     </div>
                 </div>
             </div>
@@ -130,13 +130,13 @@ export default {
             })
         },
         goToFormSection() {
-            let totalVariationsOfProduct = this.product.product_variation.length;
-            if (totalVariationsOfProduct !== this.formData.selectedVariations.length) {
-                this.$toast.error("Besvar spørgsmålene først.");
-                return 0;
-            } else {
+            // let totalVariationsOfProduct = this.product.product_variation.length;
+            // if (totalVariationsOfProduct !== this.formData.selectedVariations.length) {
+                // this.$toast.error("Besvar spørgsmålene først.");
+                // return 0;
+            // } else {
                 this.step = 1;
-            }
+            // }
 
         },
         isOptionAlreadySelected(optionID) {

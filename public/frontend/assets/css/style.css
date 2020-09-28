@@ -5,9 +5,9 @@
 
 html,
 body {
-    margin: 0;
-    height: 100%;
-    overflow-x: hidden;
+    margin-top: 7rem;
+    /* height: 100%; */
+    /* overflow-x: hidden; */
 
 }
 
@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    margin: 0;
+    /* margin: 0; */
     padding: 0;
 }
 
@@ -724,13 +724,20 @@ div#main_sidebar {
 }
 
 #main_body_area {
-    min-height: 70vh;
+    /* min-height: 70vh; */
 }
 
 /*Footer section end*/
 
 
 @media (max-width: 720px) {
+    html,body {
+        margin-top: 0rem;
+        /* height: 100%; */
+        /* overflow-x: hidden; */
+    
+    }
+
     .related-prodcut-widget {
         max-height: 750px;
         overflow-y: scroll;

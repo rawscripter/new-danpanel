@@ -1,21 +1,14 @@
 <?php
 
 use App\Http\Controllers\MailController;
+use App\Mail\ProductRequestMail;
 use App\Order;
 use App\Product;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 Auth::routes();
 
 // to load admin dashboard
@@ -23,17 +16,23 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
-
 // to load main site
 Route::get('/', function () {
     return view('site.index');
 });
 
-
 // to load main site
 Route::get('/login', function () {
     return view('site.index');
 })->name('login');
+
+
+// to test order mail
+Route::get('/test/main', function () {
+    $order = Order::find(249);
+    MailController::sendMailToUserAtOrderPayment($order);
+});
+
 
 // to load main site
 Route::get('/register', function () {
@@ -46,6 +45,8 @@ Route::get('/password/reset/{token}', function () {
 })->name('password.reset');
 
 // Routes for PrivatePolikCookies, Handelsbetingelser og vilkår
+Route::get('/handelsbetingelser', 'handelsbetingelserController@handelsbetingelser')->name('site.handelsbetingelser');
+Route::get('/privatlivspolitikCookies', 'handelsbetingelserController@privatlivspolitikCookies')->name('site.privatlivspolitikCookies');
 
 // for payment
 Route::get('/checkout/payment/status', 'PaymentController@storePaymentDetails');

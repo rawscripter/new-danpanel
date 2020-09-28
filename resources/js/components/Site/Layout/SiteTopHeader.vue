@@ -29,6 +29,12 @@
                   <span>Køberbeskyttelse på op til 10.000 kr</span>
                 </a>
               </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-check"></i>
+                  <span>Sikker betaling</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>

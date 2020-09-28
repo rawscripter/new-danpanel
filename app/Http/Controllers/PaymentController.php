@@ -35,7 +35,7 @@ class PaymentController extends Controller
         },
         "checkout": {
             "url": "' . env('APP_URL') . '/checkout/payment/status",
-            "termsUrl": "http://offer.danpanel.dk/om",
+            "termsUrl": "https://danpanel.dk/om",
             "merchantHandlesConsumerData":true,
                "shippingCountries":
                [
@@ -47,14 +47,14 @@ class PaymentController extends Controller
                }
            },
     }';
-        $ch = curl_init('https://test.api.dibspayment.eu/v1/payments');
+        $ch = curl_init('https://api.dibspayment.eu/v1/payments');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $datastring);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type: application/json',
                 'Accept: application/json',
-                'Authorization: ' . env("DIBS_KEY") . '')
+                'Authorization: live-secret-key-d2054c6bc54a41df9d64646345d01b1e')
         );
         return $result = curl_exec($ch);
     }
@@ -81,7 +81,7 @@ class PaymentController extends Controller
         },
         "checkout": {
             "url": "' . env('APP_URL') . '/checkout/payment/status",
-            "termsUrl": "http://offer.danpanel.dk/om",
+            "termsUrl": "https://danpanel.dk/om",
             "merchantHandlesConsumerData":true,
                "shippingCountries":
                [
@@ -93,14 +93,14 @@ class PaymentController extends Controller
                }
            },
     }';
-        $ch = curl_init('https://test.api.dibspayment.eu/v1/payments');
+        $ch = curl_init('https://api.dibspayment.eu/v1/payments');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $datastring);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type: application/json',
                 'Accept: application/json',
-                'Authorization: ' . env("DIBS_KEY") . '')
+                'Authorization: live-secret-key-d2054c6bc54a41df9d64646345d01b1e')
         );
         return $result = curl_exec($ch);
     }
@@ -109,12 +109,12 @@ class PaymentController extends Controller
     {
         $paymentFailed = $request->paymentFailed;
         $paymentId = $request->paymentId;
-        $ch = curl_init('https://test.api.dibspayment.eu/v1/payments/' . $paymentId . '');
+        $ch = curl_init('https://api.dibspayment.eu/v1/payments' . $paymentId . '');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER,
             array('Content-Type: application/json', 'Accept: application/json',
-                'Authorization: ' . env("DIBS_KEY") . '')
+                'Authorization: live-secret-key-d2054c6bc54a41df9d64646345d01b1e')
         );
         $result = curl_exec($ch);
         $paymentDetails = json_decode($result, true);

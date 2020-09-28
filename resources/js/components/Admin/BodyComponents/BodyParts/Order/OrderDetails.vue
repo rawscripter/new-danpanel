@@ -12,7 +12,7 @@
                 <div class="col-md-6">
                     <div class="card border-0">
                         <div class="card-body shadow">
-                            <h5 class="mb-2"><strong>Ordre detaljer</strong></h5>
+                            <h5 class="mb-2"><strong>Ordredetaljer</strong></h5>
                             <div class="table">
                                 <table class="table">
                                     <tr>

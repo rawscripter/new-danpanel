@@ -1,11 +1,11 @@
 <template>
   <div>
-      <button @click="AuthProvider('github')" class="btn btn-theme btn-block">Login with Github</button>
+      <!-- <button @click="AuthProvider('github')" class="btn btn-theme btn-block">Login with Github</button> -->
       <button type="button" class="btn btn-theme btn-block"><i class="fab fa-facebook-f"></i>
-          Login with facebook
+          Login med Facebook
       </button>
       <button type="button" class="btn btn-theme btn-block"><i class="fab fa-google"></i>
-          Login with google
+          Login med Google
       </button>
   </div>
 </template>
