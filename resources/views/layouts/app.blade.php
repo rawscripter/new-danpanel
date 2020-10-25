@@ -91,6 +91,8 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+
+    <!-- Start e-maerket widget --><script type="text/javascript" src="https://widget.emaerket.dk/js/285e6787598729651bd255fd54d23fec" async></script><!-- // end e-maerket widget -->
 </body>
 
 

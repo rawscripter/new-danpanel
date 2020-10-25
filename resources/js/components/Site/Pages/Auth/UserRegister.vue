@@ -7,12 +7,12 @@
                              :is-full-page="false"></loading>
                     <div class="login-form shadow shadow-sm p-5 mt-5">
                         <div class="login-header">
-                            <h4>Register</h4>
+                            <h4>Registrer</h4>
                         </div>
                         <div class="social-login-button mb-3">
                             <SocialLogin :redirectUrl="redirectUrl"></SocialLogin>
                         </div>
-                        <h6 class="mb-2">OR</h6>
+                        <h6 class="mb-2">Eller</h6>
                         <div v-if="hasFormError" class="text-center error invalid-feedback mb-3">
                             <b>{{formErrors.text}}</b>
 
@@ -35,7 +35,7 @@
                                        id="password">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-block rounded-0">Register</button>
+                                <button type="submit" class="btn btn-success btn-block rounded-0">Registrer</button>
                             </div>
                             <div class="register text-left">
                                 <p>Har du allerede en bruger??

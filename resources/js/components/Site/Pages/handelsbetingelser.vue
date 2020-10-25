@@ -26,8 +26,8 @@
                         <p>
                             <br> DanPanel ApS
                             <br>CVR nr.: 38362925
-                            <br>Farverland 6, 1.sal
-                            <br>2600 Glostrup, Danmark
+                            <br>Telegade 1, 1.sal
+                            <br>2630 Taastrup, Danmark
                             <br>hej@danpanel.dk
                             <br>+45 32 22 32 03 <br>
                         </p>
@@ -205,8 +205,8 @@
                     <p>Returpakker sendes til:</p>
                     <p>
                                 DanPanel ApS
-                            <br>Farverland 6, 1.sal
-                            <br>2600 Glostrup, Danmark
+                            <br>Telegade 1, 1.sal
+                            <br>2630 Taastrup, Danmark
                     </p>
                     <p>Vi modtager kun pakker, der sendes direkte til ovenforstående adresse.</p>
 
@@ -244,8 +244,8 @@
                     <li> <span class="font-weight-bold">Varen sendes til:</span>
                     <p>
                              DanPanel ApS
-                            <br>Farverland 6, 1.sal
-                            <br>2600 Glostrup, Danmark
+                            <br>Telegade 1, 1.sal
+                            <br>2630 Taastrup, Danmark
                     </p>
                     <p>Vi modtager kun pakker, der sendes direkte til 
                     ovenforstående adresse. Når du returnerer varen, bedes du vedlægge en detaljeret beskrivelse af problemet.

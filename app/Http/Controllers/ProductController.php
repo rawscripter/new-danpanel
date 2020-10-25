@@ -181,11 +181,11 @@ class ProductController extends Controller
             $selected_channel = 'private';
         }
         $products = Product::where('product_channel', 'like', "%$selected_channel%")
-            ->where('is_archive', '=', 0)
             ->where('category_id', '=', 3)
             ->limit(12)
             ->orderBy('priority', 'asc')
-            ->get();
+            ->get()
+            ->where('is_archive',0);
         $res['products'] = ProductResource::collection($products);
         return response()->json($res);
     }

@@ -77,9 +77,9 @@ class CategoryController extends Controller
                 if (strtolower($short) === 'popular') {
                     $products->orderByDesc('total_clicks');
                 }
-                $products = $products->paginate(30);
+                $products = $products->paginate(20000);
             } else {
-                $products = Product::where('category_id', $category->id)->orderBy('created_at', 'desc')->paginate(30);
+                $products = Product::where('category_id', $category->id)->orderBy('created_at', 'desc')->paginate(20000);
             }
             $res['products'] = ProductResource::collection($products);
         } else {

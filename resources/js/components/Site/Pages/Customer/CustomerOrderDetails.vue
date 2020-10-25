@@ -42,7 +42,7 @@
                                             <tr>
                                                 <td>Betaling status</td>
                                                 <td>:</td>
-                                                <td>{{ order.is_full_price_paid ? 'Paid' : 'Not Paid' }}</td>
+                                                <td>{{ order.is_full_price_paid ? 'Betalt' : 'Ikke betalt' }}</td>
                                             </tr>
 
 

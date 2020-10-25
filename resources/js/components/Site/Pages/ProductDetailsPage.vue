@@ -12,7 +12,12 @@
       <div class="row" v-if="!isLoading">
         <div class="col-md-8 col-lg-8 wow bounceInUp mt-50">
           <SingleProductDetailsLayout :product="product"></SingleProductDetailsLayout>
+          
         </div>
+
+         <!-- <div class="col-md-8 col-lg-8 wow bounceInUp">
+            <SingleProductDescriptionLayout :product="product"></SingleProductDescriptionLayout>
+        </div> -->
         <div class="col-md-4 col-lg-4 wow bounceInLeft mt-50" v-if="!product.is_request_product">
           <ProductOfferInfoSidebar :product="product"></ProductOfferInfoSidebar>
         </div>
@@ -22,6 +27,9 @@
         <!-- <div class="col-md-4 col-lg-3 wow bounceInRight">
                     <RelatedProductsSidebar :products="relatedProducts"></RelatedProductsSidebar>
         </div>-->
+      </div>
+      <div class="col-md-8 wow bounceInLeft">
+        <SingleProductDescriptionLayout :product="product"></SingleProductDescriptionLayout>
       </div>
 
       <div class="row" v-if="!isLoading">
@@ -41,7 +49,9 @@
 import ProductOfferInfoSidebar from "../SideBar/ProductOfferInfoSidebar";
 import RelatedProductsSidebar from "../SideBar/RelatedProductsSidebar";
 import SingleProductDetailsLayout from "../Layout/Product/SingleProductDetailsLayout";
+import SingleProductDescriptionLayout from "../Layout/Product/SingleProductDescriptionLayout";
 import ProductRequestFormSidebar from "../SideBar/ProductRequestFormSidebar";
+
 
 export default {
   name: "ProductDetailsPage",
@@ -49,6 +59,7 @@ export default {
     ProductOfferInfoSidebar,
     RelatedProductsSidebar,
     SingleProductDetailsLayout,
+    SingleProductDescriptionLayout,
     ProductRequestFormSidebar,
   },
   data() {
@@ -100,4 +111,7 @@ export default {
   font-weight: bold;
   font-size: 20px;
 }
+
+
+
 </style>

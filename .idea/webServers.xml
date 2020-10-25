@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fd74f31b-2ea6-4d47-9d9f-d7d76ec18e81" name="New Danpanel" url="http://81.16.28.27">
+        <fileTransfer rootFolder="/domains/danpanel.dk/public_html" host="81.16.28.27" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

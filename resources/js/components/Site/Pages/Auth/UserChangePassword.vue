@@ -7,7 +7,7 @@
                              :is-full-page="false"></loading>
                     <div class="login-form shadow shadow-sm p-5 mt-5">
                         <div class="login-header">
-                            <h4>Reset Password</h4>
+                            <h4>Nulstille kodeord</h4>
                         </div>
 
                         <div v-if="hasFormError" class="text-center mt-2 mb-2 error invalid-feedback">
@@ -17,30 +17,30 @@
                         <form action="#" id="login" @submit.prevent="submitLoginForm">
                             <div class="form-group">
                                 <input required type="text" v-model="form.email" name="email" class="form-control"
-                                       placeholder="Enter your email" id="Email or username">
+                                       placeholder="Indtast din e-mail" id="Email or username">
                             </div>
 
                             <div class="form-group">
                                 <input required type="password" v-model="form.password" name="password"
                                        class="form-control"
-                                       placeholder="Enter your Password">
+                                       placeholder="Indtast din adgangskode">
                             </div>
                             <div class="form-group">
                                 <input required type="password" v-model="form.password_confirmation"
                                        name="confirmPassword"
                                        class="form-control"
-                                       placeholder="Confirm Password">
+                                       placeholder="Bekræft adgangskode">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-block rounded-0">Change Password
+                                <button type="submit" class="btn btn-success btn-block rounded-0">Skift kodeord
                                 </button>
                             </div>
 
                             <br>
                             <div class="register text-left">
-                                <p>Have an account?
+                                <p>Har du en konto?
                                     <router-link class="theme-color" :to="{name:'login'}">
-                                        Login
+                                        Logind
                                     </router-link>
                                 </p>
                             </div>

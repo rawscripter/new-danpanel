@@ -1,21 +1,14 @@
 <?php
 
 use App\Http\Controllers\MailController;
+use App\Mail\ProductRequestMail;
 use App\Order;
 use App\Product;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 Auth::routes();
 
 // to load admin dashboard
@@ -23,17 +16,27 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
-
 // to load main site
 Route::get('/', function () {
     return view('site.index');
 });
 
-
 // to load main site
 Route::get('/login', function () {
     return view('site.index');
 })->name('login');
+
+//for clear site cache
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    //    Artisan::call('dump-autoload');
+    return 'cache cleared';
+});
+
 
 // to load main site
 Route::get('/register', function () {

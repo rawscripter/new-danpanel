@@ -35,8 +35,26 @@ class PaymentController extends Controller
         },
         "checkout": {
             "url": "' . env('APP_URL') . '/checkout/payment/status",
-            "termsUrl": "http://offer.danpanel.dk/om",
+            "termsUrl": "https://danpanel.dk/om-os",
             "merchantHandlesConsumerData":true,
+              "consumer":{
+                  "reference":"' . $order->user->id . '",
+                   "email":"' . $order->user->email . '",
+                    "shippingAddress":{
+                      "addressLine1":"' . $order->shippingInfo->address . '",
+                      "postalCode":"' . $order->shippingInfo->zip_code . '",
+                      "city":"' . $order->shippingInfo->city . '",
+                      "country":"DNK"
+                      },
+                      "phoneNumber":{
+                       "prefix":"+45",
+                        "number":"' . $order->shippingInfo->phone . '"
+                      },
+                       "privatePerson":{
+                          "firstName":"' . $order->user->name . '",
+                          "lastName":"' . $order->user->name . '"
+                          },
+              },
                "shippingCountries":
                [
                    {"countryCode": "DNK"}
@@ -81,7 +99,7 @@ class PaymentController extends Controller
         },
         "checkout": {
             "url": "' . env('APP_URL') . '/checkout/payment/status",
-            "termsUrl": "http://offer.danpanel.dk/om",
+            "termsUrl": "https://danpanel.dk/om-os",
             "merchantHandlesConsumerData":true,
                "shippingCountries":
                [
@@ -148,12 +166,9 @@ class PaymentController extends Controller
             'paymentId' => $paymentId,
             'type' => $type,
             'status' => 'paid',
-            'amount' => $receivedAmount / 100,
+            'amount' => !empty($receivedAmount) ? $receivedAmount / 100 : 0,
         ]);
-
         MailController::sendMailToUserAtOrderPayment($order);
-
-
         return redirect('/order/payment?status=success&order=' . $order->custom_order_id . '&type=' . $type);
     }
 }

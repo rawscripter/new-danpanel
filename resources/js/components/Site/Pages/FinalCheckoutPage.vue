@@ -29,7 +29,7 @@
                                 <div class="card border-0 shadow">
                                     <div class="card-body">
                                         <div class="form-title mb-4 text-muted">
-                                            <h5>Shipping Address</h5>
+                                            <h5>Shipping Adresse</h5>
                                         </div>
                                         <form action="#" id="checkoutInforForm" @submit.prevent="saveShippingMethod">
                                             <div class="form-group">
@@ -93,7 +93,7 @@
                                                 />
                                             </div>
                                             <div class="form-group">
-                                                <label>Bemærk</label>
+                                                <label>Bemærkning</label>
                                                 <textarea
                                                     v-model="shippingInfo.note"
                                                     class="form-control form-control-sm"
@@ -103,7 +103,7 @@
                                             </div>
 
                                             <div class="form-group mt-3">
-                                                <button type="submit" class="btn btn-block btn-theme">Gemme</button>
+                                                <button type="submit" class="btn btn-block btn-theme">Gem</button>
                                             </div>
                                         </form>
                                     </div>
@@ -126,14 +126,14 @@
                                         <div class="select-shipping-method">
 
                                             <label class="checkbox_container">
-                                                Send til Kunden adresse
-                                                <input v-model="shipping_method" value="home_delivery" type="radio"/>
+                                                Send til min adresse
+                                                <input v-model="shipping_method" value="hjemmelevering" type="radio"/>
                                                 <span class="checkmark"></span>
                                             </label>
 
                                             <label class="checkbox_container">
-                                                Hent selv(Faverland 6, 2600, Glostrup)
-                                                <input v-model="shipping_method" value="pick_from_office" type="radio"/>
+                                                Hent selv (Telegade 1, 1. sal, 2630 Taastrup)
+                                                <input v-model="shipping_method" value="hent_selv" type="radio"/>
                                                 <span class="checkmark"></span>
                                             </label>
 
@@ -196,7 +196,7 @@
                                 <div class="cards shadow">
                                     <div class="card-header-title">
                                         <h5 class="text-center">
-                                            <strong>Ordre detaljer</strong>
+                                            <strong>Ordredetaljer</strong>
                                         </h5>
                                     </div>
                                     <div class="card-body">
@@ -227,8 +227,7 @@
                                             </tr>
                                             <tr>
                                                 <td rowspan="2" colspan="2">
-                                                    <button @click="payNow" class="btn btn-block mt-3 btn-success">Ordrer
-                                                        nu
+                                                    <button @click="payNow" class="btn btn-block mt-3 btn-success">Godkend og betal
                                                     </button>
                                                 </td>
                                             </tr>
@@ -295,7 +294,7 @@ export default {
                     this.orderDetails.shipping_cost = 0;
                 }
 
-            } else if (value === 'home_delivery') {
+            } else if (value === 'hjemmelevering') {
                 this.getGLSPickupPoints();
                 if (this.orderDetails.total < 799) {
                     this.orderDetails.shipping_cost = 49;
@@ -369,7 +368,7 @@ export default {
             var checkoutOptions = {
                 checkoutKey: "live-checkout-key-014b3802470340e090c2e8f0f8295861", // for live [Required] Test or Live GUID with dashes
                 paymentId: paymentID, //[required] GUID without dashes
-                partnerMerchantNumber: "123456789", //[optional] Number
+                //partnerMerchantNumber: "123456789", //[optional] Number
                 containerId: "dibs-complete-checkout", //[optional] defaultValue: dibs-checkout-content
                 language: "da-DK", //[optional] defaultValue: en-GB
                 theme: {
@@ -390,7 +389,7 @@ export default {
             var checkout = new Dibs.Checkout(checkoutOptions);
             //this is the event that the merchant should listen to redirect to the “payment-is-ok” page
             checkout.on("payment-completed", function (response) {
-                window.location = "/checkout?paymentId=" + response.paymentId;
+                window.location = "/checkout/payment/status?paymentId=" + response.paymentId;
             });
         },
     },
@@ -424,7 +423,7 @@ export default {
         },
 
         enablePaymentArea() {
-            if (this.shipping_method === 'home_delivery' || this.shipping_method === 'pick_from_office') {
+            if (this.shipping_method === 'hjemmelevering' || this.shipping_method === 'hent_selv') {
                 return true;
             }
             if (Array.isArray(this.shippingMethods)) {
@@ -515,7 +514,6 @@ input.form-control.form-control-sm.rounded-0 {
 .method.bordered {
     border: 1px solid #e2e2e2;
 }
-
 .method.bordered.active {
     border-color: #ff973a;
 }

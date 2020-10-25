@@ -3,7 +3,7 @@
         <!-- Primary carousel image -->
 
         <div class="show full-product-image">
-            <img
+            <img style="z-index:1"
                 v-if="hasImages"
                 @click="previousSliderImage"
                 src="/images/icons/next-icon.png"
@@ -123,13 +123,17 @@
         </div>
 
         <h3 class="title mt-2 text-center">{{ product.name }}</h3>
+
+        <!-- <div>
+            <SingleProductDescriptionLayout :product="product"></SingleProductDescriptionLayout>
+        </div> -->
         <!-- discription div  -->
-        <div class="discription" v-html="product.full_des"></div>
-        <br/>
+        <!-- <div class="discription" v-html="product.full_des"></div>
+        <br/> -->
         <!-- <h5 class="mt-2">
             <strong>Ordrenotat:</strong>
         </h5> -->
-        <div class="orderNote" v-html="product.order_note"></div>
+        <!-- <div class="orderNote" v-html="product.order_note"></div> -->
     </div>
 </template>
 

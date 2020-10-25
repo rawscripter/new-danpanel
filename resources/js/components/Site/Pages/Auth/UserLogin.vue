@@ -12,7 +12,7 @@
             <div class="social-login-button mb-3">
               <SocialLogin :redirectUrl="redirectUrl"></SocialLogin>
             </div>
-            <h6 class="mb-3">OR</h6>
+            <h6 class="mb-3">Eller</h6>
 
             <div v-if="hasFormError" class="text-center mt-2 mb-2 error invalid-feedback">
               <b>{{formErrors.text}}</b>

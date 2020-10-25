@@ -24,8 +24,8 @@
                     <p>DanPanel ApS er dataansvarlig, og vi sørger for at behandling af dine personoplysninger sker i
                     overensstemmelse med persondataloven. DanPanel ApS har udpeget en databeskyttelsesrådgiver.
                         <br> <br> DanPanel ApS
-                        <br>Farverland 6, 1.sal
-                        <br>2600 Glostrup, Danmark
+                        <br>Telegade 1, 1.sal
+                        <br>2630 Taastrup, Danmark
                         <br>CVR nr.: 38362925
                         <br>info@danpanel.dk
                         <br>+45 32 22 32 03 <br> <br>

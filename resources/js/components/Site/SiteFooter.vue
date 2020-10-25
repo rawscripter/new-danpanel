@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-6 FooterSectionGap">
                         <h4>DanPanel ApS</h4>
-                        <p>Farverland 6,<br> 2600 Glostrup,<br> Danmark </p>
+                        <p>Telegade 1,<br> 2630 Taastrup,<br> Danmark </p>
                         <p class="">CVR-Nummer: 38362925</p>
 
                     </div>
@@ -44,6 +44,9 @@
                         </p>
                          <p class="" style="">
                             <router-link to="/Privatlivspolitik-cookies" style="color:white">Privatlivspolitik & Cookies</router-link>
+                        </p>
+                        <p class="" style="">
+                            <router-link to="/konkurrenceregler" style="color:white">Konkurrenceregler & vilkår</router-link>
                         </p>
                         <!-- <p class="footer-line-gap"><a class="text-white h6 footer-hover"
                                                       href="/assets/site/assets/OtherFiles/Cookie-og-privatlivspolitik-DanPanel.pdf"
@@ -86,7 +89,6 @@
             <div class="col-md-12 copyright-text1">
                 <p style="text-align:center">Copyright &copy; 2020 DanPanel Aps. All Right Reserved.</p>
             </div>
-
         </div>
     </footer>
 </template>
@@ -103,9 +105,6 @@ export default {
 </script>
 
 <style scoped>
-.footer-section {
-    /* position: relative !important; */
-    margin-top: 50px;
-}
+
 
 </style>

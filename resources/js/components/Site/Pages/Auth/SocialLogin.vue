@@ -1,12 +1,32 @@
 <template>
   <div>
-      <button @click="AuthProvider('github')" class="btn btn-theme btn-block">Login with Github</button>
+      <!-- <button @click="AuthProvider('github')" class="btn btn-theme btn-block">Login with Github</button> -->
+     <!-- <a href="{{ url('login/facebook') }}" class="btn"
+    			   style="line-height: .5rem; background:#3B5998; color:white; width: 100%; font-size:.9em;"><i class="fab fa-facebook-f"></i>
+          Login med Facebook
+      </a>
+
+      
+
+     <a href="{{ url('login/google') }}" class="btn"
+			        style="line-height: .5rem; background:#DD4B39; color:white; width: 100%; font-size:.9em;"><i class="fab fa-google"></i>
+          Login med Google
+      </a>
+
+      <button type="button" class="btn btn-theme btn-block"><a href="{{ url('login/facebook') }}"><i class="fab fa-facebook-f"></i>
+          Login med Facebook </a>
+      </button>
+
+       <button type="button" class="btn btn-theme btn-block"><a href="{{ url('login/facebook') }}">><i class="fab fa-google"></i>
+          Login med Google </a>
+      </button> -->
       <button type="button" class="btn btn-theme btn-block"><i class="fab fa-facebook-f"></i>
-          Login with facebook
-      </button>
-      <button type="button" class="btn btn-theme btn-block"><i class="fab fa-google"></i>
-          Login with google
-      </button>
+          Login med Facebook    
+    </button>
+
+       <button type="button" class="btn btn-theme btn-block"><i class="fab fa-google"></i>
+          Login med Google
+      </button> 
   </div>
 </template>
 

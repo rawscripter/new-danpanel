@@ -107,7 +107,7 @@
                                     <div class="cards shadow">
                                         <div class="card-header-title">
                                             <h5 class="text-center">
-                                                <strong>Ordre detaljer</strong>
+                                                <strong>Ordredetaljer</strong>
                                             </h5>
                                         </div>
                                         <div class="card-body">
@@ -139,7 +139,7 @@
                                                             tag="button"
                                                             :to="{name:'final-checkout'}"
                                                             class="btn btn-block mt-3 btn-success"
-                                                        >Bestilling
+                                                        >Bestil
                                                         </router-link>
                                                     </td>
                                                 </tr>

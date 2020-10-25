@@ -56,9 +56,9 @@
                 <div class="channel-toggle-button">
                     <toggle-button
                         v-model="selected_channel"
-                        :width="90"
-                        :height="30"
-                        :font-size="12"
+                        :width="130"
+                        :height="40"
+                        :font-size="15"
                         :color="{
                            checked: '#00adf3',unchecked: '#13b017',
                        }"

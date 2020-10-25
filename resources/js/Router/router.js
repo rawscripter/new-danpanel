@@ -39,6 +39,9 @@ import SingleNewsDetailsPage from "../components/Site/Pages/SingleNewsDetailsPag
 import CustomerOrderDetails from "../components/Site/Pages/Customer/CustomerOrderDetails";
 import handelsbetingelser from "../components/Site/pages/handelsbetingelser";
 import PrivatlivspolitikCookies from "../components/Site/pages/PrivatlivspolitikCookies";
+import konkurrenceregler from "../components/Site/Pages/konkurrenceregler";
+import tak from "../components/Site/Pages/tak";
+import cookies from "../components/Site/cookies";
 //importing components
 Vue.use(VueRouter);
 
@@ -172,7 +175,7 @@ const routes = [
         component: FilterPage,
         name: 'filter',
         meta: {
-            title: 'Filter Products.'
+            title: 'Filtrer produkter.'
         }
     },
     {
@@ -180,7 +183,7 @@ const routes = [
         component: AboutsUs,
         name: 'about-us',
         meta: {
-            title: 'About Us.'
+            title: 'Om os.'
         }
     },
     {
@@ -196,7 +199,7 @@ const routes = [
         component: SingleBlogDetailsPage,
         name: 'blog-details',
         meta: {
-            title: 'Blog Details'
+            title: 'Blog detaljer'
         }
     },
     {
@@ -204,14 +207,14 @@ const routes = [
         component: News,
         name: 'news',
         meta: {
-            title: 'News.'
+            title: 'Nyheder.'
         }
     }, {
         path: '/news/:news',
         component: SingleNewsDetailsPage,
         name: 'news-details',
         meta: {
-            title: 'news Details'
+            title: 'Nyheder detaljer'
         }
     },
     {
@@ -227,7 +230,7 @@ const routes = [
         component: UserResetPassword,
         name: 'reset-password',
         meta: {
-            title: 'Reset Password!'
+            title: 'Nulstil adgangskode!'
         }
     },
 
@@ -236,7 +239,7 @@ const routes = [
         component: UserChangePassword,
         name: 'reset-password-token',
         meta: {
-            title: 'Change Password!'
+            title: 'Skift adgangskode!'
         }
     },
     {
@@ -244,7 +247,7 @@ const routes = [
         component: UserRegister,
         name: 'register',
         meta: {
-            title: 'Register Now!'
+            title: 'Registrer nu!'
         }
     },
     {
@@ -260,7 +263,7 @@ const routes = [
         name: 'final-checkout',
         component: FinalCheckoutPage,
         meta: {
-            title: 'Final Checkout Now!'
+            title: 'Endelig checkout nu'
         }
     },
     {
@@ -268,7 +271,7 @@ const routes = [
         name: 'order-payment-status',
         component: CheckoutStatusPage,
         meta: {
-            title: 'Order Details!',
+            title: 'Ordre detaljer',
             requireAuth: true,
             requireAdmin: false,
         }
@@ -277,7 +280,7 @@ const routes = [
         name: 'customer-order-details',
         component: CustomerOrderDetails,
         meta: {
-            title: 'Order Details!',
+            title: 'Ordre detaljer',
             requireAuth: true,
             requireAdmin: false,
         }
@@ -287,7 +290,7 @@ const routes = [
         name: 'favourites',
         component: FavouriteProudctsPage,
         meta: {
-            title: 'Favourite Products'
+            title: 'Favoritprodukter'
         }
     }, {
         path: '/cart',
@@ -301,13 +304,13 @@ const routes = [
         name: 'reminder-events',
         component: CustomerReminderProductPage,
         meta: {
-            title: 'Reminder Products'
+            title: 'Påmindelsesprodukter'
         }
     },
     {
         path: '/category/:category', name: 'category-product', component: CategoryProducts,
         meta: {
-            title: 'Check Category Products!'
+            title: 'Check Kategori Produkter'
         }
     },
     {
@@ -315,7 +318,7 @@ const routes = [
         name: 'sub-category-product',
         component: CategoryProducts,
         meta: {
-            title: 'Check Sub Category Products!'
+            title: 'Check underkategori Produkter'
         }
     },
     {
@@ -323,7 +326,7 @@ const routes = [
         name: 'search-products',
         component: SearchPage,
         meta: {
-            title: 'Search Products!',
+            title: 'Søg efter produkter',
         }
     },
     {
@@ -331,7 +334,7 @@ const routes = [
         name: 'customer-profile',
         component: CustomerProfile,
         meta: {
-            title: 'Update Profile! ',
+            title: 'Opdater profil',
             requireAuth: true,
             requireAdmin: false,
         }
@@ -351,7 +354,7 @@ const routes = [
         name: 'customer-orders',
         component: CustomerOrders,
         meta: {
-            title: 'Customer Orders! ',
+            title: 'Kundernes ordrer',
             requireAuth: true,
             requireAdmin: false,
         }
@@ -360,7 +363,7 @@ const routes = [
         name: 'product.graph',
         component: PrroductGraph,
         meta: {
-            title: 'Price fall graph.',
+            title: 'Prisfald graf',
             requireAuth: true,
             requireAdmin: false,
         }
@@ -370,7 +373,7 @@ const routes = [
         name: 'customer-completed-orders',
         component: CustomerOrders,
         meta: {
-            title: 'Customer Orders! ',
+            title: 'Kundeordrer',
             requireAuth: true,
             requireAdmin: false,
         }
@@ -380,7 +383,7 @@ const routes = [
         name: 'customer-canceled-orders',
         component: CustomerOrders,
         meta: {
-            title: 'Customer Orders! ',
+            title: 'Kundeordrer',
             requireAuth: true,
             requireAdmin: false,
         }
@@ -400,6 +403,31 @@ const routes = [
             component: PrivatlivspolitikCookies,
             meta: {
                 title:'Privatlivspolitik-cookies'
+            }
+        },
+        {
+            path: '/konkurrenceregler',
+            name: 'konkurrenceregler',
+            component: konkurrenceregler,
+            meta: {
+                title: 'konkurrenceregler'
+            }
+        },
+        {
+            path: '/tak',
+            name: 'tak',
+            component: tak,
+            meta: {
+                title: 'tak'
+            }
+        },
+
+        {
+            path: '/cookies',
+            name: 'cookies',
+            component: cookies,
+            meta: {
+                title:'cookies'
             }
         },
 ];

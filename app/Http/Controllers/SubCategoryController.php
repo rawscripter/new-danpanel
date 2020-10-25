@@ -45,11 +45,11 @@ class SubCategoryController extends Controller
         $subCategory = SubCategory::where('slug', $subCategorySlug)->first();
         if (!empty($subCategory)) {
             $res['status'] = 200;
-            $res['message'] = 'Category Found Successfully.';
+            $res['message'] = 'SubCategory Found Successfully.';
             $res['products'] = ProductResource::collection($subCategory->products);
         } else {
             $res['status'] = 201;
-            $res['message'] = 'No Category Found';
+            $res['message'] = 'No SubCategory Found';
         }
         return response()->json($res);
     }
@@ -102,11 +102,12 @@ class SubCategoryController extends Controller
     {
         if (!empty($subCategory)) {
             $res['status'] = 200;
-            $res['message'] = 'Category Found Successfully.';
+            $res['message'] = 'SubCategory Found Successfully.';
             $res['subCategory'] = (new SubCategoryResource($subCategory));
+            $subCategory->where('is_archive', 0);
         } else {
             $res['status'] = 201;
-            $res['message'] = 'No Category Found';
+            $res['message'] = 'No SubCategory Found';
         }
         return response()->json($res);
     }

@@ -1,10 +1,10 @@
 <template>
-    <div class="product_view_sidebar shadow">
+    <div class="product_view_sidebar shadow1">
         <div class="pricing-left">
             <div v-if="product.market_price > 0">
                 <!-- <h6>Gennemsnitlig markedspris</h6> -->
                 <h5>
-                    <del>{{ product.market_price }} Kr-</del>
+                    <del>{{ product.market_price }} Kr</del>
                 </h5>
             </div>
             <!-- <h6>Startpris</h6> -->
@@ -49,35 +49,39 @@
                     </div>
                 </div>
             </div>
-
-            <div class="love-section clearfix">
-                <button v-if="isUserLiked" class="btn btn-success">
-                    {{ product.totalLikes }}
-                    <i class="fas fa-heart" style="color:red"></i>
-                </button>
-                <button v-else @click="addProductToLikeList(product.slug)" class="btn btn-success">
-                    {{ product.totalLikes }}
-                    <i class="far fa-heart"></i>
-                </button>
+            <div class="d-flex" style="flex-direction:row">
+                <div class="love-section1 clearfix mr-3">
+                    <button v-if="isUserLiked" class="btn btn-success">
+                        {{ product.totalLikes }}
+                        <i class="fas fa-heart" style="color:red"></i>
+                    </button>
+                    <button v-else @click="addProductToLikeList(product.slug)" class="btn btn-success">
+                        {{ product.totalLikes }}
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div>
+                    <button class="btn btn-success" v-if="product.saving_percentage > 0">Du sparer
+                        {{ product.saving_percentage }}%
+                    </button>
+                </div>
             </div>
-            <button class="btn mt-1 btn-success" v-if="product.saving_percentage > 0">Du sparer
-                {{ product.saving_percentage }}%
-            </button>
         </div>
 
         <div class="btn btn-theme btn-block mt-2" @click="addToCart(product)">Læg i kurv</div>
 
-        <div class="sidebar-action">
-            <p @click="addProductToFavouriteList(product.slug)" v-if="!isUserFavourite">
+    
+        <div class="sidebar-action d-flex">
+            <p @click="addProductToFavouriteList(product.slug)" v-if="!isUserFavourite" class="mr-3">
                 <img src="/images/icons/favorite.png" height="20" alt/> Gem
                 till favoritter
             </p>
             <br/>
-            <p @click="addProductToReminderList(product.slug)">
-                <i class="fas fa-sync mr-2"></i> Påmind mig
+            <p @click="addProductToReminderList(product.slug)" class="mr-3">
+                <i class="fas fa-sync mr"></i> Påmind mig
             </p>
             <br/>
-            <p @click="shareProductOnSocialMedia">
+            <p @click="shareProductOnSocialMedia" class="">
                 <img src="/images/icons/share.png" height="20" width="20" alt/>
                 Del
             </p>
@@ -356,7 +360,10 @@ h5 {
 .active {
     display: block;
 }
-
+.product_view_sidebar{
+    padding: 10px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
 .product_view_sidebar.shadow.position-fixed {
     min-width: 280px;
     max-width: 300px;
@@ -374,7 +381,12 @@ h5 {
         margin-top: -1.5em;
     }
 }
-
+@media (max-width: 720px) {
+      .product_view_sidebar{
+          /* padding: 2px; */
+          box-shadow: none;
+      }
+    }
 .variation {
     float: left;
 }
