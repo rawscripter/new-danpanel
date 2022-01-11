@@ -69,12 +69,16 @@ class PaymentController extends Controller
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $datastring);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            array(
                 'Content-Type: application/json',
                 'Accept: application/json',
-                'Authorization: ' . env("DIBS_KEY") . '')
+                'Authorization: live-secret-key-d2054c6bc54a41df9d64646345d01b1e'
+            )
         );
-        return $result = curl_exec($ch);
+        return  curl_exec($ch);
     }
 
     public static function createFullPaymentId(Order $order)
@@ -115,10 +119,14 @@ class PaymentController extends Controller
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $datastring);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            array(
                 'Content-Type: application/json',
                 'Accept: application/json',
-                'Authorization: ' . env("DIBS_KEY") . '')
+                'Authorization: ' . env("DIBS_KEY") . ''
+            )
         );
         return $result = curl_exec($ch);
     }
@@ -130,9 +138,13 @@ class PaymentController extends Controller
         $ch = curl_init('https://api.dibspayment.eu/v1/payments/' . $paymentId . '');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER,
-            array('Content-Type: application/json', 'Accept: application/json',
-                'Authorization: ' . env("DIBS_KEY") . '')
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json', 'Accept: application/json',
+                'Authorization: ' . env("DIBS_KEY") . ''
+            )
         );
         $result = curl_exec($ch);
         $paymentDetails = json_decode($result, true);

@@ -169,7 +169,7 @@
                       </label>
 
                       <label class="checkbox_container">
-                        Hent selv (Telegade 1, 1. sal, 2630 Taastrup)
+                        Hent selv (Marielundvej 20, 2730 Herlev)
                         <input
                           v-model="shipping_method"
                           value="hent_selv"

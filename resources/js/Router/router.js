@@ -32,7 +32,7 @@ import PrroductGraph from "../components/Site/Pages/Customer/PrroductGraph";
 import FinalCheckoutPage from "../components/Site/Pages/FinalCheckoutPage";
 import CustomerReminderProductPage from "../components/Site/Pages/CustomerReminderProductPage";
 import Cart from "../components/Site/Pages/Cart";
-import AboutsUs from "../components/Site/Pages/AboutsUs";
+import AboutsUs from '../components/Site/Pages/AboutsUs.vue';
 import Blogs from "../components/Site/Pages/Blogs";
 import News from "../components/Site/Pages/News";
 import SingleBlogDetailsPage from "../components/Site/Pages/SingleBlogDetailsPage";
@@ -45,6 +45,10 @@ import tak from "../components/Site/Pages/tak";
 import cookies from "../components/Site/cookies";
 import BlogEdit from '../components/Admin/BodyComponents/BodyParts/Blog/BlogEdit.vue';
 import BlogCreate from '../components/Admin/BodyComponents/BodyParts/Blog/BlogCreate.vue';
+import PagesIndex from '../components/Admin/BodyComponents/BodyParts/Pages/PagesIndex.vue';
+import PageCreate from '../components/Admin/BodyComponents/BodyParts/Pages/PageCreate.vue';
+import PageEdit from '../components/Admin/BodyComponents/BodyParts/Pages/PageEdit.vue';
+import Pages from '../components/Site/Pages/Pages.vue';
 //importing components
 Vue.use(VueRouter);
 
@@ -129,6 +133,35 @@ const routes = [
         name: 'blog.create',
         component: BlogCreate
     },
+
+    {
+        path: '/admin/pages', meta: {
+            title: 'pages',
+            requireAuth: true,
+            requireAdmin: true,
+        },
+        name: 'pages',
+        component: PagesIndex
+    },
+    {
+        path: '/admin/page/:page/edit', meta: {
+            title: 'Edit page',
+            requireAuth: true,
+            requireAdmin: true,
+        },
+        name: 'page.edit',
+        component: PageEdit
+    },
+    {
+        path: '/admin/page/create', meta: {
+            title: 'Edit page',
+            requireAuth: true,
+            requireAdmin: true,
+        },
+        name: 'page.create',
+        component: PageCreate
+    },
+
     {
         path: '/admin/products/archive', meta: {
             title: 'Order Details!',
@@ -222,6 +255,14 @@ const routes = [
         name: 'blogs',
         meta: {
             title: 'Blogs'
+        }
+    },
+    {
+        path: '/page/:page',
+        component: Pages,
+        name: 'page',
+        meta: {
+            title: 'Page'
         }
     },
     {

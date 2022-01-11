@@ -308,6 +308,19 @@ export default {
             },
           ],
         },
+        {
+          title: "Manage Pages",
+          menus: [
+            {
+              name: "All Pages",
+              link: "/admin/pages",
+            },
+            {
+              name: "Create New Page",
+              link: "/admin/page/create",
+            },
+          ],
+        },
       ],
     };
   },

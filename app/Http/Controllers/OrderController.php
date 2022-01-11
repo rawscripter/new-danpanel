@@ -80,7 +80,7 @@ class OrderController extends Controller
         UserInfo::create([
             'user_id' => $user->id,
             'name' => $user->name,
-            'company_name'=>$request->company_name,
+            'company_name' => $request->company_name,
             'address' => $user->address,
             // 'cvr_number'=>$request->cvr_number,
             // 'ean_number'=>$request->ean_number,
@@ -142,12 +142,12 @@ class OrderController extends Controller
         $order = $this->createOrder($request, $user);
 
         $paymentID = PaymentController::createPaymentId($order);
+
         $paymentData = json_decode($paymentID, true);
         $order->payment_id = $paymentData['paymentId'] ?? '';
         $order->save();
 
         echo $paymentID;
-
     }
 
     public function customerOrders(Request $request)
@@ -158,7 +158,6 @@ class OrderController extends Controller
             $orders = $user->canceledOrders;
         } else {
             $orders = $user->orders;
-
         }
         $res['status'] = 200;
         $res['message'] = 'User Order Fetched Successfully.';

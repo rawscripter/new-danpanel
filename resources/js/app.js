@@ -1,16 +1,10 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require("./bootstrap");
 
 window.Vue = require("vue");
 
-// window.APP_URL = "http://danpanel.test:8081";
 window.APP_URL = "https://danpanel.dk";
 // window.APP_URL = "http://danpanel.tests";
+
 
 window.CURRENCY = "dkk";
 
@@ -30,7 +24,6 @@ import VueAxios from "vue-axios";
 import vue2Dropzone from "vue2-dropzone";
 import "vue2-dropzone/dist/vue2Dropzone.min.css";
 
-Vue.use(VueAxios, axios);
 Vue.use(VueAxios, axios);
 
 window.User = User;
@@ -100,6 +93,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 import store from "./store";
+
 
 const app = new Vue({
     el: "#app",

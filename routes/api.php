@@ -50,6 +50,12 @@ Route::group(['middleware' => ['auth:api'], 'prefix' => 'admin'], function () {
     Route::put('/blog/{blog}/update', 'BlogController@update');
     Route::resource('/blog', 'BlogController');
 
+    Route::post('/page/store', 'PageController@store');
+    Route::put('/page/{page}/update', 'PageController@update');
+    Route::get('/page/{page}', 'PageController@show');
+    Route::delete('/page/{page}', 'PageController@destroy');
+    Route::get('/pages', 'PageController@index');
+
     Route::get('/products/archive', 'ProductController@archiveProducts');
     Route::post('/product/{product}/restore', 'ProductController@restore');
     Route::post('/product/{product}/archive', 'ProductController@archive');
@@ -120,6 +126,8 @@ Route::post('/gls/shops', 'GlsController@getShops');;
 
 Route::get('/blogs', 'BlogController@getBlogs');
 Route::get('/get/blog/sub-categories', 'BlogController@getBlogCategories');
+Route::get('/get/pages', 'PageController@getPages');
+Route::get('/page/{page}', 'PageController@getPageDetails');
 Route::get('/blog/{blog}', 'BlogController@getBlogDetails');
 Route::get('/news', 'NewsController@getNews');
 Route::get('/news/{newsSlug}', 'NewsController@getNewsDetails');

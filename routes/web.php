@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\PaymentController;
 use App\Mail\ProductRequestMail;
 use App\Order;
 use App\Product;
+use App\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +23,6 @@ Route::get('/admin', function () {
 Route::get('/', function () {
     return view('site.index');
 });
-
 
 
 // to load main site
