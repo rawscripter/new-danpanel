@@ -11,161 +11,70 @@ use App\OrderShippingInfo;
 use App\Product;
 use App\TemporaryOrder;
 use Illuminate\Http\Request;
+use Kameli\Quickpay\Quickpay;
 
 class PaymentController extends Controller
 {
-    public static function createPaymentId(Order $order)
+    public static function createPaymentLink(Order $order): \Illuminate\Http\JsonResponse
     {
-        $datastring = '{"order": {
-        "items": [{
-            "reference": "' . $order->custom_order_id . '",
-            "name": "' . $order->id . '",
-            "quantity": ' . 0 . ',
-            "unit": "pcs",
-            "unitPrice": 0,
-            "taxRate": 0,
-            "taxAmount": 0,
-            "grossTotalAmount": ' . $order->total_price * 100 . ',
-            "netTotalAmount": ' . $order->total_price * 100 . '
+
+        try {
+            $custom_order_id = $order->custom_order_id;
+            $amount = $order->total_price * 100;
+            // api keys
+            $api_key = 'b10332bcedbd2443d6153aeeae2ec9d2f5879e32008f5171a34b3adaa6cb8400';
+            $private_key = 'bfb7f83823164bd632a8c80c5dcf65037962cf218215f0327b74b03a74a3b212';
+            $client = new Quickpay($api_key, $private_key);
+            $payment = $client->payments()->create(
+                [
+                    'currency' => 'DKK',
+                    'order_id' => $custom_order_id,
+                ]
+            );
+            $link = $client->payments()->link($payment->getId(), [
+                'amount' => $amount,
+                'continue_url' => env('APP_URL') . '/payment/success?payment_id=' . $payment->getId(),
+                'callback_url' => env('APP_URL') . '/payment/success?payment_id=' . $payment->getId(),
+                'cancel_url' => env('APP_URL') . '/final/checkout',
+            ]);
+            $res['status'] = 'success';
+            $res['link'] = $link->getUrl();
+            return response()->json($res);
+
+        } catch (\Exception $e) {
+            $res['status'] = 'error';
+            $res['message'] = $e->getMessage();
+            return response()->json($res);
         }
-        ],
-        "amount": ' . $order->total_price * 100 . ',
-        "currency": "dkk",
-        "reference": "' . $order->custom_order_id . '"
-        },
-        "checkout": {
-            "url": "' . env('APP_URL') . '/checkout/payment/status",
-            "termsUrl": "https://danpanel.dk/om-os",
-            "merchantHandlesConsumerData":true,
-              "consumer":{
-                  "reference":"' . $order->user->id . '",
-                   "email":"' . $order->user->email . '",
-                    "shippingAddress":{
-                      "addressLine1":"' . $order->shippingInfo->address . '",
-                      "postalCode":"' . $order->shippingInfo->zip_code . '",
-                      "city":"' . $order->shippingInfo->city . '",
-                      "country":"DNK"
-                      },
-                      "phoneNumber":{
-                       "prefix":"+45",
-                        "number":"' . $order->shippingInfo->phone . '"
-                      },
-                       "privatePerson":{
-                          "firstName":"' . $order->user->name . '",
-                          "lastName":"' . $order->user->name . '"
-                          },
-              },
-               "shippingCountries":
-               [
-                   {"countryCode": "DNK"}
-               ],
-               "consumerType": {
-                "supportedTypes": ["B2C", "B2B"],
-                   "default": "B2C"
-               }
-           },
-    }';
-        $ch = curl_init('https://api.dibspayment.eu/v1/payments');
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $datastring);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt(
-            $ch,
-            CURLOPT_HTTPHEADER,
-            array(
-                'Content-Type: application/json',
-                'Accept: application/json',
-                'Authorization: live-secret-key-d2054c6bc54a41df9d64646345d01b1e'
-            )
-        );
-        return  curl_exec($ch);
     }
 
-    public static function createFullPaymentId(Order $order)
+    public function charge(Request $request)
     {
-        $total = $order->finalPaymentAmount();
-        $datastring = '{"order": {
-        "items": [{
-            "reference": "' . $order->custom_order_id . '",
-            "name": "' . $order->product->name . '",
-            "quantity": ' . $order->quantity . ',
-            "unit": "pcs",
-            "unitPrice": 0,
-            "taxRate": 0,
-            "taxAmount": 0,
-            "grossTotalAmount": ' . $total * 100 . ',
-            "netTotalAmount": ' . $total * 100 . '
+        $api_key = 'b10332bcedbd2443d6153aeeae2ec9d2f5879e32008f5171a34b3adaa6cb8400';
+        $private_key = 'bfb7f83823164bd632a8c80c5dcf65037962cf218215f0327b74b03a74a3b212';
+
+        $client = new Quickpay($api_key, $private_key);
+
+        $payment_id = $request->input('payment_id');
+
+        try {
+            $payment = $client->payments()->get($payment_id);
+            $client->payments()->captureAmount($payment_id, $payment->amount());
+            // mark order as paid
+            self::markOrderAsPaid($payment->order_id, $payment->getId());
+            return redirect('/order/payment?status=success&order=' . $payment->order_id . '&type=1');
+        } catch (\Exception $e) {
+            $res['status'] = 'error';
+            $res['message'] = $e->getMessage();
+            return response()->json($res);
         }
-        ],
-        "amount": ' . $total * 100 . ',
-        "currency": "dkk",
-        "reference": "' . $order->custom_order_id . '"
-        },
-        "checkout": {
-            "url": "' . env('APP_URL') . '/checkout/payment/status",
-            "termsUrl": "https://danpanel.dk/om-os",
-            "merchantHandlesConsumerData":true,
-               "shippingCountries":
-               [
-                   {"countryCode": "DNK"}
-               ],
-               "consumerType": {
-                "supportedTypes": ["B2C", "B2B"],
-                   "default": "B2C"
-               }
-           },
-    }';
-        $ch = curl_init('https://api.dibspayment.eu/v1/payments');
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $datastring);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt(
-            $ch,
-            CURLOPT_HTTPHEADER,
-            array(
-                'Content-Type: application/json',
-                'Accept: application/json',
-                'Authorization: ' . env("DIBS_KEY") . ''
-            )
-        );
-        return $result = curl_exec($ch);
     }
 
-    public function storePaymentDetails(Request $request)
+    public static function markOrderAsPaid($orderID, $paymentID,)
     {
-        $paymentFailed = $request->paymentFailed;
-        $paymentId = $request->paymentId;
-        $ch = curl_init('https://api.dibspayment.eu/v1/payments/' . $paymentId . '');
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt(
-            $ch,
-            CURLOPT_HTTPHEADER,
-            array(
-                'Content-Type: application/json', 'Accept: application/json',
-                'Authorization: ' . env("DIBS_KEY") . ''
-            )
-        );
-        $result = curl_exec($ch);
-        $paymentDetails = json_decode($result, true);
-        $paymentData = $paymentDetails['payment'];
-        $OrderData = $paymentDetails['payment']['orderDetails'];
-        $orderId = $OrderData['reference'];
-        $receivedAmount = $paymentData['summary']['reservedAmount'] ?? '';
-        // if failed then return with error message
-        if ($paymentFailed) {
-            //delete temporary table data
-            $order = Order::where('custom_order_id', $orderId)->first();
-            if ($order) {
-                OrderProducts::where('order_id', $order->id)->delete();
-                OrderShippingInfo::where('order_id', $order->id)->delete();
-                $order->delete();
-            }
-            // if payment failed delete the order
-            return redirect('/order/payment?status=failed');
-        }
+
         // payment complete
-        $order = Order::where('custom_order_id', $orderId)->first();
+        $order = Order::where('custom_order_id', $orderID)->first();
         // set order full payment paid as true
         $order->is_full_price_paid = 1;
         $order->order_status = 1;
@@ -175,12 +84,12 @@ class PaymentController extends Controller
         //save order payment info
         OrderPayment::create([
             'order_id' => $order->id,
-            'paymentId' => $paymentId,
+            'paymentId' => $paymentID,
             'type' => $type,
             'status' => 'paid',
-            'amount' => !empty($receivedAmount) ? $receivedAmount / 100 : 0,
+            'amount' => $order->total_price,
         ]);
         MailController::sendMailToUserAtOrderPayment($order);
-        return redirect('/order/payment?status=success&order=' . $order->custom_order_id . '&type=' . $type);
+
     }
 }

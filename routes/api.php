@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/user/update/info', 'AuthController@updateInfo');
     // api for create new order
     Route::post('order/{order}/shipping/method/update', 'OrderController@updateShippingMethod');
-    Route::post('/payment/{order}/full-payment', 'PaymentController@createFullPaymentId');
+//    Route::post('/payment/{order}/full-payment', 'PaymentController@createFullPaymentId');
     Route::get('/order/{orderId}/details', 'OrderController@orderDetails');
     Route::post('/logout', 'AuthController@logout');
 });
@@ -39,8 +39,6 @@ Route::post('/order/create', 'OrderController@createNewOrder');
 // apis for admin
 Route::group(['middleware' => ['auth:api'], 'prefix' => 'admin'], function () {
     Route::get('/dashboard/data', 'AdminDashboardController@adminDashboardData');
-
-
     Route::resource('/category', 'CategoryController');
     Route::get('/requests', 'ProductRequestController@requests');
     Route::get('/category/{category}/sub-categories', 'CategoryController@subCategories');

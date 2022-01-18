@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6552171b1c1171e37f9b65b3f744dc4",
+    "content-hash": "ed6bcea4e383ee6323f95c94448f4199",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1032,6 +1032,59 @@
                 }
             ],
             "time": "2021-12-16T16:49:26+00:00"
+        },
+        {
+            "name": "kameli/quickpay-v10",
+            "version": "v6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danielboendergaard/quickpay-v10.git",
+                "reference": "dc1bb2a775d700ada240f93f88dbecdb1ddeadbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danielboendergaard/quickpay-v10/zipball/dc1bb2a775d700ada240f93f88dbecdb1ddeadbd",
+                "reference": "dc1bb2a775d700ada240f93f88dbecdb1ddeadbd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "symfony/var-dumper": "^4.3",
+                "tightenco/collect": "^5.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kameli\\Quickpay\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Bøndergaard",
+                    "email": "danielboendergaard@gmail.com"
+                }
+            ],
+            "description": "A library to communicate with the Danish payment gateway Quickpay",
+            "keywords": [
+                "api",
+                "form",
+                "gateway",
+                "payment",
+                "quickpay",
+                "v10"
+            ],
+            "support": {
+                "issues": "https://github.com/danielboendergaard/quickpay-v10/issues",
+                "source": "https://github.com/danielboendergaard/quickpay-v10/tree/v6.3.0"
+            },
+            "time": "2020-07-29T11:20:46+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",

@@ -138,19 +138,11 @@ class OrderController extends Controller
         } else {
             $user = $this->createTempUser($request);
         }
-
         $order = $this->createOrder($request, $user);
-
-        $paymentID = PaymentController::createPaymentId($order);
-
-        $paymentData = json_decode($paymentID, true);
-        $order->payment_id = $paymentData['paymentId'] ?? '';
-        $order->save();
-
-        echo $paymentID;
+        return PaymentController::createPaymentLink($order);
     }
 
-    public function customerOrders(Request $request)
+    public function customerOrders(Request $request): \Illuminate\Http\JsonResponse
     {
         $user = Auth::guard('api')->user();
 

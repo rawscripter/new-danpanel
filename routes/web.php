@@ -57,7 +57,7 @@ Route::get('/handelsbetingelser', 'handelsbetingelserController@handelsbetingels
 Route::get('/privatlivspolitikCookies', 'handelsbetingelserController@privatlivspolitikCookies')->name('site.privatlivspolitikCookies');
 
 // for payment
-Route::get('/checkout/payment/status', 'PaymentController@storePaymentDetails');
+Route::get('/payment/success', 'PaymentController@charge');
 
 
 Route::post('sociallogin/{provider}', 'AuthController@SocialSignup');

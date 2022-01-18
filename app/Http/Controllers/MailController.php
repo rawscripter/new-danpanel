@@ -13,29 +13,29 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public static function sendMailToAdminOnNewUserRegister($user)
+    public static function sendMailToAdminOnNewUserRegister($user): bool
     {
         $sendToMail = $user->email;
         $mail = Mail::to([$sendToMail, 'hej@danpanel.dk'])->send(new UserCreateAccountMail($user));
-        return $mail ? true : false;
+        return (bool)$mail;
     }
 
 
-    public static function sendMailToUserAtOrderPayment($order)
+    public static function sendMailToUserAtOrderPayment($order): bool
     {
         $sendToMail = $order->user->email;
         $mail = Mail::to([$sendToMail, 'hej@danpanel.dk'])->send(new ProductOrderMail($order));
-        return $mail ? true : false;
+        return (bool)$mail;
     }
 
-    public static function sendMailToUserAtOrderSecondPayment($order)
+    public static function sendMailToUserAtOrderSecondPayment($order): bool
     {
         $sendToMail = $order->user->email;
         $mail = Mail::to($sendToMail)->send(new OrderSecondPaymentMail($order));
-        return $mail ? true : false;
+        return (bool)$mail;
     }
 
-    public static function paymentReminderBeforeDeadline($order)
+    public static function paymentReminderBeforeDeadline($order): bool
     {
         $sendToMail = $order->user->email;
 
@@ -47,7 +47,7 @@ class MailController extends Controller
         return true;
     }
 
-    public static function sendProductReminderMail($reminder)
+    public static function sendProductReminderMail($reminder): bool
     {
         $sendToMail = $reminder->email;
 
@@ -59,7 +59,7 @@ class MailController extends Controller
         return true;
     }
 
-    public static function sendProductRequestReminderMail($request)
+    public static function sendProductRequestReminderMail($request): bool
     {
         $sendToMail = $request->email;
 
@@ -71,7 +71,7 @@ class MailController extends Controller
         return true;
     }
 
-    public static function sendProductRequestMail($request)
+    public static function sendProductRequestMail($request): bool
     {
         $sendToMail = 'hej@danpanel.dk';
 

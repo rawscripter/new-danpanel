@@ -126,12 +126,12 @@
                                     {{$order->user->info->name}}
                                 </td>
                             </tr>
-                            
+
                             <tr>
                                 <td style="width: 55%; font-size: 14px; line-height: 18px; color: #666666; padding-bottom: 10px;">
                                     {{$order->shippingInfo->address}},
                                     {{$order->shippingInfo->city}}
-                                    
+
                                 </td>
                                 <td style="width: 45%; font-size: 14px; line-height: 18px; color: #666666; padding-bottom: 10px;">
                                     {{$order->user->info->address}},
@@ -265,56 +265,10 @@
                         </table>
                     </td>
                 </tr>
-                <!-- End calculation Section -->
-
-                <!-- Start payment method Section -->
-                {{--                <tr>--}}
-                {{--                    <td style="padding: 0 10px;">--}}
-                {{--                        <table width="560" align="center" cellpadding="0" cellspacing="0" border="0"--}}
-                {{--                               class="devicewidthinner">--}}
-                {{--                            <tbody>--}}
-                {{--                            <tr>--}}
-                {{--                                <td colspan="2"--}}
-                {{--                                    style="font-size: 16px; font-weight: bold; color: #666666; padding-bottom: 5px;">--}}
-                {{--                                    Payment Method (Bank Transfer)--}}
-                {{--                                </td>--}}
-                {{--                            </tr>--}}
-                {{--                            <tr>--}}
-                {{--                                <td style="width: 55%; font-size: 14px; line-height: 18px; color: #666666;">--}}
-                {{--                                    Bank Name:--}}
-                {{--                                </td>--}}
-                {{--                                <td style="width: 45%; font-size: 14px; line-height: 18px; color: #666666;">--}}
-                {{--                                    Account Name:--}}
-                {{--                                </td>--}}
-                {{--                            </tr>--}}
-                {{--                            <tr>--}}
-                {{--                                <td style="width: 55%; font-size: 14px; line-height: 18px; color: #666666;">--}}
-                {{--                                    Bank Address:--}}
-                {{--                                </td>--}}
-                {{--                                <td style="width: 45%; font-size: 14px; line-height: 18px; color: #666666;">--}}
-                {{--                                    Account Number:--}}
-                {{--                                </td>--}}
-                {{--                            </tr>--}}
-                {{--                            <tr>--}}
-                {{--                                <td style="width: 55%; font-size: 14px; line-height: 18px; color: #666666; padding-bottom: 10px;">--}}
-                {{--                                    Bank Code:--}}
-                {{--                                </td>--}}
-                {{--                                <td style="width: 45%; font-size: 14px; line-height: 18px; color: #666666; padding-bottom: 10px;">--}}
-                {{--                                    SWIFT Code:--}}
-                {{--                                </td>--}}
-                {{--                            </tr>--}}
-                {{--                            <tr>--}}
-                {{--                                <td colspan="2"--}}
-                {{--                                    style="width: 100%; text-align: center; font-style: italic; font-size: 13px; font-weight: 600; color: #666666; padding: 15px 0; border-top: 1px solid #eeeeee;">--}}
-                {{--                                    <b style="font-size: 14px;">Note:</b> Lorem ipsum dolor sit amet, consectetur--}}
-                {{--                                    adipiscing elit--}}
-                {{--                                </td>--}}
-                {{--                            </tr>--}}
                 </tbody>
             </table>
         </td>
-        <!-- End payment method Section -->
-    </tr>
+     </tr>
     </tbody>
 </table>
 

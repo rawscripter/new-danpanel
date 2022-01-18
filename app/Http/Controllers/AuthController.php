@@ -36,7 +36,7 @@ class AuthController extends Controller
 
     public function getUserInfo(Request $request)
     {
-        return response(new UserInfoResource($request->user()->info));
+         return response(new UserInfoResource($request->user()->info));
     }
 
     public function updatePassword(Request $request)
