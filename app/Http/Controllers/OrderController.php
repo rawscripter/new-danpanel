@@ -98,7 +98,7 @@ class OrderController extends Controller
         $products = $request->products;
 
         $totalOrder = Order::all()->count();
-        $serialNum = !empty($totalOrder) ? $totalOrder + 1 : 1;
+        $serialNum = time(); // !empty($totalOrder) ? $totalOrder + 1 : 1;
         $newCustomerId = 'D-000' . +$serialNum;
 
         $order = Order::create(

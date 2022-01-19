@@ -2,8 +2,8 @@ require("./bootstrap");
 
 window.Vue = require("vue");
 
-// window.APP_URL = "https://danpanel.dk";
-window.APP_URL = "http://danpanel.tests";
+window.APP_URL = "https://danpanel.dk";
+// window.APP_URL = "http://danpanel.tests";
 
 
 window.CURRENCY = "dkk";

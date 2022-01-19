@@ -40,7 +40,6 @@ class PaymentController extends Controller
             $res['status'] = 'success';
             $res['link'] = $link->getUrl();
             return response()->json($res);
-
         } catch (\Exception $e) {
             $res['status'] = 'error';
             $res['message'] = $e->getMessage();
@@ -90,6 +89,5 @@ class PaymentController extends Controller
             'amount' => $order->total_price,
         ]);
         MailController::sendMailToUserAtOrderPayment($order);
-
     }
 }
