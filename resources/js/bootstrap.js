@@ -21,9 +21,23 @@ try {
  */
 
 window.axios = require('axios');
-axios.defaults.validateStatus = function () {
-    return true;
-};
+
+
+window.axios.interceptors.response.use(response => {
+    return response;
+
+}, error => {
+    if (error.response.status === 401) {
+        //place your reentry code
+        localStorage.removeItem('token');
+        window.location.href = "/login";
+    }
+    return error;
+});
+
+// axios.defaults.validateStatus = function () {
+//     return true;
+// };
 
 
 
@@ -34,7 +48,7 @@ const passportToken = `Bearer ${localStorage.getItem('token')}`;
 
 if (token) {
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-    window.axios.defaults.headers.common['Authorization'] = passportToken;
+    window.axios.defaults.headers.common['Authorization'] = passportToken  ;
 
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');

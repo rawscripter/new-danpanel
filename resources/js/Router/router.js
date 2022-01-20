@@ -51,6 +51,8 @@ import PageEdit from '../components/Admin/BodyComponents/BodyParts/Pages/PageEdi
 import Pages from '../components/Site/Pages/Pages.vue';
 //importing components
 Vue.use(VueRouter);
+import axios from 'axios';
+
 
 
 const routes = [

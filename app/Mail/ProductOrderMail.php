@@ -31,8 +31,17 @@ class ProductOrderMail extends Mailable
     public function build()
     {
         $subject = 'Din ordrer fra DanPanel';
-        return $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
+        $email = $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
             ->subject($subject)
             ->view('layouts.email.on-order-mail')->with('order', $this->order);
+        $email->attach(
+            asset('/public/order_terms.pdf'),
+            [
+                'as' => 'Handelsbetingelser og Vilkår - Danpanel.pdf',
+                'mime' => 'application/pdf',
+            ]
+
+        );
+        return $email;
     }
 }

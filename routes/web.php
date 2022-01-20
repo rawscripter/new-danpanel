@@ -24,6 +24,11 @@ Route::get('/', function () {
     return view('site.index');
 });
 
+Route::get('/test', function () {
+    $order = Order::first();
+    MailController::sendMailToUserAtOrderPayment($order);
+});
+
 
 // to load main site
 Route::get('/login', function () {
